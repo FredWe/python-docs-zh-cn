@@ -369,8 +369,7 @@
 <dl class="function">
 <dt id="dir">
 <code class="descname">dir</code><span class="sig-paren">(</span><span class="optional">[</span><em>object</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#dir" title="永久链接至目标">¶</a></dt>
-<dd><p>Without arguments, return the list of names in the current local scope.  With an
-argument, attempt to return a list of valid attributes for that object.</p>
+<dd><p>如果没有参数，则返回当前本地作用域中的名称列表。如果有参数，它会尝试返回该对象的有效属性列表。</p>
 <p>If the object has a method named <a class="reference internal" href="../reference/datamodel.html#object.__dir__" title="object.__dir__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__dir__()</span></code></a>, this method will be called and
 must return the list of attributes. This allows objects that implement a custom
 <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__getattr__()</span></code></a> or <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__getattribute__()</span></code></a> function to customize the way
