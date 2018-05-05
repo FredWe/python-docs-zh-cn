@@ -208,7 +208,7 @@
 <dl class="function">
 <dt id="any">
 <code class="descname">any</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#any" title="永久链接至目标">¶</a></dt>
-<dd><p>返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> 如果 <em>iterable</em> 的任一元素为 True。如果 iterable 为空，返回 <code class="docutils literal notranslate"><span class="pre">False</span></code>。等价于:</p>
+<dd><p>返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> ，如果 <em>iterable</em> 的任一元素为 True。如果 iterable 为空，返回 <code class="docutils literal notranslate"><span class="pre">False</span></code>。等价于:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">any</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">element</span><span class="p">:</span>
@@ -221,27 +221,21 @@
 <dl class="function">
 <dt id="ascii">
 <code class="descname">ascii</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#ascii" title="永久链接至目标">¶</a></dt>
-<dd><p>As <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>, return a string containing a printable representation of an
-object, but escape the non-ASCII characters in the string returned by
-<a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> using <code class="docutils literal notranslate"><span class="pre">\x</span></code>, <code class="docutils literal notranslate"><span class="pre">\u</span></code> or <code class="docutils literal notranslate"><span class="pre">\U</span></code> escapes.  This generates a string
-similar to that returned by <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> in Python 2.</p>
+<dd><p>就像函数 <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>，返回一个对象可打印的字符串，但是 <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> 返回的字符串中非 ASCII 编码的字符，会使用&nbsp;<code class="docutils literal notranslate"><span class="pre">\x</span></code>、<code class="docutils literal notranslate"><span class="pre">\u</span></code> 和 <code class="docutils literal notranslate"><span class="pre">\U</span></code> 来转义。生成的字符串和 Python 2 的 <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> 返回的结果相似。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="bin">
 <code class="descname">bin</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#bin" title="永久链接至目标">¶</a></dt>
 <dd><blockquote>
-<div><p>Convert an integer number to a binary string prefixed with “0b”. The result
-is a valid Python expression. If <em>x</em> is not a Python <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> object, it
-has to define an <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method that returns an integer. Some
-examples:</p>
+<div><p>将一个整数转变为一个前缀为“0b”的二进制字符串。结果是一个合法的 Python 表达式。如果 <em>x</em> 不是 Python 的 <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> 对象，那它需要定义 <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a>  方法返回一个整数。一些例子：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="go">&#39;0b11&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
 <span class="go">&#39;-0b1010&#39;</span>
 </pre></div>
 </div>
-<p>If prefix “0b” is desired or not, you can use either of the following ways.</p>
+<p>如果不一定需要前缀“0b”，还可以使用如下的方法。</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;#b&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
 <span class="go">(&#39;0b1110&#39;, &#39;1110&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{14:#b}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{14:b}</span><span class="s1">&#39;</span>
@@ -249,18 +243,13 @@ examples:</p>
 </pre></div>
 </div>
 </div></blockquote>
-<p>See also <a class="reference internal" href="#format" title="format"><code class="xref py py-func docutils literal notranslate"><span class="pre">format()</span></code></a> for more information.</p>
+<p>见 <a class="reference internal" href="#format" title="format"><code class="xref py py-func docutils literal notranslate"><span class="pre">format()</span></code></a> 查看更多信息。</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="bool">
 <em class="property">class </em><code class="descname">bool</code><span class="sig-paren">(</span><span class="optional">[</span><em>x</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bool" title="永久链接至目标">¶</a></dt>
-<dd><p>Return a Boolean value, i.e. one of <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.  <em>x</em> is converted
-using the standard <a class="reference internal" href="stdtypes.html#truth"><span class="std std-ref">truth testing procedure</span></a>.  If <em>x</em> is false
-or omitted, this returns <code class="docutils literal notranslate"><span class="pre">False</span></code>; otherwise it returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.  The
-<a class="reference internal" href="#bool" title="bool"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> class is a subclass of <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> (see <a class="reference internal" href="stdtypes.html#typesnumeric"><span class="std std-ref">Numeric Types — int, float, complex</span></a>).
-It cannot be subclassed further.  Its only instances are <code class="docutils literal notranslate"><span class="pre">False</span></code> and
-<code class="docutils literal notranslate"><span class="pre">True</span></code> (see <a class="reference internal" href="stdtypes.html#bltin-boolean-values"><span class="std std-ref">Boolean Values</span></a>).</p>
+<dd><p>返回一个布尔值，<code class="docutils literal notranslate"><span class="pre">True</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">False</span></code>。 <em>x</em> 使用标准的 <a class="reference internal" href="stdtypes.html#truth"><span class="std std-ref">真值测试过程</span></a> 来转换。如果 <em>x</em> 是假的或者被省略，返回 <code class="docutils literal notranslate"><span class="pre">False</span></code>；其他情况返回 <code class="docutils literal notranslate"><span class="pre">True</span></code>。<a class="reference internal" href="#bool" title="bool"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> 类 <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> 的子类（见 <a class="reference internal" href="stdtypes.html#typesnumeric"><span class="std std-ref">Numeric Types — int, float, complex</span></a>）。其他类不能继承 <a class="reference internal" href="#bool" title="bool"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> 类。它只有 <code class="docutils literal notranslate"><span class="pre">False</span></code> 和 <code class="docutils literal notranslate"><span class="pre">True</span></code> 两个实例（见 <a class="reference internal" href="stdtypes.html#bltin-boolean-values"><span class="std std-ref">Boolean Values</span></a>）。</p>
 </dd></dl>
 
 <span class="target" id="func-bytearray"><span id="index-0"></span></span><dl class="class">
@@ -794,7 +783,7 @@ string with prefix or not, you can use either of the following ways:</p>
 <span class="go">(&#39;0xff&#39;, &#39;ff&#39;, &#39;FF&#39;)</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="#format" title="format"><code class="xref py py-func docutils literal notranslate"><span class="pre">format()</span></code></a> for more information.</p>
+<p>见 <a class="reference internal" href="#format" title="format"><code class="xref py py-func docutils literal notranslate"><span class="pre">format()</span></code></a> 查看更多信息。</p>
 <p>See also <a class="reference internal" href="#int" title="int"><code class="xref py py-func docutils literal notranslate"><span class="pre">int()</span></code></a> for converting a hexadecimal string to an
 integer using a base of 16.</p>
 <div class="admonition note">
@@ -1056,7 +1045,7 @@ example:</p>
 <span class="go">(&#39;0o12&#39;, &#39;12&#39;)</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="#format" title="format"><code class="xref py py-func docutils literal notranslate"><span class="pre">format()</span></code></a> for more information.</p>
+<p>见 <a class="reference internal" href="#format" title="format"><code class="xref py py-func docutils literal notranslate"><span class="pre">format()</span></code></a> 查看更多信息。</p>
 <blockquote>
 <div><span class="target" id="index-5"></span></div></blockquote>
 </dd></dl>
@@ -1857,7 +1846,7 @@ mode to convert Windows or Mac-style newlines.</td></tr>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 5月 04, 2018。
+    上次更新于 5月 05, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.4 创建。
