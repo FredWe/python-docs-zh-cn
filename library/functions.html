@@ -316,7 +316,7 @@
 <p><em>mode</em> 参数指定了编译代码必须用的模式。如果 <em>source</em> 是语句序列，可以是 <code class="docutils literal notranslate"><span class="pre">'exec'</span></code>；如果是单一表达式，可以是 <code class="docutils literal notranslate"><span class="pre">'eval'</span></code>；如果是单个交互式语句，可以是 <code class="docutils literal notranslate"><span class="pre">'single'</span></code>。（在最后一种情况下，如果表达式执行结果不是 <code class="docutils literal notranslate"><span class="pre">None</span></code> 将会被打印出来。）</p>
 <p>可选参数 <em>flags</em> 和 <em>dont_inherit</em> 控制编译 <em>source</em> 时会用到的 future 语句（参见 <span class="target" id="index-16"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0236"><strong>PEP 236</strong></a>）。如果两者都没提供（或都为零），则使用调用 <a class="reference internal" href="#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> 的代码中有效 future 语句来编译。如果给了 <em>flags</em> 参数但 <em>dont_inherit</em> 没有（或者为零），则 <em>flags</em> 指定的 future 语句以及那些无论如何会用到的 future 语句会被使用。如果 <em>dont_inherit</em> 是非零整数，则使用 <em>flags</em> 参数指定的，代码中有效的 future 语句会被忽略。</p>
 <p>Future 语句使用比特位来指定，多个语句可以通过按位或来指定。具体特性的比特位可以通过 <a class="reference internal" href="__future__.html#module-__future__" title="__future__: Future statement definitions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__future__</span></code></a>  模块中的 <code class="xref py py-class docutils literal notranslate"><span class="pre">_Feature</span></code> 类的实例的 <code class="xref py py-attr docutils literal notranslate"><span class="pre">compiler_flag</span></code> 属性来获得。</p>
-<p><em>optimize</em> 参数指定编译器的优化级别；默认值 <code class="docutils literal notranslate"><span class="pre">-1</span></code>  选择与解释器的 <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> 选项相同的优化级别。显式级别为 <code class="docutils literal notranslate"><span class="pre">0``（没有优化；``__debug__</span></code>  为真）、<code class="docutils literal notranslate"><span class="pre">1``（断言被删除，``__debug__</span></code> 为假）或 <a href="#id1"><span class="problematic" id="id2">``</span></a>2``（文档字符串也被删除）。</p>
+<p><em>optimize</em> 参数指定编译器的优化级别；默认值 <code class="docutils literal notranslate"><span class="pre">-1</span></code>  选择与解释器的 <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> 选项相同的优化级别。显式级别为 <code class="docutils literal notranslate"><span class="pre">0</span></code> （没有优化；<code class="docutils literal notranslate"><span class="pre">__debug__</span></code>  为真）、<code class="docutils literal notranslate"><span class="pre">1</span></code> （断言被删除， <code class="docutils literal notranslate"><span class="pre">__debug__</span></code> 为假）或 <code class="docutils literal notranslate"><span class="pre">2</span></code> （文档字符串也被删除）。</p>
 <p>如果编译的源码不合法，此函数会触发 <a class="reference internal" href="exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> 异常；如果源码包含 null 字节，则会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 异常。</p>
 <p>如果您想分析 Python 代码的 AST 表示，请参阅 <a class="reference internal" href="ast.html#ast.parse" title="ast.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">ast.parse()</span></code></a>。</p>
 <div class="admonition note">
@@ -338,14 +338,14 @@
 <dl class="class">
 <dt id="complex">
 <em class="property">class </em><code class="descname">complex</code><span class="sig-paren">(</span><span class="optional">[</span><em>real</em><span class="optional">[</span>, <em>imag</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#complex" title="永久链接至目标">¶</a></dt>
-<dd><p>返回值为*real* + <em>imag</em>*1j 的复数，或将字符串或数字转换为复数。如果第一个参数是字符串，则它被解释为一个复数，并且函数调用时必须没有第二个参数。第二个参数不能是字符串。每个参数都可以是任意的数值类型（包括复数）。如果省略了 <em>imag</em>，则默认值为零，构造函数会像 <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> 和 <a class="reference internal" href="#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> 一样进行数值转换。如果两个参数都省略，则返回 <code class="docutils literal notranslate"><span class="pre">0j</span></code>。</p>
+<dd><p>返回值为 <em>real</em> + <em>imag</em>*1j 的复数，或将字符串或数字转换为复数。如果第一个参数是字符串，则它被解释为一个复数，并且函数调用时必须没有第二个参数。第二个参数不能是字符串。每个参数都可以是任意的数值类型（包括复数）。如果省略了 <em>imag</em>，则默认值为零，构造函数会像 <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> 和 <a class="reference internal" href="#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> 一样进行数值转换。如果两个参数都省略，则返回 <code class="docutils literal notranslate"><span class="pre">0j</span></code>。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">当从字符串转换时，字符串在 <code class="docutils literal notranslate"><span class="pre">+</span></code> 或 <code class="docutils literal notranslate"><span class="pre">-</span></code> 的周围必须不能有空格。例如 <code class="docutils literal notranslate"><span class="pre">complex('1+2j')</span></code> 是好的，但 <code class="docutils literal notranslate"><span class="pre">complex('1</span> <span class="pre">+</span> <span class="pre">2j')</span></code> 会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 异常。</p>
+<p class="last">当从字符串转换时，字符串在 <code class="docutils literal notranslate"><span class="pre">+</span></code> 或 <code class="docutils literal notranslate"><span class="pre">-</span></code> 的周围必须不能有空格。例如 <code class="docutils literal notranslate"><span class="pre">complex('1+2j')</span></code> 是合法的，但 <code class="docutils literal notranslate"><span class="pre">complex('1</span> <span class="pre">+</span> <span class="pre">2j')</span></code> 会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 异常。</p>
 </div>
 <p><a class="reference internal" href="stdtypes.html#typesnumeric"><span class="std std-ref">Numeric Types — int, float, complex</span></a> 描述了复数类型。</p>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.6 版更改: </span>Grouping digits with underscores as in code literals is allowed.</p>
+<p><span class="versionmodified">在 3.6 版更改: </span>您可以使用下划线将代码文字中的数字进行分组。</p>
 </div>
 </dd></dl>
 
@@ -595,7 +595,7 @@ float, an <a class="reference internal" href="exceptions.html#OverflowError" tit
 </div>
 <p>The float type is described in <a class="reference internal" href="stdtypes.html#typesnumeric"><span class="std std-ref">Numeric Types — int, float, complex</span></a>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.6 版更改: </span>Grouping digits with underscores as in code literals is allowed.</p>
+<p><span class="versionmodified">在 3.6 版更改: </span>您可以使用下划线将代码文字中的数字进行分组。</p>
 </div>
 </dd></dl>
 
@@ -783,7 +783,7 @@ to obtain an integer for the base.  Previous versions used
 <a class="reference internal" href="../reference/datamodel.html#object.__int__" title="object.__int__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">base.__int__</span></code></a> instead of <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">base.__index__</span></code></a>.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.6 版更改: </span>Grouping digits with underscores as in code literals is allowed.</p>
+<p><span class="versionmodified">在 3.6 版更改: </span>您可以使用下划线将代码文字中的数字进行分组。</p>
 </div>
 </dd></dl>
 
