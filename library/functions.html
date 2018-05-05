@@ -258,10 +258,10 @@
 <dd><p>返回一个新的 bytes 数组。 <a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> 类是一个可变序列，包含范围为 0 &lt;= x &lt; 256 的整数。它有可变序列大部分常见的方法，见 <a class="reference internal" href="stdtypes.html#typesseq-mutable"><span class="std std-ref">Mutable Sequence Types</span></a> 的描述；同时有 <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> 类型的大部分方法，参见 <a class="reference internal" href="stdtypes.html#bytes-methods"><span class="std std-ref">Bytes and Bytearray Operations</span></a>。</p>
 <p>可选参数 <em>source</em> 可以用不同的方式来初始化数组：</p>
 <ul class="simple">
-<li>如果是一个 <em>string</em>，您必须提供 <em>encoding</em> 参数（<em>errors</em> 参数仍是可选的）；<a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-func docutils literal notranslate"><span class="pre">bytearray()</span></code></a> 会使用 <a class="reference internal" href="stdtypes.html#str.encode" title="str.encode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.encode()</span></code></a> 方法来讲 string 转变成 bytes。</li>
+<li>如果是一个 <em>string</em>，您必须提供 <em>encoding</em> 参数（<em>errors</em> 参数仍是可选的）；<a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-func docutils literal notranslate"><span class="pre">bytearray()</span></code></a> 会使用 <a class="reference internal" href="stdtypes.html#str.encode" title="str.encode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.encode()</span></code></a> 方法来将 string 转变成 bytes。</li>
 <li>如果是一个 <em>integer</em>，会初始化大小为该数字的数组，并使用 null 字节填充。</li>
 <li>如果是一个符合 <em>buffer</em> 接口的对象，该对象的只读 buffer 会用来初始化字节数组。</li>
-<li>如果是一个 <em>iterable</em> 可迭代对象，它的元素必须是范围是``0 &lt;= x &lt; 256`` 的整数，它会被用作数组的初始内容。</li>
+<li>如果是一个 <em>iterable</em> 可迭代对象，它的元素的范围必须是 <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">256</span></code> 的整数，它会被用作数组的初始内容。</li>
 </ul>
 <p>如果没有参数，则创建大小为 0 的数组。</p>
 <p>另见 <a class="reference internal" href="stdtypes.html#binaryseq"><span class="std std-ref">Binary Sequence Types — bytes, bytearray, memoryview</span></a> 和 <a class="reference internal" href="stdtypes.html#typebytearray"><span class="std std-ref">Bytearray Objects</span></a>。</p>
@@ -289,7 +289,7 @@
 <dt id="chr">
 <code class="descname">chr</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#chr" title="永久链接至目标">¶</a></dt>
 <dd><p>返回 Unicode 码位为整数 <em>i</em> 的字符的字符串格式。例如，<code class="docutils literal notranslate"><span class="pre">chr(97)</span></code> 返回字符串 <code class="docutils literal notranslate"><span class="pre">'a'</span></code>，<code class="docutils literal notranslate"><span class="pre">chr(8364)</span></code> 返回字符串 <code class="docutils literal notranslate"><span class="pre">'€'</span></code>。这是 <a class="reference internal" href="#ord" title="ord"><code class="xref py py-func docutils literal notranslate"><span class="pre">ord()</span></code></a> 的逆函数。</p>
-<p>参数的合法范围是 0 到 1,114,111（16 进制表示是 0x10FFFF）。如果 <em>i</em> 超过这个范围，会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 错误。</p>
+<p>参数的合法范围是 0 到 1,114,111（16 进制表示是 0x10FFFF）。如果 <em>i</em> 超过这个范围，会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 异常。</p>
 </dd></dl>
 
 <dl class="function">
@@ -311,60 +311,27 @@
 <dl class="function">
 <dt id="compile">
 <code class="descname">compile</code><span class="sig-paren">(</span><em>source</em>, <em>filename</em>, <em>mode</em>, <em>flags=0</em>, <em>dont_inherit=False</em>, <em>optimize=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#compile" title="永久链接至目标">¶</a></dt>
-<dd><p>Compile the <em>source</em> into a code or AST object.  Code objects can be executed
-by <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> or <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a>.  <em>source</em> can either be a normal string, a
-byte string, or an AST object.  Refer to the <a class="reference internal" href="ast.html#module-ast" title="ast: Abstract Syntax Tree classes and manipulation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ast</span></code></a> module documentation
-for information on how to work with AST objects.</p>
-<p>The <em>filename</em> argument should give the file from which the code was read;
-pass some recognizable value if it wasn’t read from a file (<code class="docutils literal notranslate"><span class="pre">'&lt;string&gt;'</span></code> is
-commonly used).</p>
-<p>The <em>mode</em> argument specifies what kind of code must be compiled; it can be
-<code class="docutils literal notranslate"><span class="pre">'exec'</span></code> if <em>source</em> consists of a sequence of statements, <code class="docutils literal notranslate"><span class="pre">'eval'</span></code> if it
-consists of a single expression, or <code class="docutils literal notranslate"><span class="pre">'single'</span></code> if it consists of a single
-interactive statement (in the latter case, expression statements that
-evaluate to something other than <code class="docutils literal notranslate"><span class="pre">None</span></code> will be printed).</p>
-<p>The optional arguments <em>flags</em> and <em>dont_inherit</em> control which future
-statements (see <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0236"><strong>PEP 236</strong></a>) affect the compilation of <em>source</em>.  If neither
-is present (or both are zero) the code is compiled with those future
-statements that are in effect in the code that is calling <a class="reference internal" href="#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a>.  If the
-<em>flags</em> argument is given and <em>dont_inherit</em> is not (or is zero) then the
-future statements specified by the <em>flags</em> argument are used in addition to
-those that would be used anyway. If <em>dont_inherit</em> is a non-zero integer then
-the <em>flags</em> argument is it – the future statements in effect around the call
-to compile are ignored.</p>
-<p>Future statements are specified by bits which can be bitwise ORed together to
-specify multiple statements.  The bitfield required to specify a given feature
-can be found as the <code class="xref py py-attr docutils literal notranslate"><span class="pre">compiler_flag</span></code> attribute on
-the <code class="xref py py-class docutils literal notranslate"><span class="pre">_Feature</span></code> instance in the <a class="reference internal" href="__future__.html#module-__future__" title="__future__: Future statement definitions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__future__</span></code></a> module.</p>
-<p>The argument <em>optimize</em> specifies the optimization level of the compiler; the
-default value of <code class="docutils literal notranslate"><span class="pre">-1</span></code> selects the optimization level of the interpreter as
-given by <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> options.  Explicit levels are <code class="docutils literal notranslate"><span class="pre">0</span></code> (no optimization;
-<code class="docutils literal notranslate"><span class="pre">__debug__</span></code> is true), <code class="docutils literal notranslate"><span class="pre">1</span></code> (asserts are removed, <code class="docutils literal notranslate"><span class="pre">__debug__</span></code> is false)
-or <code class="docutils literal notranslate"><span class="pre">2</span></code> (docstrings are removed too).</p>
-<p>This function raises <a class="reference internal" href="exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> if the compiled source is invalid,
-and <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if the source contains null bytes.</p>
-<p>If you want to parse Python code into its AST representation, see
-<a class="reference internal" href="ast.html#ast.parse" title="ast.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">ast.parse()</span></code></a>.</p>
+<dd><p>将 <em>source</em> 编译成 code 或者 AST 对象。Code 对象可以被 <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> 或 <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> 执行。<em>source</em> 可以是常规的字符串、字节字符串，或者 AST 对象。参见 <a class="reference internal" href="ast.html#module-ast" title="ast: Abstract Syntax Tree classes and manipulation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ast</span></code></a> 模块的文档了解如何使用 AST 对象。</p>
+<p><em>filename</em> 参数需要是代码读取的文件名；如果代码不需要从文件中读取，可以传入一些可辨识的值（经常会使用``’&lt;string&gt;’<a href="#id1"><span class="problematic" id="id2">``</span></a>）。</p>
+<p><em>mode</em> 参数指定了编译代码必须用的模式。如果 <em>source</em> 是语句序列，可以是 <code class="docutils literal notranslate"><span class="pre">'exec'</span></code>；如果是单一表达式，可以是 <code class="docutils literal notranslate"><span class="pre">'eval'</span></code>；如果是单个交互式语句，可以是 <code class="docutils literal notranslate"><span class="pre">'single'</span></code>。（在最后一种情况下，如果表达式执行结果不是 <code class="docutils literal notranslate"><span class="pre">None</span></code> 将会被打印出来。）</p>
+<p>可选参数 <em>flags</em> 和 <em>dont_inherit</em> 控制编译 <em>source</em> 时会用到的 future 语句（参见 <span class="target" id="index-16"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0236"><strong>PEP 236</strong></a>）。如果两者都没提供（或都为零），则用调用 <a class="reference internal" href="#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> 的代码中有效future 语句来编译。如果给了 <em>flags</em> 参数但 <em>dont_inherit</em> 没有（或者为零），则 <em>flags</em> 指定的 future 语句以及那些无论如何会用到的 future 语句会被使用。如果 <em>dont_inherit</em> 是非零整数，则使用 <em>flags</em> 参数指定的，代码中有效的 future 语句会被忽略。</p>
+<p>Future 语句使用比特位来指定，多个语句可以通过按位或来指定。具体的特性的比特位可以通过 <a class="reference internal" href="__future__.html#module-__future__" title="__future__: Future statement definitions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__future__</span></code></a>  模块中的 <code class="xref py py-class docutils literal notranslate"><span class="pre">_Feature</span></code> 类的实例的 <code class="xref py py-attr docutils literal notranslate"><span class="pre">compiler_flag</span></code> 属性来获得。</p>
+<p><em>optimize</em> 参数指定编译器的优化级别；默认值 <code class="docutils literal notranslate"><span class="pre">-1</span></code>  选择与解释器的 <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> 选项相同的优化级别。 显式级别为  <code class="docutils literal notranslate"><span class="pre">0``（没有优化；``__debug__</span></code>  为真）、<code class="docutils literal notranslate"><span class="pre">1``（断言被删除，``__debug__</span></code> 为假）或 <a href="#id1"><span class="problematic" id="id2">``</span></a>2``（文档字符串也被删除）。</p>
+<p>如果编译的源码不合法，此函数会触发 <a class="reference internal" href="exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> 异常；如果源码包含 null 字节，则会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 异常。</p>
+<p>如果您想分析 Python 代码的 AST 表示，请参阅 <a class="reference internal" href="ast.html#ast.parse" title="ast.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">ast.parse()</span></code></a>。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">When compiling a string with multi-line code in <code class="docutils literal notranslate"><span class="pre">'single'</span></code> or
-<code class="docutils literal notranslate"><span class="pre">'eval'</span></code> mode, input must be terminated by at least one newline
-character.  This is to facilitate detection of incomplete and complete
-statements in the <a class="reference internal" href="code.html#module-code" title="code: Facilities to implement read-eval-print loops."><code class="xref py py-mod docutils literal notranslate"><span class="pre">code</span></code></a> module.</p>
+<p class="last">在 <code class="docutils literal notranslate"><span class="pre">'single'</span></code>  或 <code class="docutils literal notranslate"><span class="pre">'eval'</span></code> 模式编译多行代码字符串时，输入必须以至少一个换行符结尾。 这使 <a class="reference internal" href="code.html#module-code" title="code: Facilities to implement read-eval-print loops."><code class="xref py py-mod docutils literal notranslate"><span class="pre">code</span></code></a> 模块更容易检测语句的完整性。</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">It is possible to crash the Python interpreter with a
-sufficiently large/complex string when compiling to an AST
-object due to stack depth limitations in Python’s AST compiler.</p>
+<p class="last">如果编译足够大或者足够复杂的字符串成 AST 对象时，Python 解释器会因为 Python AST 编译器的栈深度限制而奔溃。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.2 版更改: </span>Allowed use of Windows and Mac newlines.  Also input in <code class="docutils literal notranslate"><span class="pre">'exec'</span></code> mode
-does not have to end in a newline anymore.  Added the <em>optimize</em> parameter.</p>
+<p><span class="versionmodified">在 3.2 版更改: </span>允许使用 Windows 和 Mac 的换行符。在 <code class="docutils literal notranslate"><span class="pre">'exec'</span></code> 模式不需要再以换行符结尾。增加了  <em>optimize</em> 参数。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.5 版更改: </span>Previously, <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> was raised when null bytes were encountered
-in <em>source</em>.</p>
+<p><span class="versionmodified">在 3.5 版更改: </span>之前 <em>source</em> 中包含 null 字节的话会触发 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> 异常。</p>
 </div>
 </dd></dl>
 
