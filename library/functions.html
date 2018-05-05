@@ -302,7 +302,7 @@
     <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span> <span class="o">...</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code> 形式是一个函数 <span class="xref std std-term">装饰器</span> - 参见 <a class="reference internal" href="../reference/compound_stmts.html#function"><span class="std std-ref">Function definitions</span></a> 中关于函数定义的详细介绍。</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code> 形式是一个函数 <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> - 参见 <a class="reference internal" href="../reference/compound_stmts.html#function"><span class="std std-ref">Function definitions</span></a> 中关于函数定义的详细介绍。</p>
 <p>它可以同时在类（如 <code class="docutils literal notranslate"><span class="pre">C.f()</span></code>）和实例（如 <code class="docutils literal notranslate"><span class="pre">C().f()</span></code>）上调用。实例除了它的类信息，其他都会被忽略。如果一个类方法在子类上调用，子类会作为第一个参数传入。</p>
 <p>类方法同 C++ 和 Java 的静态方法是区别的。如果你想要静态方法，请看本节的 <a class="reference internal" href="#staticmethod" title="staticmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">staticmethod()</span></code></a>。</p>
 <p>关于类方法的更多信息，请参考文档 <a class="reference internal" href="../reference/datamodel.html#types"><span class="std std-ref">The standard type hierarchy</span></a> 中的标准类型的层次。</p>
