@@ -108,7 +108,7 @@ when the queue reaches <em>maxsize</em>, until an item is removed by <a class="r
 size with <a class="reference internal" href="#asyncio.Queue.qsize" title="asyncio.Queue.qsize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">qsize()</span></code></a>, since your single-threaded asyncio application won’t
 be interrupted between calling <a class="reference internal" href="#asyncio.Queue.qsize" title="asyncio.Queue.qsize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">qsize()</span></code></a> and doing an operation on the
 Queue.</p>
-<p>这个类 <span class="xref std std-ref">not thread safe</span>。</p>
+<p>这个类 <a class="reference internal" href="asyncio-dev.html#asyncio-multithreading"><span class="std std-ref">不是线程安全的</span></a>。</p>
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.4.4 版更改: </span>New <a class="reference internal" href="#asyncio.Queue.join" title="asyncio.Queue.join"><code class="xref py py-meth docutils literal notranslate"><span class="pre">join()</span></code></a> and <a class="reference internal" href="#asyncio.Queue.task_done" title="asyncio.Queue.task_done"><code class="xref py py-meth docutils literal notranslate"><span class="pre">task_done()</span></code></a> methods.</p>
 </div>
