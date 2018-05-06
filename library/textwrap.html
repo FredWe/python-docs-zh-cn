@@ -149,7 +149,7 @@ display, while still presenting them in the source code in indented form.</p>
 <p>Note that tabs and spaces are both treated as whitespace, but they are not
 equal: the lines <code class="docutils literal notranslate"><span class="pre">&quot;</span>&#160; <span class="pre">hello&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;\thello&quot;</span></code> are considered to have no
 common leading whitespace.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
     <span class="c1"># end first line with \ to avoid the empty line!</span>
     <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span><span class="se">\</span>
@@ -169,7 +169,7 @@ common leading whitespace.</p>
 <p>Lines are separated by calling <code class="docutils literal notranslate"><span class="pre">text.splitlines(True)</span></code>.</p>
 <p>By default, <em>prefix</em> is added to all lines that do not consist
 solely of whitespace (including any line endings).</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;hello</span><span class="se">\n\n</span><span class="s1"> </span><span class="se">\n</span><span class="s1">world&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">indent</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s1">&#39;  &#39;</span><span class="p">)</span>
 <span class="go">&#39;  hello\n\n \n  world&#39;</span>

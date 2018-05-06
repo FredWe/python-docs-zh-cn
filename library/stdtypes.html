@@ -1848,7 +1848,7 @@ deemed to delimit empty strings (for example, <code class="docutils literal notr
 <code class="docutils literal notranslate"><span class="pre">['1',</span> <span class="pre">'',</span> <span class="pre">'2']</span></code>).  The <em>sep</em> argument may consist of multiple characters
 (for example, <code class="docutils literal notranslate"><span class="pre">'1&lt;&gt;2&lt;&gt;3'.split('&lt;&gt;')</span></code> returns <code class="docutils literal notranslate"><span class="pre">['1',</span> <span class="pre">'2',</span> <span class="pre">'3']</span></code>).
 Splitting an empty string with a specified separator returns <code class="docutils literal notranslate"><span class="pre">['']</span></code>.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;1,2,3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 <span class="go">[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;1,2,3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1863,7 +1863,7 @@ and the result will contain no empty strings at the start or end if the
 string has leading or trailing whitespace.  Consequently, splitting an empty
 string or a string consisting of just whitespace with a <code class="docutils literal notranslate"><span class="pre">None</span></code> separator
 returns <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;1 2 3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="go">[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;1 2 3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1931,7 +1931,7 @@ boundaries are a superset of <a class="reference internal" href="../glossary.htm
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.2 版更改: </span><code class="docutils literal notranslate"><span class="pre">\v</span></code> and <code class="docutils literal notranslate"><span class="pre">\f</span></code> added to list of line boundaries.</p>
 </div>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;ab c</span><span class="se">\n\n</span><span class="s1">de fg</span><span class="se">\r</span><span class="s1">kl</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
 <span class="go">[&#39;ab c&#39;, &#39;&#39;, &#39;de fg&#39;, &#39;kl&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;ab c</span><span class="se">\n\n</span><span class="s1">de fg</span><span class="se">\r</span><span class="s1">kl</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="n">keepends</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2004,7 +2004,7 @@ vice versa. Note that it is not necessarily true that
 <code class="descclassname">str.</code><code class="descname">title</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#str.title" title="永久链接至目标">¶</a></dt>
 <dd><p>Return a titlecased version of the string where words start with an uppercase
 character and the remaining characters are lowercase.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Hello world&#39;</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 <span class="go">&#39;Hello World&#39;</span>
 </pre></div>
@@ -2068,7 +2068,7 @@ make a string of length <em>width</em>. A leading sign prefix (<code class="docu
 is handled by inserting the padding <em>after</em> the sign character rather
 than before. The original string is returned if <em>width</em> is less than
 or equal to <code class="docutils literal notranslate"><span class="pre">len(s)</span></code>.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;42&quot;</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="go">&#39;00042&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;-42&quot;</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -2840,7 +2840,7 @@ multibyte sequence (for example, <code class="docutils literal notranslate"><spa
 separator returns <code class="docutils literal notranslate"><span class="pre">[b'']</span></code> or <code class="docutils literal notranslate"><span class="pre">[bytearray(b'')]</span></code> depending on the type
 of object being split.  The <em>sep</em> argument may be any
 <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a>.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;1,2,3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 <span class="go">[b&#39;1&#39;, b&#39;2&#39;, b&#39;3&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;1,2,3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2855,7 +2855,7 @@ separator, and the result will contain no empty strings at the start or
 end if the sequence has leading or trailing whitespace.  Consequently,
 splitting an empty sequence or a sequence consisting solely of ASCII
 whitespace without a specified separator returns <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;1 2 3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="go">[b&#39;1&#39;, b&#39;2&#39;, b&#39;3&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;1 2 3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2953,7 +2953,7 @@ or ASCII decimal digits and the sequence is not empty, false otherwise.
 Alphabetic ASCII characters are those byte values in the sequence
 <code class="docutils literal notranslate"><span class="pre">b'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</span></code>. ASCII decimal
 digits are those byte values in the sequence <code class="docutils literal notranslate"><span class="pre">b'0123456789'</span></code>.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;ABCabc1&#39;</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;ABC abc1&#39;</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
@@ -2971,7 +2971,7 @@ digits are those byte values in the sequence <code class="docutils literal notra
 and the sequence is not empty, false otherwise.  Alphabetic ASCII
 characters are those byte values in the sequence
 <code class="docutils literal notranslate"><span class="pre">b'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</span></code>.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;ABCabc&#39;</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;ABCabc1&#39;</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span>
@@ -2988,7 +2988,7 @@ characters are those byte values in the sequence
 <dd><p>Return true if all bytes in the sequence are ASCII decimal digits
 and the sequence is not empty, false otherwise. ASCII decimal digits are
 those byte values in the sequence <code class="docutils literal notranslate"><span class="pre">b'0123456789'</span></code>.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;1234&#39;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;1.23&#39;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span>
@@ -3004,7 +3004,7 @@ those byte values in the sequence <code class="docutils literal notranslate"><sp
 <code class="descclassname">bytearray.</code><code class="descname">islower</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.islower" title="永久链接至目标">¶</a></dt>
 <dd><p>Return true if there is at least one lowercase ASCII character
 in the sequence and no uppercase ASCII characters, false otherwise.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;hello world&#39;</span><span class="o">.</span><span class="n">islower</span><span class="p">()</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;Hello world&#39;</span><span class="o">.</span><span class="n">islower</span><span class="p">()</span>
@@ -3035,7 +3035,7 @@ carriage return, vertical tab, form feed).</p>
 <dd><p>Return true if the sequence is ASCII titlecase and the sequence is not
 empty, false otherwise. See <a class="reference internal" href="#bytes.title" title="bytes.title"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bytes.title()</span></code></a> for more details on the
 definition of “titlecase”.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span><span class="o">.</span><span class="n">istitle</span><span class="p">()</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;Hello world&#39;</span><span class="o">.</span><span class="n">istitle</span><span class="p">()</span>
@@ -3051,7 +3051,7 @@ definition of “titlecase”.</p>
 <code class="descclassname">bytearray.</code><code class="descname">isupper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.isupper" title="永久链接至目标">¶</a></dt>
 <dd><p>Return true if there is at least one uppercase alphabetic ASCII character
 in the sequence and no lowercase ASCII characters, false otherwise.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;HELLO WORLD&#39;</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;Hello world&#39;</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
@@ -3070,7 +3070,7 @@ are those byte values in the sequence <code class="docutils literal notranslate"
 <code class="descclassname">bytearray.</code><code class="descname">lower</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.lower" title="永久链接至目标">¶</a></dt>
 <dd><p>Return a copy of the sequence with all the uppercase ASCII characters
 converted to their corresponding lowercase counterpart.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <span class="go">b&#39;hello world&#39;</span>
 </pre></div>
@@ -3094,7 +3094,7 @@ always produces a new object, even if no changes were made.</p>
 line boundaries. This method uses the <a class="reference internal" href="../glossary.html#term-universal-newlines"><span class="xref std std-term">universal newlines</span></a> approach
 to splitting lines. Line breaks are not included in the resulting list
 unless <em>keepends</em> is given and true.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;ab c</span><span class="se">\n\n</span><span class="s1">de fg</span><span class="se">\r</span><span class="s1">kl</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
 <span class="go">[b&#39;ab c&#39;, b&#39;&#39;, b&#39;de fg&#39;, b&#39;kl&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;ab c</span><span class="se">\n\n</span><span class="s1">de fg</span><span class="se">\r</span><span class="s1">kl</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="n">keepends</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -3119,7 +3119,7 @@ break does not result in an extra line:</p>
 <code class="descclassname">bytearray.</code><code class="descname">swapcase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.swapcase" title="永久链接至目标">¶</a></dt>
 <dd><p>Return a copy of the sequence with all the lowercase ASCII characters
 converted to their corresponding uppercase counterpart and vice-versa.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span><span class="o">.</span><span class="n">swapcase</span><span class="p">()</span>
 <span class="go">b&#39;hELLO wORLD&#39;</span>
 </pre></div>
@@ -3146,7 +3146,7 @@ always produces a new object, even if no changes were made.</p>
 <dd><p>Return a titlecased version of the binary sequence where words start with
 an uppercase ASCII character and the remaining characters are lowercase.
 Uncased byte values are left unmodified.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;Hello world&#39;</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 <span class="go">b&#39;Hello World&#39;</span>
 </pre></div>
@@ -3189,7 +3189,7 @@ always produces a new object, even if no changes were made.</p>
 <code class="descclassname">bytearray.</code><code class="descname">upper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.upper" title="永久链接至目标">¶</a></dt>
 <dd><p>Return a copy of the sequence with all the lowercase ASCII characters
 converted to their corresponding uppercase counterpart.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 <span class="go">b&#39;HELLO WORLD&#39;</span>
 </pre></div>
@@ -3214,7 +3214,7 @@ make a sequence of length <em>width</em>. A leading sign prefix (<code class="do
 <code class="docutils literal notranslate"><span class="pre">b'-'</span></code> is handled by inserting the padding <em>after</em> the sign character
 rather than before. For <a class="reference internal" href="#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> objects, the original sequence is
 returned if <em>width</em> is less than or equal to <code class="docutils literal notranslate"><span class="pre">len(seq)</span></code>.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s2">&quot;42&quot;</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="go">b&#39;00042&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s2">&quot;-42&quot;</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>

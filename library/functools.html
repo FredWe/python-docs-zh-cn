@@ -195,7 +195,7 @@ in specifying all of the possible rich comparison operations:</p>
 <p>The class must define one of <a class="reference internal" href="../reference/datamodel.html#object.__lt__" title="object.__lt__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__lt__()</span></code></a>, <a class="reference internal" href="../reference/datamodel.html#object.__le__" title="object.__le__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__le__()</span></code></a>,
 <a class="reference internal" href="../reference/datamodel.html#object.__gt__" title="object.__gt__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__gt__()</span></code></a>, or <a class="reference internal" href="../reference/datamodel.html#object.__ge__" title="object.__ge__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__ge__()</span></code></a>.
 In addition, the class should supply an <a class="reference internal" href="../reference/datamodel.html#object.__eq__" title="object.__eq__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a> method.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@total_ordering</span>
 <span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">_is_valid_operand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>

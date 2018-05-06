@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>18.5. asyncio — Asynchronous I/O, event loop, coroutines and tasks &#8212; Python 3.6.5 文档</title>
+    <title>18.5. asyncio — 异步I/O，事件循环，coroutines and tasks &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="../_static/documentation_options.js"></script>
@@ -82,38 +82,25 @@
           <div class="body" role="main">
             
   <div class="section" id="module-asyncio">
-<span id="asyncio-asynchronous-i-o-event-loop-coroutines-and-tasks"></span><h1>18.5. <a class="reference internal" href="#module-asyncio" title="asyncio: Asynchronous I/O, event loop, coroutines and tasks."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> — Asynchronous I/O, event loop, coroutines and tasks<a class="headerlink" href="#module-asyncio" title="永久链接至标题">¶</a></h1>
+<span id="asyncio-asynchronous-i-o-event-loop-coroutines-and-tasks"></span><h1>18.5. <a class="reference internal" href="#module-asyncio" title="asyncio: Asynchronous I/O, event loop, coroutines and tasks."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> — 异步I/O，事件循环，coroutines and tasks<a class="headerlink" href="#module-asyncio" title="永久链接至标题">¶</a></h1>
 <div class="versionadded">
 <p><span class="versionmodified">3.4 新版功能.</span></p>
 </div>
-<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.6/Lib/asyncio/">Lib/asyncio/</a></p>
+<p><strong>源码：</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.6/Lib/asyncio/">Lib/asyncio/</a></p>
 <hr class="docutils" />
-<p>This module provides infrastructure for writing single-threaded concurrent
-code using coroutines, multiplexing I/O access over sockets and other
-resources, running network clients and servers, and other related primitives.
-Here is a more detailed list of the package contents:</p>
+<p>工具该模块提供了使用协程编写单线程并发代码的基础结构，在套接字和其他资源上I/O访问多路复用，运行网络客户端和服务器以及其他相关元语。下面是包内容更详细的清单：</p>
 <ul class="simple">
-<li>a pluggable <a class="reference internal" href="asyncio-eventloop.html#asyncio-event-loop"><span class="std std-ref">event loop</span></a> with various system-specific
-implementations;</li>
-<li><a class="reference internal" href="asyncio-protocol.html#asyncio-transport"><span class="std std-ref">transport</span></a> and <a class="reference internal" href="asyncio-protocol.html#asyncio-protocol"><span class="std std-ref">protocol</span></a> abstractions
-(similar to those in <a class="reference external" href="https://twistedmatrix.com/trac/">Twisted</a>);</li>
-<li>concrete support for TCP, UDP, SSL, subprocess pipes, delayed calls, and
-others (some may be system-dependent);</li>
-<li>a <a class="reference internal" href="asyncio-task.html#asyncio.Future" title="asyncio.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> class that mimics the one in the <a class="reference internal" href="concurrent.futures.html#module-concurrent.futures" title="concurrent.futures: Execute computations concurrently using threads or processes."><code class="xref py py-mod docutils literal notranslate"><span class="pre">concurrent.futures</span></code></a>
-module, but adapted for use with the event loop;</li>
-<li>coroutines and tasks based on <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> (<span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0380"><strong>PEP 380</strong></a>), to help write
-concurrent code in a sequential fashion;</li>
-<li>cancellation support for <a class="reference internal" href="asyncio-task.html#asyncio.Future" title="asyncio.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a>s and coroutines;</li>
-<li><a class="reference internal" href="asyncio-sync.html#asyncio-sync"><span class="std std-ref">synchronization primitives</span></a> for use between coroutines in
-a single thread, mimicking those in the <a class="reference internal" href="threading.html#module-threading" title="threading: Thread-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">threading</span></code></a> module;</li>
-<li>an interface for passing work off to a threadpool, for times when
-you absolutely, positively have to use a library that makes blocking
-I/O calls.</li>
+<li>一个可插拔的 <a class="reference internal" href="asyncio-eventloop.html#asyncio-event-loop"><span class="std std-ref">事件循环</span></a> 和各种系统特定的实现；</li>
+<li><a class="reference internal" href="asyncio-protocol.html#asyncio-transport"><span class="std std-ref">transport</span></a> 和 <a class="reference internal" href="asyncio-protocol.html#asyncio-protocol"><span class="std std-ref">protocol</span></a> 的抽象（类似 <a class="reference external" href="https://twistedmatrix.com/trac/">Twisted</a>）;</li>
+<li>支持TCP, UDP, SSL, subprocess pipes, 延后的回调和其他（有些可能与系统有关）；</li>
+<li>一个模仿 <a class="reference internal" href="concurrent.futures.html#module-concurrent.futures" title="concurrent.futures: Execute computations concurrently using threads or processes."><code class="xref py py-mod docutils literal notranslate"><span class="pre">concurrent.futures</span></code></a> 模块但适配事件循环的 <a class="reference internal" href="asyncio-task.html#asyncio.Future" title="asyncio.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> 类</li>
+<li>基于 <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> （<span class="target" id="index-6"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0380"><strong>PEP 380</strong></a>）的coroutines和tasks，帮助我们以顺序的方式编写并发的代码</li>
+<li><a class="reference internal" href="asyncio-task.html#asyncio.Future" title="asyncio.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a>s和coroutines支持取消；</li>
+<li>模仿 <a class="reference internal" href="threading.html#module-threading" title="threading: Thread-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">threading</span></code></a> 模块的 <a class="reference internal" href="asyncio-sync.html#asyncio-sync"><span class="std std-ref">同步原语</span></a> 可以在多个coroutines之间使用；</li>
+<li>当你绝对肯定不得不使用阻塞I/O调用的库时，一个将工作传递给线程池的接口。</li>
 </ul>
-<p>Asynchronous programming is more complex than classical “sequential”
-programming: see the <a class="reference internal" href="asyncio-dev.html#asyncio-dev"><span class="std std-ref">Develop with asyncio</span></a> page which lists
-common traps and explains how to avoid them. <a class="reference internal" href="asyncio-dev.html#asyncio-debug-mode"><span class="std std-ref">Enable the debug mode</span></a> during development to detect common issues.</p>
-<p>Table of contents:</p>
+<p>异步编程比传统的“顺序”编程更复杂：请参阅 <a class="reference internal" href="asyncio-dev.html#asyncio-dev"><span class="std std-ref">使用asyncio开发</span></a> 的页面，其中列出了常见的陷阱并解释了如何避免它们。在开发过程中 <a class="reference internal" href="asyncio-dev.html#asyncio-debug-mode"><span class="std std-ref">启用调试模式</span></a> 以检测常见问题。</p>
+<p>目录：</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="asyncio-eventloop.html">18.5.1. 基础事件循环</a><ul>
@@ -276,8 +263,7 @@ common traps and explains how to avoid them. <a class="reference internal" href=
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参见</p>
-<p class="last">The <a class="reference internal" href="#module-asyncio" title="asyncio: Asynchronous I/O, event loop, coroutines and tasks."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> module was designed in <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3156"><strong>PEP 3156</strong></a>. For a
-motivational primer on transports and protocols, see <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3153"><strong>PEP 3153</strong></a>.</p>
+<p class="last"><a class="reference internal" href="#module-asyncio" title="asyncio: Asynchronous I/O, event loop, coroutines and tasks."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 的设计在 <span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3156"><strong>PEP 3156</strong></a>。设计transports和protocols的原因见： <span class="target" id="index-8"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3153"><strong>PEP 3153</strong></a>。</p>
 </div>
 </div>
 

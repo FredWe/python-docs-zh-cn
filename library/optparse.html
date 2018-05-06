@@ -346,7 +346,7 @@ store it in an attribute of <code class="docutils literal notranslate"><span cla
 <p>The most common option action is <code class="docutils literal notranslate"><span class="pre">store</span></code>, which tells <a class="reference internal" href="#module-optparse" title="optparse: Command-line option parsing library. (已移除)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code></a> to take
 the next argument (or the remainder of the current argument), ensure that it is
 of the correct type, and store it to your chosen destination.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--file&quot;</span><span class="p">,</span>
                   <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">)</span>
 </pre></div>

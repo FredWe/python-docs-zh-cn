@@ -331,7 +331,7 @@ tuples, where <code class="docutils literal notranslate"><span class="pre">name<
 to <code class="docutils literal notranslate"><span class="pre">None</span></code> is the equivalent of a bare <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">FOO</span></code> in your C source: with
 most compilers, this sets <code class="docutils literal notranslate"><span class="pre">FOO</span></code> to the string <code class="docutils literal notranslate"><span class="pre">1</span></code>.)  <code class="docutils literal notranslate"><span class="pre">undef_macros</span></code> is
 just a list of macros to undefine.</p>
-<p>For example:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Extension</span><span class="p">(</span><span class="o">...</span><span class="p">,</span>
           <span class="n">define_macros</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;NDEBUG&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">),</span>
                          <span class="p">(</span><span class="s1">&#39;HAVE_STRFTIME&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)],</span>
