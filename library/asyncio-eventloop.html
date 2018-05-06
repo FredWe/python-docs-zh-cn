@@ -85,39 +85,32 @@
   <div class="section" id="base-event-loop">
 <span id="asyncio-event-loop"></span><h1>18.5.1. 基础事件循环<a class="headerlink" href="#base-event-loop" title="永久链接至标题">¶</a></h1>
 <p><strong>源码:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.6/Lib/asyncio/events.py">Lib/asyncio/events.py</a></p>
-<p>事件循环是的核心调度器，由:mod：<cite>asyncio</cite> 提供。它提供了多种设施，包括：</p>
+<p>事件循环是的核心调度器，由 <a class="reference internal" href="asyncio.html#module-asyncio" title="asyncio: Asynchronous I/O, event loop, coroutines and tasks."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 提供。它提供了多种设施，包括：</p>
 <ul class="simple">
-<li>注册，执行和取消(超时)需要延后执行的Future/Callback。</li>
-<li>关于创建各种类型的客户端和服务端，参见 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>transports`的文档。</li>
-<li>Launching subprocesses and the associated <a class="reference internal" href="asyncio-protocol.html#asyncio-transport"><span class="std std-ref">transports</span></a> for communication with an external program.</li>
+<li>注册，执行和取消(超时)需要延后执行的futures/callbacks。</li>
+<li>关于创建各种类型的客户端和服务端，参见 <a class="reference internal" href="asyncio-protocol.html#asyncio-transport"><span class="std std-ref">transports</span></a> 的文档。</li>
+<li>启动子进程和相关 <a class="reference internal" href="asyncio-protocol.html#asyncio-transport"><span class="std std-ref">transports</span></a> 以与外部程序进行通信。</li>
 <li>将昂贵的函数调用委托给一个线程池。</li>
 </ul>
 <dl class="class">
 <dt id="asyncio.BaseEventLoop">
 <em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">BaseEventLoop</code><a class="headerlink" href="#asyncio.BaseEventLoop" title="永久链接至目标">¶</a></dt>
-<dd><p>这个类是一个实现类。它是 <code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEventLoop`的一个子类，也可能是</span> <span class="pre">:mod:`asyncio`中某个具体事件循环实现的基类。它不能被直接使用；使用</span> <span class="pre">:class:`AbstractEventLoop</span></code> 代替。不要将 <code class="docutils literal notranslate"><span class="pre">BaseEventLoop</span></code> 作为父类使用；它内部的接口还不稳定。</p>
+<dd><p>这个类是一个实现类。它是 <a class="reference internal" href="#asyncio.AbstractEventLoop" title="asyncio.AbstractEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEventLoop</span></code></a> 的一个子类，也可能是 <a class="reference internal" href="asyncio.html#module-asyncio" title="asyncio: Asynchronous I/O, event loop, coroutines and tasks."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 中某个具体事件循环实现的基类。它不应被直接使用；使用 <a class="reference internal" href="#asyncio.AbstractEventLoop" title="asyncio.AbstractEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractEventLoop</span></code></a> 代替。 <code class="docutils literal notranslate"><span class="pre">BaseEventLoop</span></code> 不应由第三方直接作为基类使用；它内部的接口还不稳定。</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="asyncio.AbstractEventLoop">
 <em class="property">class </em><code class="descclassname">asyncio.</code><code class="descname">AbstractEventLoop</code><a class="headerlink" href="#asyncio.AbstractEventLoop" title="永久链接至目标">¶</a></dt>
 <dd><p>事件循环的抽象基类。</p>
-<p>这个类 <span class="xref std std-ref">not thread safe</span>。</p>
+<p>这个类 <a class="reference internal" href="asyncio-dev.html#asyncio-multithreading"><span class="std std-ref">不是线程安全的</span></a>。</p>
 </dd></dl>
 
 <div class="section" id="run-an-event-loop">
-<h2>18.5.1.1. 运行一个事件循环。<a class="headerlink" href="#run-an-event-loop" title="永久链接至标题">¶</a></h2>
+<h2>18.5.1.1. 启动一个事件循环。<a class="headerlink" href="#run-an-event-loop" title="永久链接至标题">¶</a></h2>
 <dl class="method">
 <dt id="asyncio.AbstractEventLoop.run_forever">
 <code class="descclassname">AbstractEventLoop.</code><code class="descname">run_forever</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.run_forever" title="永久链接至目标">¶</a></dt>
-<dd><p>Run until <a class="reference internal" href="#asyncio.AbstractEventLoop.stop" title="asyncio.AbstractEventLoop.stop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stop()</span></code></a> is called.  If <a class="reference internal" href="#asyncio.AbstractEventLoop.stop" title="asyncio.AbstractEventLoop.stop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stop()</span></code></a> is called before
-<a class="reference internal" href="#asyncio.AbstractEventLoop.run_forever" title="asyncio.AbstractEventLoop.run_forever"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_forever()</span></code></a> is called, this polls the I/O selector once
-with a timeout of zero, runs all callbacks scheduled in response to
-I/O events (and those that were already scheduled), and then exits.
-If <a class="reference internal" href="#asyncio.AbstractEventLoop.stop" title="asyncio.AbstractEventLoop.stop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stop()</span></code></a> is called while <a class="reference internal" href="#asyncio.AbstractEventLoop.run_forever" title="asyncio.AbstractEventLoop.run_forever"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_forever()</span></code></a> is running,
-this will run the current batch of callbacks and then exit.  Note
-that callbacks scheduled by callbacks will not run in that case;
-they will run the next time <a class="reference internal" href="#asyncio.AbstractEventLoop.run_forever" title="asyncio.AbstractEventLoop.run_forever"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_forever()</span></code></a> is called.</p>
+<dd><p>一直运行直到 <a class="reference internal" href="#asyncio.AbstractEventLoop.stop" title="asyncio.AbstractEventLoop.stop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stop()</span></code></a> 被调用。如果 <a class="reference internal" href="#asyncio.AbstractEventLoop.stop" title="asyncio.AbstractEventLoop.stop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stop()</span></code></a> 在  <a class="reference internal" href="#asyncio.AbstractEventLoop.run_forever" title="asyncio.AbstractEventLoop.run_forever"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_forever()</span></code></a> 之前被执行，将轮询I/O selector一次并且超时为0，执行所有回调以响应I/O事件（如果这些是已经被调度过的），然后退出。如果在 <a class="reference internal" href="#asyncio.AbstractEventLoop.run_forever" title="asyncio.AbstractEventLoop.run_forever"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_forever()</span></code></a> 运行时调用 <a class="reference internal" href="#asyncio.AbstractEventLoop.stop" title="asyncio.AbstractEventLoop.stop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stop()</span></code></a> ，将会运行当前批次的回调并退出。注意在在这种情况下回调内新增的需要执行的回调是不会执行的；它们会在下次运行 <a class="reference internal" href="#asyncio.AbstractEventLoop.run_forever" title="asyncio.AbstractEventLoop.run_forever"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_forever()</span></code></a> 时执行。</p>
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.5.1 版更改.</span></p>
 </div>
@@ -126,8 +119,8 @@ they will run the next time <a class="reference internal" href="#asyncio.Abstrac
 <dl class="method">
 <dt id="asyncio.AbstractEventLoop.run_until_complete">
 <code class="descclassname">AbstractEventLoop.</code><code class="descname">run_until_complete</code><span class="sig-paren">(</span><em>future</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.run_until_complete" title="永久链接至目标">¶</a></dt>
-<dd><p>直到 <a class="reference internal" href="asyncio-task.html#asyncio.Future" title="asyncio.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> 完成前，一直执行。</p>
-<p>如果参数是一个 <span class="xref std std-ref">coroutine object ` ，它会被 :func:`ensure_future</span> 包装。</p>
+<dd><p>一直运行直到 <a class="reference internal" href="asyncio-task.html#asyncio.Future" title="asyncio.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a> 完成。</p>
+<p>如果参数是一个 <a class="reference internal" href="asyncio-task.html#coroutine"><span class="std std-ref">协程对象</span></a>，它会被 <a class="reference internal" href="asyncio-task.html#asyncio.ensure_future" title="asyncio.ensure_future"><code class="xref py py-func docutils literal notranslate"><span class="pre">ensure_future()</span></code></a> 包装。</p>
 <p>返回Future的结果，或者抛出它的异常。</p>
 </dd></dl>
 
@@ -159,8 +152,7 @@ they will run the next time <a class="reference internal" href="#asyncio.Abstrac
 <dl class="method">
 <dt id="asyncio.AbstractEventLoop.close">
 <code class="descclassname">AbstractEventLoop.</code><code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.close" title="永久链接至目标">¶</a></dt>
-<dd><p>Close the event loop. The loop must not be running.  Pending
-callbacks will be lost.</p>
+<dd><p>关掉事件循环。循环不应该正在运行。Pending状态的回调会丢失。</p>
 <p>清除队列并关掉执行器，但不会等待执行器完成。</p>
 <p>这是幂等和不可逆的。此后不应该调用其他方法。</p>
 </dd></dl>
@@ -187,11 +179,11 @@ generators reliably.  Example:</p>
 
 </div>
 <div class="section" id="calls">
-<span id="asyncio-pass-keywords"></span><h2>18.5.1.2. 调用<a class="headerlink" href="#calls" title="永久链接至标题">¶</a></h2>
-<p>大多 <a class="reference internal" href="asyncio.html#module-asyncio" title="asyncio: Asynchronous I/O, event loop, coroutines and tasks."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a>&nbsp; 函数不支持关键字参数。如果你想给回调传递关键字参数，使用 <a class="reference internal" href="functools.html#functools.partial" title="functools.partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a>。比如， <code class="docutils literal notranslate"><span class="pre">loop.call_soon(functools.partial(print,</span> <span class="pre">&quot;Hello&quot;,</span> <span class="pre">flush=True))</span></code> 将会调用  <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello&quot;,</span> <span class="pre">flush=True)</span></code> 。</p>
+<span id="asyncio-pass-keywords"></span><h2>18.5.1.2. 注册回调<a class="headerlink" href="#calls" title="永久链接至标题">¶</a></h2>
+<p>大多 <a class="reference internal" href="asyncio.html#module-asyncio" title="asyncio: Asynchronous I/O, event loop, coroutines and tasks."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 函数不支持关键字参数。如果你想给回调传递关键字参数，使用 <a class="reference internal" href="functools.html#functools.partial" title="functools.partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a>。比如， <code class="docutils literal notranslate"><span class="pre">loop.call_soon(functools.partial(print,</span> <span class="pre">&quot;Hello&quot;,</span> <span class="pre">flush=True))</span></code> 将会调用 <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello&quot;,</span> <span class="pre">flush=True)</span></code> 。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last"><a class="reference internal" href="functools.html#functools.partial" title="functools.partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a> 要好于 <code class="docutils literal notranslate"><span class="pre">lambda</span></code> 函数，因为在调试模式， <a class="reference internal" href="asyncio.html#module-asyncio" title="asyncio: Asynchronous I/O, event loop, coroutines and tasks."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 可以检查 <a class="reference internal" href="functools.html#functools.partial" title="functools.partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a> 对象并显示它的参数，而 <code class="docutils literal notranslate"><span class="pre">lambda</span></code> 函数的表示性很查。</p>
+<p class="last"><a class="reference internal" href="functools.html#functools.partial" title="functools.partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a> 要好于 <code class="docutils literal notranslate"><span class="pre">lambda</span></code> 函数，因为在调试模式， <a class="reference internal" href="asyncio.html#module-asyncio" title="asyncio: Asynchronous I/O, event loop, coroutines and tasks."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 可以检查 <a class="reference internal" href="functools.html#functools.partial" title="functools.partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a> 对象并显示它的参数，而 <code class="docutils literal notranslate"><span class="pre">lambda</span></code> 函数的表示性很差。</p>
 </div>
 <dl class="method">
 <dt id="asyncio.AbstractEventLoop.call_soon">
@@ -200,41 +192,41 @@ generators reliably.  Example:</p>
 <p>类似 <abbr title="先入, 先出">FIFO</abbr> 队列，回调会依据它们注册的顺序依次调度。每个回调只会执行一次。</p>
 <p>所有回调函数后面的位置参数都会在执行该函数时是传递给它。</p>
 <p>返回一个可以用来取消回调的 <a class="reference internal" href="#asyncio.Handle" title="asyncio.Handle"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Handle</span></code></a> 类的实例。</p>
-<p>:ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Use functools.partial to pass keywords to the callback <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
+<p><a class="reference internal" href="#asyncio-pass-keywords"><span class="std std-ref">使用functools.partial给回调传递关键字参数</span></a>。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.AbstractEventLoop.call_soon_threadsafe">
 <code class="descclassname">AbstractEventLoop.</code><code class="descname">call_soon_threadsafe</code><span class="sig-paren">(</span><em>callback</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.call_soon_threadsafe" title="永久链接至目标">¶</a></dt>
-<dd><p>类似 <a class="reference internal" href="#asyncio.AbstractEventLoop.call_soon" title="asyncio.AbstractEventLoop.call_soon"><code class="xref py py-meth docutils literal notranslate"><span class="pre">call_soon()</span></code></a>，但是该函数是线程安全。</p>
-<p>查看 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>concurrency and multithreading ` 章节的文档。</p>
+<dd><p>类似 <a class="reference internal" href="#asyncio.AbstractEventLoop.call_soon" title="asyncio.AbstractEventLoop.call_soon"><code class="xref py py-meth docutils literal notranslate"><span class="pre">call_soon()</span></code></a>，但是该函数是线程安全的。</p>
+<p>查看 <a class="reference internal" href="asyncio-dev.html#asyncio-multithreading"><span class="std std-ref">并发和多进程</span></a> 章节的文档。</p>
 </dd></dl>
 
 </div>
 <div class="section" id="delayed-calls">
-<span id="asyncio-delayed-calls"></span><h2>18.5.1.3. 延后的调用。<a class="headerlink" href="#delayed-calls" title="永久链接至标题">¶</a></h2>
+<span id="asyncio-delayed-calls"></span><h2>18.5.1.3. 延后的回调<a class="headerlink" href="#delayed-calls" title="永久链接至标题">¶</a></h2>
 <p>事件循环有其内部的时钟用来计算超时。时钟依赖（平台相关）事件循环的内部实现；理想状态下，它是一个微秒级的时钟。它通常与 <a class="reference internal" href="time.html#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.time()</span></code></a> 是不同的。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">超时（相对*延迟* 或者 绝对*时间*）不能超过一天。</p>
+<p class="last">超时（相对 <em>delay</em> 或者 绝对 <em>when</em> ）不能超过一天。</p>
 </div>
 <dl class="method">
 <dt id="asyncio.AbstractEventLoop.call_later">
 <code class="descclassname">AbstractEventLoop.</code><code class="descname">call_later</code><span class="sig-paren">(</span><em>delay</em>, <em>callback</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.call_later" title="永久链接至目标">¶</a></dt>
-<dd><p>安排*回调*在给定的*延迟*秒（无论是int还是float）之后被调用。</p>
+<dd><p>在给定的 <em>delay</em> 秒（可以是int或者float）之后执行 <em>callback</em>。</p>
 <p>返回一个可以用来取消回调的 <a class="reference internal" href="#asyncio.Handle" title="asyncio.Handle"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Handle</span></code></a> 类的实例。</p>
-<p><em>callback</em> 只在每次执行 <a class="reference internal" href="#asyncio.AbstractEventLoop.call_later" title="asyncio.AbstractEventLoop.call_later"><code class="xref py py-meth docutils literal notranslate"><span class="pre">call_later()</span></code></a> 后调用一次。如果两个回调在相同的时间被调度，并没有定义哪个会先调用。</p>
-<p>可选的位置参数会在回调函数被调用时传递给回调。如果你想要传递给回调函数一下命名参数，需要使用闭包或者 <a class="reference internal" href="functools.html#functools.partial" title="functools.partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a>。</p>
-<p>:ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Use functools.partial to pass keywords to the callback <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
+<p><em>callback</em> 只在每次执行 <a class="reference internal" href="#asyncio.AbstractEventLoop.call_later" title="asyncio.AbstractEventLoop.call_later"><code class="xref py py-meth docutils literal notranslate"><span class="pre">call_later()</span></code></a> 后执行一次。如果两个回调在相同的时间被调度，并没有定义哪个会先执行。</p>
+<p>可选的位置参数 <em>args</em> 会在回调函数被调用时传递给回调。如果你想要传递给回调函数一下命名参数，需要使用闭包或者 <a class="reference internal" href="functools.html#functools.partial" title="functools.partial"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a>。</p>
+<p><a class="reference internal" href="#asyncio-pass-keywords"><span class="std std-ref">使用functools.partial给回调传递关键字参数</span></a>。</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="asyncio.AbstractEventLoop.call_at">
 <code class="descclassname">AbstractEventLoop.</code><code class="descname">call_at</code><span class="sig-paren">(</span><em>when</em>, <em>callback</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.call_at" title="永久链接至目标">¶</a></dt>
-<dd><p>使用与 :meth:<a href="#id1"><span class="problematic" id="id2">`</span></a>AbstractEventLoop.time`相同的时间引用，安排回调函数在给定的绝对*时间*(整数或浮点)调用。</p>
+<dd><p>使用与 <a class="reference internal" href="#asyncio.AbstractEventLoop.time" title="asyncio.AbstractEventLoop.time"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AbstractEventLoop.time()</span></code></a> 相同的时间，在给定的绝对时间戳 <em>when</em> (整数或浮点)执行 <em>callback</em> 。</p>
 <p>这个函数的行为与 <a class="reference internal" href="#asyncio.AbstractEventLoop.call_later" title="asyncio.AbstractEventLoop.call_later"><code class="xref py py-meth docutils literal notranslate"><span class="pre">call_later()</span></code></a> 相同。</p>
 <p>返回一个可以用来取消回调的 <a class="reference internal" href="#asyncio.Handle" title="asyncio.Handle"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Handle</span></code></a> 类的实例。</p>
-<p>:ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Use functools.partial to pass keywords to the callback <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
+<p><a class="reference internal" href="#asyncio-pass-keywords"><span class="std std-ref">使用functools.partial给回调传递关键字参数</span></a>。</p>
 </dd></dl>
 
 <dl class="method">
@@ -245,7 +237,7 @@ generators reliably.  Example:</p>
 
 <div class="admonition seealso">
 <p class="first admonition-title">参见</p>
-<p class="last">The <a class="reference internal" href="asyncio-task.html#asyncio.sleep" title="asyncio.sleep"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.sleep()</span></code></a> function.</p>
+<p class="last"><a class="reference internal" href="asyncio-task.html#asyncio.sleep" title="asyncio.sleep"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.sleep()</span></code></a> 函数</p>
 </div>
 </div>
 <div class="section" id="futures">
@@ -253,7 +245,7 @@ generators reliably.  Example:</p>
 <dl class="method">
 <dt id="asyncio.AbstractEventLoop.create_future">
 <code class="descclassname">AbstractEventLoop.</code><code class="descname">create_future</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.create_future" title="永久链接至目标">¶</a></dt>
-<dd><p>创建一个 <a class="reference internal" href="asyncio-task.html#asyncio.Future" title="asyncio.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Future</span></code></a> 类的示例对象并注册到事件循环上。</p>
+<dd><p>创建一个 <a class="reference internal" href="asyncio-task.html#asyncio.Future" title="asyncio.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Future</span></code></a> 类的实例对象并注册到事件循环上。</p>
 <p>这是在asyncio中创建futures的首选方式，因为事件循环实现可以提供Future类的替代实现（具有更好的性能或工具）。</p>
 <div class="versionadded">
 <p><span class="versionmodified">3.5.2 新版功能.</span></p>
@@ -266,7 +258,7 @@ generators reliably.  Example:</p>
 <dl class="method">
 <dt id="asyncio.AbstractEventLoop.create_task">
 <code class="descclassname">AbstractEventLoop.</code><code class="descname">create_task</code><span class="sig-paren">(</span><em>coro</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.create_task" title="永久链接至目标">¶</a></dt>
-<dd><p>将一个可执行的协程对象 <span class="xref std std-ref">coroutine object `: 包装成一个 future。 返回一个 :class:`Task</span> 类型的对象。</p>
+<dd><p>调度一个可执行的 <a class="reference internal" href="asyncio-task.html#coroutine"><span class="std std-ref">协程对象</span></a>: 包装成一个future。返回一个 <a class="reference internal" href="asyncio-task.html#asyncio.Task" title="asyncio.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a> 类型的对象。</p>
 <p>三方的事件循环可以使用它们自己定义的 <a class="reference internal" href="asyncio-task.html#asyncio.Task" title="asyncio.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a> 类的子类来实现互操作性。这个例子里，返回值的类型是 <a class="reference internal" href="asyncio-task.html#asyncio.Task" title="asyncio.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a> 的子类。</p>
 <p>这个方法是在Python 3.4.2中添加的。使用 <a class="reference internal" href="asyncio-task.html#asyncio.async" title="asyncio.async"><code class="xref py py-func docutils literal notranslate"><span class="pre">async()</span></code></a> 函数来支持较老的Python版本。</p>
 <div class="versionadded">
@@ -279,7 +271,7 @@ generators reliably.  Example:</p>
 <code class="descclassname">AbstractEventLoop.</code><code class="descname">set_task_factory</code><span class="sig-paren">(</span><em>factory</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.set_task_factory" title="永久链接至目标">¶</a></dt>
 <dd><p>设置一个 task 的工厂函数，将被 <a class="reference internal" href="#asyncio.AbstractEventLoop.create_task" title="asyncio.AbstractEventLoop.create_task"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AbstractEventLoop.create_task()</span></code></a> 使用。</p>
 <p>如果 <em>factory</em> 是 <code class="docutils literal notranslate"><span class="pre">None</span></code>，将使用默认的task工厂函数。</p>
-<p>如果 <em>factory</em> 是一个 <a href="#id1"><span class="problematic" id="id2">*</span></a>可调用*的对象，它的签名需要符合``(loop, coro)``， <a href="#id3"><span class="problematic" id="id4">*</span></a>loop*是当前激活的事件循环， <a href="#id5"><span class="problematic" id="id6">*</span></a>coro*是一个协程对象。返回一个与类 <a class="reference internal" href="asyncio-task.html#asyncio.Future" title="asyncio.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Future</span></code></a> 兼容的对象。</p>
+<p>如果 <em>factory</em> 是一个 <em>可调用</em> 的对象，它的签名需要符合 <code class="docutils literal notranslate"><span class="pre">(loop,</span> <span class="pre">coro)</span></code>， <em>loop</em> 是当前激活的事件循环， <em>coro</em> 是一个协程对象。返回一个与类 <a class="reference internal" href="asyncio-task.html#asyncio.Future" title="asyncio.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Future</span></code></a> 兼容的对象。</p>
 <div class="versionadded">
 <p><span class="versionmodified">3.4.4 新版功能.</span></p>
 </div>
@@ -288,7 +280,7 @@ generators reliably.  Example:</p>
 <dl class="method">
 <dt id="asyncio.AbstractEventLoop.get_task_factory">
 <code class="descclassname">AbstractEventLoop.</code><code class="descname">get_task_factory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.get_task_factory" title="永久链接至目标">¶</a></dt>
-<dd><p>返回创建task的工厂函数，使用默认工厂函数时返回``None``。</p>
+<dd><p>返回创建task的工厂函数，使用默认工厂函数时返回 <code class="docutils literal notranslate"><span class="pre">None</span></code>。</p>
 <div class="versionadded">
 <p><span class="versionmodified">3.4.4 新版功能.</span></p>
 </div>
@@ -300,16 +292,14 @@ generators reliably.  Example:</p>
 <dl class="method">
 <dt id="asyncio.AbstractEventLoop.create_connection">
 <em class="property">coroutine </em><code class="descclassname">AbstractEventLoop.</code><code class="descname">create_connection</code><span class="sig-paren">(</span><em>protocol_factory</em>, <em>host=None</em>, <em>port=None</em>, <em>*</em>, <em>ssl=None</em>, <em>family=0</em>, <em>proto=0</em>, <em>flags=0</em>, <em>sock=None</em>, <em>local_addr=None</em>, <em>server_hostname=None</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.create_connection" title="永久链接至目标">¶</a></dt>
-<dd><p>同给定的 <em>host</em> 和 <em>port</em> 建立一个流式传输链接：套接字族是 <a class="reference internal" href="socket.html#socket.AF_INET" title="socket.AF_INET"><code class="xref py py-data docutils literal notranslate"><span class="pre">AF_INET</span></code></a> 或者 <a class="reference internal" href="socket.html#socket.AF_INET6" title="socket.AF_INET6"><code class="xref py py-data docutils literal notranslate"><span class="pre">AF_INET6</span></code></a> 由 <em>host*（或者指定的*family</em>）确定，套接字类型 <a class="reference internal" href="socket.html#socket.SOCK_STREAM" title="socket.SOCK_STREAM"><code class="xref py py-data docutils literal notranslate"><span class="pre">SOCK_STREAM</span></code></a>。  <em>protocol_factory</em> 需要是可调用对象，并返回一个  <a class="reference internal" href="asyncio-protocol.html#asyncio-protocol"><span class="std std-ref">protocol</span></a> 实例。</p>
-<p>This method is a <a class="reference internal" href="asyncio-task.html#coroutine"><span class="std std-ref">coroutine</span></a> which will try to
-establish the connection in the background.  When successful, the
-coroutine returns a <code class="docutils literal notranslate"><span class="pre">(transport,</span> <span class="pre">protocol)</span></code> pair.</p>
+<dd><p>同给定的 <em>host</em> 和 <em>port</em> 建立一个流式传输链接：套接字族是 <a class="reference internal" href="socket.html#socket.AF_INET" title="socket.AF_INET"><code class="xref py py-data docutils literal notranslate"><span class="pre">AF_INET</span></code></a> 或者 <a class="reference internal" href="socket.html#socket.AF_INET6" title="socket.AF_INET6"><code class="xref py py-data docutils literal notranslate"><span class="pre">AF_INET6</span></code></a> 由 <em>host</em> （或者指定的 <em>family</em> ）确定，套接字类型 <a class="reference internal" href="socket.html#socket.SOCK_STREAM" title="socket.SOCK_STREAM"><code class="xref py py-data docutils literal notranslate"><span class="pre">SOCK_STREAM</span></code></a>。 <em>protocol_factory</em> 需要是可调用对象，并返回一个  <a class="reference internal" href="asyncio-protocol.html#asyncio-protocol"><span class="std std-ref">protocol</span></a> 实例。</p>
+<p>这个方法是一个 <a class="reference internal" href="asyncio-task.html#coroutine"><span class="std std-ref">协程</span></a>。它尝试在后台建立链接，成功时返回一对 <code class="docutils literal notranslate"><span class="pre">(transport,</span> <span class="pre">protocol)</span></code> 。</p>
 <p>基本操作的时间顺序如下：</p>
 <ol class="arabic simple">
 <li>建立连接，创建一个 <a class="reference internal" href="asyncio-protocol.html#asyncio-transport"><span class="std std-ref">transport</span></a> 来表示它。</li>
 <li><em>protocol_factory</em> 被调用时不需要参数，并且必须返回一个 <a class="reference internal" href="asyncio-protocol.html#asyncio-protocol"><span class="std std-ref">协议</span></a> 实例。</li>
 <li>协议实例绑定到transport，并调用它的 <code class="xref py py-meth docutils literal notranslate"><span class="pre">connection_made()</span></code> 方法。</li>
-<li>协程成功时会返回 <code class="docutils literal notranslate"><span class="pre">(transport,</span> <span class="pre">protocol)</span></code> 对。</li>
+<li>成功时会返回一对 <code class="docutils literal notranslate"><span class="pre">(transport,</span> <span class="pre">protocol)</span></code> 。</li>
 </ol>
 <p>创建的transport是一个实现相关的双向流。</p>
 <div class="admonition note">
@@ -318,28 +308,27 @@ coroutine returns a <code class="docutils literal notranslate"><span class="pre"
 </div>
 <p>改变连接创建方式的选项：</p>
 <ul>
-<li><p class="first"><em>ssl</em>：指定，并且不是假，会创建一个SSL/TLS transport（默认情况下会创建一个纯TCP传输）。如果 <em>ssl</em> 是一个类 <a class="reference internal" href="ssl.html#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">ssl.SSLContext</span></code></a>&nbsp; 的对象，此上下文用于创建transport；如果 <em>ssl</em> 是 <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> 使用默认设置的上下文。</p>
+<li><p class="first"><em>ssl</em>：指定，并且不为假，会创建一个SSL/TLS transport（默认情况下会创建一个纯TCP传输）。如果 <em>ssl</em> 是 <a class="reference internal" href="ssl.html#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">ssl.SSLContext</span></code></a>&nbsp;类型的对象，此上下文用于创建transport；如果 <em>ssl</em> 是 <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> 使用默认设置的上下文。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参见</p>
-<p class="last">:ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>SSL/TLS 安全事项&lt;ssl-security&gt; `</p>
+<p class="last"><a class="reference internal" href="ssl.html#ssl-security"><span class="std std-ref">SSL/TLS安全事项</span></a></p>
 </div>
 </li>
-<li><p class="first"><em>server_hostname*只和*ssl*一起使用，并设置或覆盖目标服务器证书将与之匹配的主机名。默认情况下使用 *host</em> 参数的值。如果 <em>host</em> 为空，没有默认值，你必须为*server_hostname*设置一个值。如果 <em>server_hostname</em> 是空字符串，主机名匹配被禁用（这是一种严重的安全风险，允许进行中间人攻击）。</p>
+<li><p class="first"><em>server_hostname</em> 只能和 <em>ssl</em> 一起使用，并设置或覆盖目标服务器证书将与之匹配的主机名。默认情况下使用 <em>host</em> 参数的值。如果 <em>host</em> 为空，你必须为 <em>server_hostname</em> 设置一个值。如果 <em>server_hostname</em> 是空字符串，主机名匹配被禁用（这是一种严重的安全风险，允许进行中间人攻击）。</p>
 </li>
-<li><p class="first"><em>family</em>， <em>proto</em>， <em>flags</em> 是可选的地址族，协议和标志，通过 getaddrinfo() 传递给 <a href="#id1"><span class="problematic" id="id2">*</span></a>host*解析。如果给出，这些应该都是来自相应的 <a class="reference internal" href="socket.html#module-socket" title="socket: Low-level networking interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a> 模块常量的整数。</p>
+<li><p class="first"><em>family</em>，<em>proto</em>，<em>flags</em> 是可选的地址族，协议和标志，通过传递给 getaddrinfo() 来解析 <em>host</em>。如果给出，这些应该都是来自 <a class="reference internal" href="socket.html#module-socket" title="socket: Low-level networking interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a> 模块相应的常量的整数。</p>
 </li>
-<li><p class="first"><em>sock</em>，如果给出的话，应该是一个现有的，已经连接的 <a class="reference internal" href="socket.html#socket.socket" title="socket.socket"><code class="xref py py-class docutils literal notranslate"><span class="pre">socket.socket</span></code></a> 对象，这个对象将被transport使用。如果给出 <em>sock</em>，则*host <em>，*port</em>，<em>family</em>，<em>proto</em>，<a href="#id1"><span class="problematic" id="id2">*</span></a>flags*和*local_addr*中的任何一个都不应该指定。</p>
+<li><p class="first"><em>sock</em>，如果给出的话，应该是一个现有的，已经连接的 <a class="reference internal" href="socket.html#socket.socket" title="socket.socket"><code class="xref py py-class docutils literal notranslate"><span class="pre">socket.socket</span></code></a> 对象，这个对象将被transport使用。如果给出 <em>sock</em>，则 <em>host</em>，<em>port</em>，<em>family</em>，<em>proto</em>，<em>flags</em> 和 <em>local_addr</em> 中的任何一个都不应该指定。</p>
 </li>
-<li><p class="first"><em>local_addr</em>，如果给定的话，是一个 <code class="docutils literal notranslate"><span class="pre">(local_host，local_port)</span></code> 元组，用于在本地绑定套接字。使用 getaddrinfo() 查找 <em>local_host</em> 和 <em>local_port</em>，与 <em>host</em> 和 <em>port</em> 类似。</p>
+<li><p class="first"><em>local_addr</em>，如果给定的话，应是一个 <code class="docutils literal notranslate"><span class="pre">(local_host，local_port)</span></code> 元组，用于在本地绑定套接字。使用 getaddrinfo() 查找 <em>local_host</em> 和 <em>local_port</em>，与 <em>host</em> 和 <em>port</em> 类似。</p>
 </li>
 </ul>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.5 版更改: </span>On Windows with <a class="reference internal" href="asyncio-eventloops.html#asyncio.ProactorEventLoop" title="asyncio.ProactorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code></a>, SSL/TLS is now supported.</p>
+<p><span class="versionmodified">在 3.5 版更改: </span>在Windows平台上， <a class="reference internal" href="asyncio-eventloops.html#asyncio.ProactorEventLoop" title="asyncio.ProactorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code></a> 支持SSL/TLS了。</p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参见</p>
-<p class="last">The <a class="reference internal" href="asyncio-stream.html#asyncio.open_connection" title="asyncio.open_connection"><code class="xref py py-func docutils literal notranslate"><span class="pre">open_connection()</span></code></a> function can be used to get a pair of
-(<a class="reference internal" href="asyncio-stream.html#asyncio.StreamReader" title="asyncio.StreamReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamReader</span></code></a>, <a class="reference internal" href="asyncio-stream.html#asyncio.StreamWriter" title="asyncio.StreamWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamWriter</span></code></a>) instead of a protocol.</p>
+<p class="last">可以使用 <a class="reference internal" href="asyncio-stream.html#asyncio.open_connection" title="asyncio.open_connection"><code class="xref py py-func docutils literal notranslate"><span class="pre">open_connection()</span></code></a> 函数获取一对(<a class="reference internal" href="asyncio-stream.html#asyncio.StreamReader" title="asyncio.StreamReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamReader</span></code></a>, <a class="reference internal" href="asyncio-stream.html#asyncio.StreamWriter" title="asyncio.StreamWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamWriter</span></code></a>) 代替一个protocol。</p>
 </div>
 </dd></dl>
 
@@ -350,9 +339,7 @@ coroutine returns a <code class="docutils literal notranslate"><span class="pre"
 <a class="reference internal" href="socket.html#socket.AF_INET6" title="socket.AF_INET6"><code class="xref py py-data docutils literal notranslate"><span class="pre">AF_INET6</span></code></a> depending on <em>host</em> (or <em>family</em> if specified),
 socket type <a class="reference internal" href="socket.html#socket.SOCK_DGRAM" title="socket.SOCK_DGRAM"><code class="xref py py-data docutils literal notranslate"><span class="pre">SOCK_DGRAM</span></code></a>. <em>protocol_factory</em> must be a
 callable returning a <a class="reference internal" href="asyncio-protocol.html#asyncio-protocol"><span class="std std-ref">protocol</span></a> instance.</p>
-<p>This method is a <a class="reference internal" href="asyncio-task.html#coroutine"><span class="std std-ref">coroutine</span></a> which will try to
-establish the connection in the background.  When successful, the
-coroutine returns a <code class="docutils literal notranslate"><span class="pre">(transport,</span> <span class="pre">protocol)</span></code> pair.</p>
+<p>这个方法是一个 <a class="reference internal" href="asyncio-task.html#coroutine"><span class="std std-ref">协程</span></a>。它尝试在后台建立链接，成功时返回一对 <code class="docutils literal notranslate"><span class="pre">(transport,</span> <span class="pre">protocol)</span></code> 。</p>
 <p>Options changing how the connection is created:</p>
 <ul class="simple">
 <li><em>local_addr</em>, if given, is a <code class="docutils literal notranslate"><span class="pre">(local_host,</span> <span class="pre">local_port)</span></code> tuple used
@@ -393,9 +380,7 @@ transport. If specified, <em>local_addr</em> and <em>remote_addr</em> should be 
 type <a class="reference internal" href="socket.html#socket.SOCK_STREAM" title="socket.SOCK_STREAM"><code class="xref py py-data docutils literal notranslate"><span class="pre">SOCK_STREAM</span></code></a>. The <a class="reference internal" href="socket.html#socket.AF_UNIX" title="socket.AF_UNIX"><code class="xref py py-data docutils literal notranslate"><span class="pre">AF_UNIX</span></code></a> socket
 family is used to communicate between processes on the same machine
 efficiently.</p>
-<p>This method is a <a class="reference internal" href="asyncio-task.html#coroutine"><span class="std std-ref">coroutine</span></a> which will try to
-establish the connection in the background.  When successful, the
-coroutine returns a <code class="docutils literal notranslate"><span class="pre">(transport,</span> <span class="pre">protocol)</span></code> pair.</p>
+<p>这个方法是一个 <a class="reference internal" href="asyncio-task.html#coroutine"><span class="std std-ref">协程</span></a>。它尝试在后台建立链接，成功时返回一对 <code class="docutils literal notranslate"><span class="pre">(transport,</span> <span class="pre">protocol)</span></code> 。</p>
 <p><em>path</em> is the name of a UNIX domain socket, and is required unless a <em>sock</em>
 parameter is specified.  Abstract UNIX sockets, <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, and
 <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> paths are supported.</p>
@@ -444,7 +429,7 @@ Windows.</li>
 </ul>
 <p>This method is a <a class="reference internal" href="asyncio-task.html#coroutine"><span class="std std-ref">coroutine</span></a>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.5 版更改: </span>On Windows with <a class="reference internal" href="asyncio-eventloops.html#asyncio.ProactorEventLoop" title="asyncio.ProactorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code></a>, SSL/TLS is now supported.</p>
+<p><span class="versionmodified">在 3.5 版更改: </span>在Windows平台上， <a class="reference internal" href="asyncio-eventloops.html#asyncio.ProactorEventLoop" title="asyncio.ProactorEventLoop"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProactorEventLoop</span></code></a> 支持SSL/TLS了。</p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">参见</p>
@@ -496,7 +481,7 @@ coroutine returns a <code class="docutils literal notranslate"><span class="pre"
 <code class="descclassname">AbstractEventLoop.</code><code class="descname">add_reader</code><span class="sig-paren">(</span><em>fd</em>, <em>callback</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.add_reader" title="永久链接至目标">¶</a></dt>
 <dd><p>Start watching the file descriptor for read availability and then call the
 <em>callback</em> with specified arguments.</p>
-<p>:ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Use functools.partial to pass keywords to the callback <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
+<p><a class="reference internal" href="#asyncio-pass-keywords"><span class="std std-ref">使用functools.partial给回调传递关键字参数</span></a>。</p>
 </dd></dl>
 
 <dl class="method">
@@ -510,7 +495,7 @@ coroutine returns a <code class="docutils literal notranslate"><span class="pre"
 <code class="descclassname">AbstractEventLoop.</code><code class="descname">add_writer</code><span class="sig-paren">(</span><em>fd</em>, <em>callback</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#asyncio.AbstractEventLoop.add_writer" title="永久链接至目标">¶</a></dt>
 <dd><p>Start watching the file descriptor for write availability and then call the
 <em>callback</em> with specified arguments.</p>
-<p>:ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Use functools.partial to pass keywords to the callback <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
+<p><a class="reference internal" href="#asyncio-pass-keywords"><span class="std std-ref">使用functools.partial给回调传递关键字参数</span></a>。</p>
 </dd></dl>
 
 <dl class="method">
@@ -656,7 +641,7 @@ non-blocking mode.</p>
 <dd><p>Add a handler for a signal.</p>
 <p>Raise <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if the signal number is invalid or uncatchable.
 Raise <a class="reference internal" href="exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> if there is a problem setting up the handler.</p>
-<p>:ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>Use functools.partial to pass keywords to the callback <a href="#id3"><span class="problematic" id="id4">`</span></a>。</p>
+<p><a class="reference internal" href="#asyncio-pass-keywords"><span class="std std-ref">使用functools.partial给回调传递关键字参数</span></a>。</p>
 </dd></dl>
 
 <dl class="method">
@@ -988,9 +973,9 @@ the <a class="reference internal" href="#asyncio.AbstractEventLoop.add_signal_ha
   <h3><a href="../contents.html">內容目录</a></h3>
   <ul>
 <li><a class="reference internal" href="#">18.5.1. 基础事件循环</a><ul>
-<li><a class="reference internal" href="#run-an-event-loop">18.5.1.1. 运行一个事件循环。</a></li>
-<li><a class="reference internal" href="#calls">18.5.1.2. 调用</a></li>
-<li><a class="reference internal" href="#delayed-calls">18.5.1.3. 延后的调用。</a></li>
+<li><a class="reference internal" href="#run-an-event-loop">18.5.1.1. 启动一个事件循环。</a></li>
+<li><a class="reference internal" href="#calls">18.5.1.2. 注册回调</a></li>
+<li><a class="reference internal" href="#delayed-calls">18.5.1.3. 延后的回调</a></li>
 <li><a class="reference internal" href="#futures">18.5.1.4. Futures</a></li>
 <li><a class="reference internal" href="#tasks">18.5.1.5. Tasks</a></li>
 <li><a class="reference internal" href="#creating-connections">18.5.1.6. 建立链接。</a></li>
