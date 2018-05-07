@@ -372,19 +372,13 @@
 <dd><p>如果没有参数，则返回当前本地作用域中的名称列表。如果有参数，它会尝试返回该对象的有效属性列表。</p>
 <p>如果对象有一个名为 <a class="reference internal" href="../reference/datamodel.html#object.__dir__" title="object.__dir__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__dir__()</span></code></a> 的方法，那么该方法将被调用，并且必须返回一个属性列表。这允许实现自定义 <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__getattr__()</span></code></a> 或 <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__getattribute__()</span></code></a> 函数的对象能够自定义 <a class="reference internal" href="#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 来报告它们的属性。</p>
 <p>如果对象不提供 <a class="reference internal" href="../reference/datamodel.html#object.__dir__" title="object.__dir__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__dir__()</span></code></a>，这个函数会尝试从对象已定义的 <a class="reference internal" href="stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a> 属性和类型对象收集信息。结果列表并不总是完整的，如果对象有自定义 <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__getattr__()</span></code></a>，那结果可能不准确。</p>
-<p>The default <a class="reference internal" href="#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> mechanism behaves differently with different types of
-objects, as it attempts to produce the most relevant, rather than complete,
-information:</p>
+<p>默认的 <a class="reference internal" href="#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 机制对不同类型的对象行为不同，它会试图返回最相关而不是最全的信息：</p>
 <ul class="simple">
-<li>If the object is a module object, the list contains the names of the module’s
-attributes.</li>
-<li>If the object is a type or class object, the list contains the names of its
-attributes, and recursively of the attributes of its bases.</li>
-<li>Otherwise, the list contains the object’s attributes’ names, the names of its
-class’s attributes, and recursively of the attributes of its class’s base
-classes.</li>
+<li>如果对象是模块对象，则列表包含模块的属性名称。</li>
+<li>如果对象是类型或类对象，则列表包含它们的属性名称，并且递归查找所有基类的属性。</li>
+<li>否则，列表包含对象的属性名称，它的类属性名称，并且递归查找它的类的所有基类的属性。</li>
 </ul>
-<p>The resulting list is sorted alphabetically.  For example:</p>
+<p>返回的列表按字母表排序。例如：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">struct</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">()</span>   <span class="c1"># show the names in the module namespace</span>
 <span class="go">[&#39;__builtins__&#39;, &#39;__name__&#39;, &#39;struct&#39;]</span>
@@ -403,36 +397,20 @@ classes.</li>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">Because <a class="reference internal" href="#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> is supplied primarily as a convenience for use at an
-interactive prompt, it tries to supply an interesting set of names more
-than it tries to supply a rigorously or consistently defined set of names,
-and its detailed behavior may change across releases.  For example,
-metaclass attributes are not in the result list when the argument is a
-class.</p>
+<p class="last">因为 <a class="reference internal" href="#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 主要是为了便于在交互式时使用，所以它会试图返回人们感兴趣的名字集合，而不是试图保证结果的严格性或一致性，它具体的行为也可能在不同版本之间改变。例如，当参数是一个类时，metaclass 的属性不包含在结果列表中。</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="divmod">
 <code class="descname">divmod</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#divmod" title="永久链接至目标">¶</a></dt>
-<dd><p>Take two (non complex) numbers as arguments and return a pair of numbers
-consisting of their quotient and remainder when using integer division.  With
-mixed operand types, the rules for binary arithmetic operators apply.  For
-integers, the result is the same as <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">//</span> <span class="pre">b,</span> <span class="pre">a</span> <span class="pre">%</span> <span class="pre">b)</span></code>. For floating point
-numbers the result is <code class="docutils literal notranslate"><span class="pre">(q,</span> <span class="pre">a</span> <span class="pre">%</span> <span class="pre">b)</span></code>, where <em>q</em> is usually <code class="docutils literal notranslate"><span class="pre">math.floor(a</span> <span class="pre">/</span>
-<span class="pre">b)</span></code> but may be 1 less than that.  In any case <code class="docutils literal notranslate"><span class="pre">q</span> <span class="pre">*</span> <span class="pre">b</span> <span class="pre">+</span> <span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code> is very
-close to <em>a</em>, if <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code> is non-zero it has the same sign as <em>b</em>, and <code class="docutils literal notranslate"><span class="pre">0</span>
-<span class="pre">&lt;=</span> <span class="pre">abs(a</span> <span class="pre">%</span> <span class="pre">b)</span> <span class="pre">&lt;</span> <span class="pre">abs(b)</span></code>.</p>
+<dd><p>它将两个（非复数）数字作为参数，并在执行整数除法时返回一对商和余数。对于混合操作数类型，适用双目算术运算符的规则。对于整数，结果和 <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">//</span> <span class="pre">b,</span> <span class="pre">a</span> <span class="pre">%</span> <span class="pre">b)</span></code> 一致。对于浮点数，结果是 <code class="docutils literal notranslate"><span class="pre">(q,</span> <span class="pre">a</span> <span class="pre">%</span> <span class="pre">b)</span></code> ，<em>q</em> 通常是 <code class="docutils literal notranslate"><span class="pre">math.floor(a</span> <span class="pre">/</span> <span class="pre">b)</span></code> 但可能会比 1 小。在任何情况下， <code class="docutils literal notranslate"><span class="pre">q</span> <span class="pre">*</span> <span class="pre">b</span> <span class="pre">+</span> <span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code> 和  <em>a</em> 基本相等；如果 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code> 非零，它的符号和 <em>b</em> 一样，并且 <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">abs(a</span> <span class="pre">%</span> <span class="pre">b)</span> <span class="pre">&lt;</span> <span class="pre">abs(b)</span></code> 。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="enumerate">
 <code class="descname">enumerate</code><span class="sig-paren">(</span><em>iterable</em>, <em>start=0</em><span class="sig-paren">)</span><a class="headerlink" href="#enumerate" title="永久链接至目标">¶</a></dt>
-<dd><p>Return an enumerate object. <em>iterable</em> must be a sequence, an
-<a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a>, or some other object which supports iteration.
-The <a class="reference internal" href="stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method of the iterator returned by
-<a class="reference internal" href="#enumerate" title="enumerate"><code class="xref py py-func docutils literal notranslate"><span class="pre">enumerate()</span></code></a> returns a tuple containing a count (from <em>start</em> which
-defaults to 0) and the values obtained from iterating over <em>iterable</em>.</p>
+<dd><p>返回一个枚举对象。<em>iterable</em> 必须是一个序列，或 <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">迭代器</span></a>，或其他支持迭代的对象。 <a class="reference internal" href="#enumerate" title="enumerate"><code class="xref py py-func docutils literal notranslate"><span class="pre">enumerate()</span></code></a> 返回的迭代器的 <a class="reference internal" href="stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> 方法返回一个元组，里面包含一个计数值（从 <em>start</em> 开始，默认为 0）和通过迭代 <em>iterable</em> 获得的值。</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spring&#39;</span><span class="p">,</span> <span class="s1">&#39;Summer&#39;</span><span class="p">,</span> <span class="s1">&#39;Fall&#39;</span><span class="p">,</span> <span class="s1">&#39;Winter&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">seasons</span><span class="p">))</span>
 <span class="go">[(0, &#39;Spring&#39;), (1, &#39;Summer&#39;), (2, &#39;Fall&#39;), (3, &#39;Winter&#39;)]</span>
