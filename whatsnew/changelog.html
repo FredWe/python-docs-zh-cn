@@ -151,11 +151,16 @@ or <code class="docutils literal notranslate"><span class="pre">__aexit__()</spa
 <li><a class="reference external" href="https://bugs.python.org/issue33199">bpo-33199</a>: Fix <code class="docutils literal notranslate"><span class="pre">ma_version_tag</span></code> in dict implementation is uninitialized
 when copying from key-sharing dict.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33041">bpo-33041</a>: Fixed jumping when the function contains an <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code> loop.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue21983">bpo-21983</a>: Fix a crash in <a class="reference internal" href="../library/ctypes.html#ctypes.cast" title="ctypes.cast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ctypes.cast()</span></code></a> in case the type argument is a
+ctypes structured data type. Patch by Eryk Sun and Oren Milman.</li>
 </ul>
 </div>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue28556">bpo-28556</a>: Minor fixes in typing module: add annotations to
+<code class="docutils literal notranslate"><span class="pre">NamedTuple.__new__</span></code>, pass <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwds</span></code> in
+<code class="docutils literal notranslate"><span class="pre">Generic.__new__</span></code>.  Original PRs by Paulius Šarka and Chad Dombrova.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue20087">bpo-20087</a>: Updated alias mapping with glibc 2.27 supported locales.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33422">bpo-33422</a>: Fix trailing quotation marks getting deleted when looking up
 byte/string literals on pydoc. Patch by Andrés Delfino.</li>
@@ -8791,7 +8796,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 5月 09, 2018。
+    上次更新于 5月 13, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.4 创建。

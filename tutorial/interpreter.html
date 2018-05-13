@@ -136,12 +136,12 @@
 </div>
 <p>其中 <em>encoding</em> 可以是 Python 支持的任意一种 <a class="reference internal" href="../library/codecs.html#module-codecs" title="codecs: Encode and decode data and streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">codecs</span></code></a>。</p>
 <p>比如，要声明使用 Windows-1252 编码，你的源码文件要写成：</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: cp-1252 -*-</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: cp1252 -*-</span>
 </pre></div>
 </div>
 <p>关于 <em>第一行</em> 规则的一种例外情况是，源码以 <a class="reference internal" href="appendix.html#tut-scripts"><span class="std std-ref">UNIX “shebang” line</span></a> 开头。这种情况下，编码声明就要写在文件的第二行。例如：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
-<span class="c1"># -*- coding: cp-1252 -*-</span>
+<span class="c1"># -*- coding: cp1252 -*-</span>
 </pre></div>
 </div>
 <p class="rubric">脚注</p>
@@ -244,7 +244,7 @@
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 5月 09, 2018。
+    上次更新于 5月 13, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.4 创建。
