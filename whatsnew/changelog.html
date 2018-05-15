@@ -183,6 +183,9 @@ sequences consistently even when called from subclasses without a
 StopIteration in a generator into a return-statement.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33209">bpo-33209</a>: End framing at the end of C implementation of
 <a class="reference internal" href="../library/pickle.html#pickle.Pickler.dump" title="pickle.Pickler.dump"><code class="xref py py-func docutils literal notranslate"><span class="pre">pickle.Pickler.dump()</span></code></a>.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue32861">bpo-32861</a>: The urllib.robotparser’s <code class="docutils literal notranslate"><span class="pre">__str__</span></code> representation now
+includes wildcard entries and the “Crawl-delay” and “Request-rate” fields.
+Patch by Michael Lazar.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33096">bpo-33096</a>: Allow ttk.Treeview.insert to insert iid that has a false
 boolean value. Note iid=0 and iid=False would be same. Patch by Garvit
 Khatri.</li>
@@ -205,6 +208,7 @@ methods are no longer omitted.</li>
 <div class="section" id="documentation">
 <h3>文档<a class="headerlink" href="#documentation" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue33421">bpo-33421</a>: Add missing documentation for <code class="docutils literal notranslate"><span class="pre">typing.AsyncContextManager</span></code>.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33378">bpo-33378</a>: Add Korean language switcher for <a class="reference external" href="https://docs.python.org/3/">https://docs.python.org/3/</a></li>
 <li><a class="reference external" href="https://bugs.python.org/issue33276">bpo-33276</a>: Clarify that the <code class="docutils literal notranslate"><span class="pre">__path__</span></code> attribute on modules cannot be
 just any value.</li>
@@ -8797,7 +8801,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 5月 14, 2018。
+    上次更新于 5月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.4 创建。
