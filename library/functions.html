@@ -432,53 +432,22 @@
 <dt id="eval">
 <code class="descname">eval</code><span class="sig-paren">(</span><em>expression</em>, <em>globals=None</em>, <em>locals=None</em><span class="sig-paren">)</span><a class="headerlink" href="#eval" title="永久链接至目标">¶</a></dt>
 <dd><p>参数是一个字符串，以及可选的 globals 和 locals。<em>globals</em> 参数必须是一个字典。<em>locals</em> 可以是任何映射对象。</p>
-<p>The <em>expression</em> argument is parsed and evaluated as a Python expression
-(technically speaking, a condition list) using the <em>globals</em> and <em>locals</em>
-dictionaries as global and local namespace.  If the <em>globals</em> dictionary is
-present and lacks ‘__builtins__’, the current globals are copied into <em>globals</em>
-before <em>expression</em> is parsed.  This means that <em>expression</em> normally has full
-access to the standard <a class="reference internal" href="builtins.html#module-builtins" title="builtins: The module that provides the built-in namespace."><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a> module and restricted environments are
-propagated.  If the <em>locals</em> dictionary is omitted it defaults to the <em>globals</em>
-dictionary.  If both dictionaries are omitted, the expression is executed in the
-environment where <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> is called.  The return value is the result of
-the evaluated expression. Syntax errors are reported as exceptions.  Example:</p>
+<p><em>expression</em> 参数被解析并执行成 Python 表达式（从技术上讲，是条件列表），<em>globals</em> 和 <em>locals</em> 字典分别用作全局和本地命名空间。如果 <em>globals</em> 字典存在但缺少“__builtins__”，那么当前的全局变量会在解析 <em>expression</em> 前被拷贝进 <em>globals</em>；这意味着，<em>expression</em> 通常可以完全访问标准的 <a class="reference internal" href="builtins.html#module-builtins" title="builtins: The module that provides the built-in namespace."><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a> 模块，并且受限制的环境会传播。如果 <em>locals</em> 被省略了，那它的默认值是 <em>globals</em> 字典。如果两个字典变量都被省略了，则在 <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a>  被调用的环境中执行表达式。函数的返回值是表达式执行的结果。语法错误会产生异常。如：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;x+1&#39;</span><span class="p">)</span>
 <span class="go">2</span>
 </pre></div>
 </div>
-<p>This function can also be used to execute arbitrary code objects (such as
-those created by <a class="reference internal" href="#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a>).  In this case pass a code object instead
-of a string.  If the code object has been compiled with <code class="docutils literal notranslate"><span class="pre">'exec'</span></code> as the
-<em>mode</em> argument, <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a>’s return value will be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>Hints: dynamic execution of statements is supported by the <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a>
-function.  The <a class="reference internal" href="#globals" title="globals"><code class="xref py py-func docutils literal notranslate"><span class="pre">globals()</span></code></a> and <a class="reference internal" href="#locals" title="locals"><code class="xref py py-func docutils literal notranslate"><span class="pre">locals()</span></code></a> functions
-returns the current global and local dictionary, respectively, which may be
-useful to pass around for use by <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> or <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a>.</p>
-<p>See <a class="reference internal" href="ast.html#ast.literal_eval" title="ast.literal_eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">ast.literal_eval()</span></code></a> for a function that can safely evaluate strings
-with expressions containing only literals.</p>
+<p>这个函数也可以用来执行任何代码对象（如 <a class="reference internal" href="#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a>  创建的）。这种情况下，参数是代码对象，而不是字符串。如果编译该对象时的 <em>mode</em> 参数是 <code class="docutils literal notranslate"><span class="pre">'exec'</span></code> 那么 <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> 返回值为 <code class="docutils literal notranslate"><span class="pre">None</span></code> 。</p>
+<p>提示： <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> 函数支持动态执行语句。 <a class="reference internal" href="#globals" title="globals"><code class="xref py py-func docutils literal notranslate"><span class="pre">globals()</span></code></a> 和 <a class="reference internal" href="#locals" title="locals"><code class="xref py py-func docutils literal notranslate"><span class="pre">locals()</span></code></a> 函数各自返回当前的全局和本地字典，因此您可以将它们传递给 <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> 或 <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> 来使用。</p>
+<p>另外可以参阅 <a class="reference internal" href="ast.html#ast.literal_eval" title="ast.literal_eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">ast.literal_eval()</span></code></a>，该函数可以安全执行仅包含文字的表达式字符串。</p>
 </dd></dl>
 
 <span class="target" id="index-2"></span><dl class="function">
 <dt id="exec">
 <code class="descname">exec</code><span class="sig-paren">(</span><em>object</em><span class="optional">[</span>, <em>globals</em><span class="optional">[</span>, <em>locals</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#exec" title="永久链接至目标">¶</a></dt>
-<dd><p>This function supports dynamic execution of Python code. <em>object</em> must be
-either a string or a code object.  If it is a string, the string is parsed as
-a suite of Python statements which is then executed (unless a syntax error
-occurs). <a class="footnote-reference" href="#id2" id="id1">[1]</a> If it is a code object, it is simply executed.  In all cases,
-the code that’s executed is expected to be valid as file input (see the
-section “File input” in the Reference Manual). Be aware that the
-<a class="reference internal" href="../reference/simple_stmts.html#return"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code></a> and <a class="reference internal" href="../reference/simple_stmts.html#yield"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">yield</span></code></a> statements may not be used outside of
-function definitions even within the context of code passed to the
-<a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> function. The return value is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>In all cases, if the optional parts are omitted, the code is executed in the
-current scope.  If only <em>globals</em> is provided, it must be a dictionary, which
-will be used for both the global and the local variables.  If <em>globals</em> and
-<em>locals</em> are given, they are used for the global and local variables,
-respectively.  If provided, <em>locals</em> can be any mapping object.  Remember
-that at module level, globals and locals are the same dictionary. If exec
-gets two separate objects as <em>globals</em> and <em>locals</em>, the code will be
-executed as if it were embedded in a class definition.</p>
+<dd><p>这个函数支持动态执行 Python 代码。<em>object</em> 必须是字符串或者代码对象。如果是字符串，那么该字符串将被解析为一系列 Python 语句并执行（除非发生语法错误）。<a class="footnote-reference" href="#id2" id="id1">[1]</a> 如果是代码对象，它将被直接执行。在任何情况下，被执行的代码都需要和文件输入一样是有效的（见参考手册中关于文件输入的章节）。请注意即使在传递给 <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> 函数的代码的上下文中，<a class="reference internal" href="../reference/simple_stmts.html#return"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code></a> 和 <a class="reference internal" href="../reference/simple_stmts.html#yield"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">yield</span></code></a> 语句也不能在函数定义之外使用。该函数返回值是 <code class="docutils literal notranslate"><span class="pre">None</span></code> 。</p>
+<p>无论哪种情况，如果省略了可选参数，代码将在当前范围内执行。如果提供了 <em>globals</em> 参数，就必须是字典类型，而且会被用作全局和本地变量。如果同时提供了 <em>globals</em> 和 <em>locals</em> 参数，它们分别被用作全局和本地变量。如果提供了 <em>locals</em> 参数，则它可以是任何映射型的对象。请记住在模块层级，全局和本地变量是相同的字典。如果 exec 有两个不同的 <em>globals</em> 和 <em>locals</em> 对象，代码就像嵌入在类定义中一样执行。</p>
 <p>If the <em>globals</em> dictionary does not contain a value for the key
 <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code>, a reference to the dictionary of the built-in module
 <a class="reference internal" href="builtins.html#module-builtins" title="builtins: The module that provides the built-in namespace."><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a> is inserted under that key.  That way you can control what
