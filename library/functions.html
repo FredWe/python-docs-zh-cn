@@ -462,9 +462,9 @@
 <dl class="function">
 <dt id="filter">
 <code class="descname">filter</code><span class="sig-paren">(</span><em>function</em>, <em>iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#filter" title="永久链接至目标">¶</a></dt>
-<dd><p>从 <em>iterable</em>  中函数 <em>function</em> 返回真的那些元素，构建一个新的迭代器。<em>iterable</em> 可以是一个序列，一个支持迭代的容器，或一个迭代器。如果 <em>function</em> 是 <code class="docutils literal notranslate"><span class="pre">None</span></code> ，则会假设它是一个确认函数，即 <em>iterable</em> 中所有错误的元素会被删除。</p>
+<dd><p>用 <em>iterable</em>  中函数 <em>function</em> 返回真的那些元素，构建一个新的迭代器。<em>iterable</em> 可以是一个序列，一个支持迭代的容器，或一个迭代器。如果 <em>function</em> 是 <code class="docutils literal notranslate"><span class="pre">None</span></code> ，则会假设它是一个身份函数，即 <em>iterable</em> 中所有返回假的元素会被移除。</p>
 <p>请注意， <code class="docutils literal notranslate"><span class="pre">filter(function,</span> <span class="pre">iterable)</span></code> 相当于一个生成器表达式，当 function 不是 <code class="docutils literal notranslate"><span class="pre">None</span></code> 的时候为 <code class="docutils literal notranslate"><span class="pre">(item</span> <span class="pre">for</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">iterable</span> <span class="pre">if</span> <span class="pre">function(item))</span></code>；function 是 <code class="docutils literal notranslate"><span class="pre">None</span></code> 的时候为 <code class="docutils literal notranslate"><span class="pre">(item</span> <span class="pre">for</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">iterable</span> <span class="pre">if</span> <span class="pre">item)</span></code> 。</p>
-<p>请参阅 <a class="reference internal" href="itertools.html#itertools.filterfalse" title="itertools.filterfalse"><code class="xref py py-func docutils literal notranslate"><span class="pre">itertools.filterfalse()</span></code></a> 了解 <em>function</em> 返回 false 时才使用 <em>iterable</em> 中元素的补充函数。</p>
+<p>请参阅 <a class="reference internal" href="itertools.html#itertools.filterfalse" title="itertools.filterfalse"><code class="xref py py-func docutils literal notranslate"><span class="pre">itertools.filterfalse()</span></code></a> 了解，只有 <em>function</em> 返回 false 时才选取 <em>iterable</em> 中元素的补充函数。</p>
 </dd></dl>
 
 <dl class="class">
@@ -507,7 +507,7 @@
 <code class="descname">format</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>format_spec</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#format" title="永久链接至目标">¶</a></dt>
 <dd><p>将 <em>value</em> 转换为 <em>format_spec</em> 控制的“格式化”表示。<em>format_spec</em> 的解释取决于 <em>value</em> 参数的类型，但是大多数内置类型使用标准格式化语法：<a class="reference internal" href="string.html#formatspec"><span class="std std-ref">Format Specification Mini-Language</span></a>。</p>
 <p>默认的 <em>format_spec</em> 是一个空字符串，它通常和调用 <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str(value)</span></code></a> 的结果相同。</p>
-<p>调用 <code class="docutils literal notranslate"><span class="pre">format(value,</span> <span class="pre">format_spec)</span></code> 会转换成  <code class="docutils literal notranslate"><span class="pre">type(value).__format__(value,</span> <span class="pre">format_spec)</span></code> ，所以实例字典中的 <a class="reference internal" href="../reference/datamodel.html#object.__format__" title="object.__format__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__format__()</span></code></a> 方法将不会调用。如果搜索到 <a class="reference internal" href="#object" title="object"><code class="xref py py-mod docutils literal notranslate"><span class="pre">object</span></code></a> 的这个方法，然而  <em>format_spec</em> 不为空，或者 <em>format_spec</em> 或返回值不是字符串，会触发 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> 异常。</p>
+<p>调用 <code class="docutils literal notranslate"><span class="pre">format(value,</span> <span class="pre">format_spec)</span></code> 会转换成  <code class="docutils literal notranslate"><span class="pre">type(value).__format__(value,</span> <span class="pre">format_spec)</span></code> ，所以实例字典中的 <a class="reference internal" href="../reference/datamodel.html#object.__format__" title="object.__format__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__format__()</span></code></a> 方法将不会调用。如果搜索到 <a class="reference internal" href="#object" title="object"><code class="xref py py-mod docutils literal notranslate"><span class="pre">object</span></code></a> 有这个方法但  <em>format_spec</em> 不为空，<em>format_spec</em> 或返回值不是字符串，会触发 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> 异常。</p>
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.4 版更改: </span>当 <em>format_spec</em> 不是空字符串时， <code class="docutils literal notranslate"><span class="pre">object().__format__(format_spec)</span></code> 会触发  <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>。</p>
 </div>
@@ -516,37 +516,26 @@
 <span class="target" id="func-frozenset"></span><dl class="class">
 <dt>
 <em class="property">class </em><code class="descname">frozenset</code><span class="sig-paren">(</span><span class="optional">[</span><em>iterable</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
-<dd><p>返回一个新的 <a class="reference internal" href="stdtypes.html#frozenset" title="frozenset"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> 对象，它可包含 <em>iterable</em> 中的元素。 <code class="docutils literal notranslate"><span class="pre">frozenset</span></code> 是一个内置的类。有关此类的文档，请参阅 <a class="reference internal" href="stdtypes.html#frozenset" title="frozenset"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> 和 <a class="reference internal" href="stdtypes.html#types-set"><span class="std std-ref">Set Types — set, frozenset</span></a>。</p>
-<p>For other containers see the built-in <a class="reference internal" href="stdtypes.html#set" title="set"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a>, <a class="reference internal" href="stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>,
-<a class="reference internal" href="stdtypes.html#tuple" title="tuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>, and <a class="reference internal" href="stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> classes, as well as the <a class="reference internal" href="collections.html#module-collections" title="collections: Container datatypes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collections</span></code></a>
-module.</p>
+<dd><p>返回一个新的 <a class="reference internal" href="stdtypes.html#frozenset" title="frozenset"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> 对象，它包含可选参数 <em>iterable</em> 中的元素。 <code class="docutils literal notranslate"><span class="pre">frozenset</span></code> 是一个内置的类。有关此类的文档，请参阅 <a class="reference internal" href="stdtypes.html#frozenset" title="frozenset"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> 和 <a class="reference internal" href="stdtypes.html#types-set"><span class="std std-ref">Set Types — set, frozenset</span></a>。</p>
+<p>请参阅内建的 <a class="reference internal" href="stdtypes.html#set" title="set"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a>、<a class="reference internal" href="stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>、<a class="reference internal" href="stdtypes.html#tuple" title="tuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> 和 <a class="reference internal" href="stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> 类，以及 <a class="reference internal" href="collections.html#module-collections" title="collections: Container datatypes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collections</span></code></a> 模块来了解其它的容器。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="getattr">
 <code class="descname">getattr</code><span class="sig-paren">(</span><em>object</em>, <em>name</em><span class="optional">[</span>, <em>default</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#getattr" title="永久链接至目标">¶</a></dt>
-<dd><p>Return the value of the named attribute of <em>object</em>.  <em>name</em> must be a string.
-If the string is the name of one of the object’s attributes, the result is the
-value of that attribute.  For example, <code class="docutils literal notranslate"><span class="pre">getattr(x,</span> <span class="pre">'foobar')</span></code> is equivalent to
-<code class="docutils literal notranslate"><span class="pre">x.foobar</span></code>.  If the named attribute does not exist, <em>default</em> is returned if
-provided, otherwise <a class="reference internal" href="exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> is raised.</p>
+<dd><p>返回对象命名属性的值。<em>name</em> 必须是字符串。如果该字符串是对象的属性之一，则返回该属性的值。例如， <code class="docutils literal notranslate"><span class="pre">getattr(x,</span> <span class="pre">'foobar')</span></code> 等同于 <code class="docutils literal notranslate"><span class="pre">x.foobar</span></code>。如果指定的属性不存在，且提供了 <em>default</em> 值，则返回它，否则触发 <a class="reference internal" href="exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a>。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="globals">
 <code class="descname">globals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#globals" title="永久链接至目标">¶</a></dt>
-<dd><p>Return a dictionary representing the current global symbol table. This is always
-the dictionary of the current module (inside a function or method, this is the
-module where it is defined, not the module from which it is called).</p>
+<dd><p>返回表示当前全局符号表的字典。这总是当前模块的字典（在函数或方法中，不是调用它的模块，而是定义它的模块）。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="hasattr">
 <code class="descname">hasattr</code><span class="sig-paren">(</span><em>object</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#hasattr" title="永久链接至目标">¶</a></dt>
-<dd><p>The arguments are an object and a string.  The result is <code class="docutils literal notranslate"><span class="pre">True</span></code> if the
-string is the name of one of the object’s attributes, <code class="docutils literal notranslate"><span class="pre">False</span></code> if not. (This
-is implemented by calling <code class="docutils literal notranslate"><span class="pre">getattr(object,</span> <span class="pre">name)</span></code> and seeing whether it
-raises an <a class="reference internal" href="exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> or not.)</p>
+<dd><p>该参数是一个对象和一个字符串。如果字符串是对象的属性之一的名称，则返回 <code class="docutils literal notranslate"><span class="pre">True</span></code>，否则返回 <code class="docutils literal notranslate"><span class="pre">False</span></code>。（此功能是通过调用 <code class="docutils literal notranslate"><span class="pre">getattr(object,</span> <span class="pre">name)</span></code> 看是否有 <a class="reference internal" href="exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> 异常来实现的。）</p>
 </dd></dl>
 
 <dl class="function">
