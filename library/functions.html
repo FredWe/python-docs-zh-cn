@@ -542,15 +542,10 @@
 <dt id="hash">
 <code class="descname">hash</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#hash" title="永久链接至目标">¶</a></dt>
 <dd><blockquote>
-<div>Return the hash value of the object (if it has one).  Hash values are
-integers.  They are used to quickly compare dictionary keys during a
-dictionary lookup.  Numeric values that compare equal have the same hash
-value (even if they are of different types, as is the case for 1 and 1.0).</div></blockquote>
+<div>返回该对象的哈希值（如果它有的话）。哈希值是整数。它们在字典查找元素时用来快速比较字典的键。相同大小的数字变量有相同的哈希值（即使它们类型不同，如 1 和 1.0）。</div></blockquote>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">For objects with custom <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a> methods, note that <a class="reference internal" href="#hash" title="hash"><code class="xref py py-func docutils literal notranslate"><span class="pre">hash()</span></code></a>
-truncates the return value based on the bit width of the host machine.
-See <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a> for details.</p>
+<p class="last">对于对象实现了自己的 <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a>&nbsp;方法，请注意，<a class="reference internal" href="#hash" title="hash"><code class="xref py py-func docutils literal notranslate"><span class="pre">hash()</span></code></a> 根据机器的字长来截断返回值。另请参阅 <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a>。</p>
 </div>
 </dd></dl>
 
