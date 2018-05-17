@@ -372,7 +372,7 @@ work needed to make up for this missing functionality detracts from the
 overall readability of the code.  This issue is particularly important when
 dealing with wire format protocols, which are often a mixture of binary
 and ASCII compatible text.</p>
-<p>Examples:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;Hello %b!&#39;</span> <span class="o">%</span> <span class="sa">b</span><span class="s1">&#39;World&#39;</span>
 <span class="go">b&#39;Hello World!&#39;</span>
 
@@ -1599,7 +1599,7 @@ process.  The new API is more consistent and is the recommended approach
 to invoking subprocesses in Python code that does not need to maintain
 compatibility with earlier Python versions.
 (Contributed by Thomas Kluyver in <a class="reference external" href="https://bugs.python.org/issue23342">bpo-23342</a>.)</p>
-<p>Examples:</p>
+<p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span>  <span class="c1"># doesn&#39;t capture output</span>
 <span class="go">CompletedProcess(args=[&#39;ls&#39;, &#39;-l&#39;], returncode=0)</span>
 
