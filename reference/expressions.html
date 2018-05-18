@@ -706,7 +706,7 @@ slots for which no default value is specified, a <a class="reference internal" h
 raised.  Otherwise, the list of filled slots is used as the argument list for
 the call.</p>
 <div class="impl-detail compound">
-<p><strong>CPython实现细节：</strong> An implementation may provide built-in functions whose positional parameters
+<p><strong>CPython 实现细节：</strong> An implementation may provide built-in functions whose positional parameters
 do not have names, even if they are ‘named’ for the purpose of documentation,
 and which therefore cannot be supplied by keyword.  In CPython, this is the
 case for functions implemented in C that use <a class="reference internal" href="../c-api/arg.html#c.PyArg_ParseTuple" title="PyArg_ParseTuple"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyArg_ParseTuple()</span></code></a> to

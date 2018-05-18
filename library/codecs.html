@@ -1029,7 +1029,7 @@ is meant to be exhaustive. Notice that spelling alternatives that only differ in
 case or use a hyphen instead of an underscore are also valid aliases; therefore,
 e.g. <code class="docutils literal notranslate"><span class="pre">'utf-8'</span></code> is a valid alias for the <code class="docutils literal notranslate"><span class="pre">'utf_8'</span></code> codec.</p>
 <div class="impl-detail compound">
-<p class="compound-first"><strong>CPython实现细节：</strong> Some common encodings can bypass the codecs lookup machinery to
+<p class="compound-first"><strong>CPython 实现细节：</strong> Some common encodings can bypass the codecs lookup machinery to
 improve performance.  These optimization opportunities are only
 recognized by CPython for a limited set of (case insensitive)
 aliases: utf-8, utf8, latin-1, latin1, iso-8859-1, iso8859-1, mbcs

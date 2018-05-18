@@ -671,7 +671,7 @@ given by reduction modulo <code class="docutils literal notranslate"><span class
 made available to Python as the <code class="xref py py-attr docutils literal notranslate"><span class="pre">modulus</span></code> attribute of
 <a class="reference internal" href="sys.html#sys.hash_info" title="sys.hash_info"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.hash_info</span></code></a>.</p>
 <div class="impl-detail compound">
-<p><strong>CPython实现细节：</strong> Currently, the prime used is <code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">=</span> <span class="pre">2**31</span> <span class="pre">-</span> <span class="pre">1</span></code> on machines with 32-bit C
+<p><strong>CPython 实现细节：</strong> Currently, the prime used is <code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">=</span> <span class="pre">2**31</span> <span class="pre">-</span> <span class="pre">1</span></code> on machines with 32-bit C
 longs and <code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">=</span> <span class="pre">2**61</span> <span class="pre">-</span> <span class="pre">1</span></code> on machines with 64-bit C longs.</p>
 </div>
 <p>Here are the rules in detail:</p>
@@ -1184,7 +1184,7 @@ guarantees not to change the relative order of elements that compare equal
 — this is helpful for sorting in multiple passes (for example, sort by
 department, then by salary grade).</p>
 <div class="impl-detail compound">
-<p><strong>CPython实现细节：</strong> While a list is being sorted, the effect of attempting to mutate, or even
+<p><strong>CPython 实现细节：</strong> While a list is being sorted, the effect of attempting to mutate, or even
 inspect, the list is undefined.  The C implementation of Python makes the
 list appear empty for the duration, and raises <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> if it can
 detect that the list has been mutated during a sort.</p>

@@ -205,7 +205,7 @@ internal consistency checks.</p>
 <p><span class="versionmodified">3.3 新版功能.</span></p>
 </div>
 <div class="impl-detail compound">
-<p><strong>CPython实现细节：</strong> This function is specific to CPython.  The exact output format is not
+<p><strong>CPython 实现细节：</strong> This function is specific to CPython.  The exact output format is not
 defined here, and may change.</p>
 </div>
 </dd></dl>
@@ -680,7 +680,7 @@ given, return the frame object that many calls below the top of the stack.  If
 that is deeper than the call stack, <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised.  The default
 for <em>depth</em> is zero, returning the frame at the top of the call stack.</p>
 <div class="impl-detail compound">
-<p><strong>CPython实现细节：</strong> This function should be used for internal and specialized purposes only.
+<p><strong>CPython 实现细节：</strong> This function should be used for internal and specialized purposes only.
 It is not guaranteed to exist in all implementations of Python.</p>
 </div>
 </dd></dl>
@@ -696,7 +696,7 @@ It is not guaranteed to exist in all implementations of Python.</p>
 <code class="descclassname">sys.</code><code class="descname">gettrace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sys.gettrace" title="永久链接至目标">¶</a></dt>
 <dd><p id="index-5">Get the trace function as set by <a class="reference internal" href="#sys.settrace" title="sys.settrace"><code class="xref py py-func docutils literal notranslate"><span class="pre">settrace()</span></code></a>.</p>
 <div class="impl-detail compound">
-<p><strong>CPython实现细节：</strong> The <a class="reference internal" href="#sys.gettrace" title="sys.gettrace"><code class="xref py py-func docutils literal notranslate"><span class="pre">gettrace()</span></code></a> function is intended only for implementing debuggers,
+<p><strong>CPython 实现细节：</strong> The <a class="reference internal" href="#sys.gettrace" title="sys.gettrace"><code class="xref py py-func docutils literal notranslate"><span class="pre">gettrace()</span></code></a> function is intended only for implementing debuggers,
 profilers, coverage tools and the like.  Its behavior is part of the
 implementation platform, rather than part of the language definition, and
 thus may not be available in all Python implementations.</p>
@@ -1327,7 +1327,7 @@ new local trace function.</dd>
 <code class="docutils literal notranslate"><span class="pre">'exception'</span></code> event is generated at each level.</p>
 <p>For more information on code and frame objects, refer to <a class="reference internal" href="../reference/datamodel.html#types"><span class="std std-ref">The standard type hierarchy</span></a>.</p>
 <div class="impl-detail compound">
-<p><strong>CPython实现细节：</strong> The <a class="reference internal" href="#sys.settrace" title="sys.settrace"><code class="xref py py-func docutils literal notranslate"><span class="pre">settrace()</span></code></a> function is intended only for implementing debuggers,
+<p><strong>CPython 实现细节：</strong> The <a class="reference internal" href="#sys.settrace" title="sys.settrace"><code class="xref py py-func docutils literal notranslate"><span class="pre">settrace()</span></code></a> function is intended only for implementing debuggers,
 profilers, coverage tools and the like.  Its behavior is part of the
 implementation platform, rather than part of the language definition, and
 thus may not be available in all Python implementations.</p>
@@ -1601,7 +1601,7 @@ their values, if given explicitly, or to <a class="reference internal" href="con
 </pre></div>
 </div>
 <div class="impl-detail compound">
-<p><strong>CPython实现细节：</strong> This is a CPython-specific way of accessing options passed through
+<p><strong>CPython 实现细节：</strong> This is a CPython-specific way of accessing options passed through
 <a class="reference internal" href="../using/cmdline.html#id5"><code class="xref std std-option docutils literal notranslate"><span class="pre">-X</span></code></a>.  Other implementations may export them through other
 means, or not at all.</p>
 </div>

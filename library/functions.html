@@ -591,7 +591,7 @@
 <code class="descname">id</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#id" title="永久链接至目标">¶</a></dt>
 <dd><p>返回对象的“标识值”。该值是一个整数，在此对象的生命周期中保证是唯一且恒定的。两个生命期不重叠的对象可能具有相同的 <a class="reference internal" href="#id" title="id"><code class="xref py py-func docutils literal notranslate"><span class="pre">id()</span></code></a> 值。</p>
 <div class="impl-detail compound">
-<p><strong>CPython实现细节：</strong> This is the address of the object in memory.</p>
+<p><strong>CPython 实现细节：</strong> This is the address of the object in memory.</p>
 </div>
 </dd></dl>
 
@@ -633,13 +633,13 @@
 <dl class="function">
 <dt id="issubclass">
 <code class="descname">issubclass</code><span class="sig-paren">(</span><em>class</em>, <em>classinfo</em><span class="sig-paren">)</span><a class="headerlink" href="#issubclass" title="永久链接至目标">¶</a></dt>
-<dd><p>如果 <em>class</em> 是 <em>classinfo</em> 的子类（直接、间接或 <span class="xref std std-term">虚拟1</span> 的），则返回 true。<em>classinfo</em> 可以是类对象的元组，此时 <em>classinfo</em> 中的每个元素都会被检查。其他情况，会触发 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> 异常。</p>
+<dd><p>如果 <em>class</em> 是 <em>classinfo</em> 的子类（直接、间接或 <a class="reference internal" href="../glossary.html#term-abstract-base-class"><span class="xref std std-term">虚拟</span></a> 的），则返回 true。<em>classinfo</em> 可以是类对象的元组，此时 <em>classinfo</em> 中的每个元素都会被检查。其他情况，会触发 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> 异常。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="iter">
 <code class="descname">iter</code><span class="sig-paren">(</span><em>object</em><span class="optional">[</span>, <em>sentinel</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#iter" title="永久链接至目标">¶</a></dt>
-<dd><p>返回一个 <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">迭代器</span></a> 对象。根据是否存在第二个参数，第一个参数的解释是非常不同的。如果没有第二个对象，<em>object</em> 必须是支持迭代协议（有 <a class="reference internal" href="../reference/datamodel.html#object.__iter__" title="object.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> 方法）的集合对象，或必须支持序列协议（有 <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> 方法，且数字参数从 <code class="docutils literal notranslate"><span class="pre">0</span></code> 开始）。如果它不支持这些协议，会触发 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>。如果有第二个参数 <em>sentinel</em>，那么 <em>object</em> 必须是可调用的对象。这种情况下生成的迭代器，每次迭代调用它的 <a class="reference internal" href="stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> 方法时都会不带参数的调用 <em>object</em>；如果返回的结果是 <em>sentinel</em> 则触发 <a class="reference internal" href="exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a>，否则返回调用结果。</p>
+<dd><p>返回一个 <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">迭代器</span></a> 对象。根据是否存在第二个参数，第一个参数的解释是非常不同的。如果没有第二个对象，<em>object</em> 必须是支持迭代协议（有 <a class="reference internal" href="../reference/datamodel.html#object.__iter__" title="object.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> 方法）的集合对象，或必须支持序列协议（有 <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> 方法，且数字参数从 <code class="docutils literal notranslate"><span class="pre">0</span></code> 开始）。如果它不支持这些协议，会触发 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>。如果有第二个参数 <em>sentinel</em>，那么 <em>object</em> 必须是可调用的对象。这种情况下生成的迭代器，每次迭代调用它的 <a class="reference internal" href="stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> 方法时都会不带参数地调用 <em>object</em>；如果返回的结果是 <em>sentinel</em> 则触发 <a class="reference internal" href="exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a>，否则返回调用结果。</p>
 <p>另请参阅 <a class="reference internal" href="stdtypes.html#typeiter"><span class="std std-ref">Iterator Types</span></a>。</p>
 <p><a class="reference internal" href="#iter" title="iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">iter()</span></code></a> 的第二种形式的一个有用的用法是将文件读到特定行。在下面的例子中，我们将读取文件，直到 <a class="reference internal" href="io.html#io.TextIOBase.readline" title="io.TextIOBase.readline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readline()</span></code></a> 方法返回一个空字符串</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;mydata.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
@@ -652,7 +652,7 @@
 <dl class="function">
 <dt id="len">
 <code class="descname">len</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#len" title="永久链接至目标">¶</a></dt>
-<dd><p>返回对象的长度（元素个数）。参数可以是序列（如字符串、字节序列、元组、列表、范围等）或收藏集（如字典、集合、冻结集合等）。</p>
+<dd><p>返回对象的长度（元素个数）。参数可以是序列（如 string、bytes、tuple、list 或 range 等）或集合（如 dictionary、set 或 frozen set 等）。</p>
 </dd></dl>
 
 <span class="target" id="func-list"></span><dl class="class">
@@ -683,26 +683,18 @@
 <dt>
 <code class="descname">max</code><span class="sig-paren">(</span><em>arg1</em>, <em>arg2</em>, <em>*args</em><span class="optional">[</span>, <em>key</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
 <dd><p>返回可迭代的元素中最大的，或者返回两个及以上参数中最大的元素。</p>
-<p>如果只提供了一个参数，它必须是非空的 <span class="xref std std-term">可迭代的</span>。返回可迭代的元素中最大的。如果提供了两个及以上的参数，则返回最大的参数。</p>
-<p>There are two optional keyword-only arguments. The <em>key</em> argument specifies
-a one-argument ordering function like that used for <a class="reference internal" href="stdtypes.html#list.sort" title="list.sort"><code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code></a>. The
-<em>default</em> argument specifies an object to return if the provided iterable is
-empty. If the iterable is empty and <em>default</em> is not provided, a
-<a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised.</p>
-<p>If multiple items are maximal, the function returns the first one
-encountered.  This is consistent with other sort-stability preserving tools
-such as <code class="docutils literal notranslate"><span class="pre">sorted(iterable,</span> <span class="pre">key=keyfunc,</span> <span class="pre">reverse=True)[0]</span></code> and
-<code class="docutils literal notranslate"><span class="pre">heapq.nlargest(1,</span> <span class="pre">iterable,</span> <span class="pre">key=keyfunc)</span></code>.</p>
+<p>如果只提供了一个参数，它必须是非空 <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">可迭代的</span></a>，返回可迭代的元素中最大的；如果提供了两个及以上的参数，则返回最大的参数。</p>
+<p>有两个可选只能用关键字的参数。<em>key</em> 参数指定排序函数用的参数，如传给 <a class="reference internal" href="stdtypes.html#list.sort" title="list.sort"><code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code></a> 的。<em>default</em> 参数指定，当可迭代的元素为空时返回的值。如果可迭代的元素为空，并且没有给 <em>default</em>  参数，则会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>。</p>
+<p>如果有多个最大元素，则此函数将返回第一个找到的。这和其他稳定排序工具如 <code class="docutils literal notranslate"><span class="pre">sorted(iterable,</span> <span class="pre">key=keyfunc,</span> <span class="pre">reverse=True)[0]</span></code> 和 <code class="docutils literal notranslate"><span class="pre">heapq.nlargest(1,</span> <span class="pre">iterable,</span> <span class="pre">key=keyfunc)</span></code> 保持一致。</p>
 <div class="versionadded">
-<p><span class="versionmodified">3.4 新版功能: </span>The <em>default</em> keyword-only argument.</p>
+<p><span class="versionmodified">3.4 新版功能: </span>只能使用关键字的 <em>default</em> 参数。</p>
 </div>
 </dd></dl>
 
 <span class="target" id="func-memoryview"></span><dl class="function">
 <dt>
 <code class="descname">memoryview</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span></dt>
-<dd><p>Return a “memory view” object created from the given argument.  See
-<a class="reference internal" href="stdtypes.html#typememoryview"><span class="std std-ref">Memory Views</span></a> for more information.</p>
+<dd><p>返回由给定参数创建的“内存视图”对象。有关详细信息，请参阅 <a class="reference internal" href="stdtypes.html#typememoryview"><span class="std std-ref">Memory Views</span></a>。</p>
 </dd></dl>
 
 <dl class="function">
@@ -710,62 +702,42 @@ such as <code class="docutils literal notranslate"><span class="pre">sorted(iter
 <code class="descname">min</code><span class="sig-paren">(</span><em>iterable</em>, <em>*</em><span class="optional">[</span>, <em>key</em>, <em>default</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#min" title="永久链接至目标">¶</a></dt>
 <dt>
 <code class="descname">min</code><span class="sig-paren">(</span><em>arg1</em>, <em>arg2</em>, <em>*args</em><span class="optional">[</span>, <em>key</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
-<dd><p>Return the smallest item in an iterable or the smallest of two or more
-arguments.</p>
-<p>If one positional argument is provided, it should be an <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">iterable</span></a>.
-The smallest item in the iterable is returned.  If two or more positional
-arguments are provided, the smallest of the positional arguments is
-returned.</p>
-<p>There are two optional keyword-only arguments. The <em>key</em> argument specifies
-a one-argument ordering function like that used for <a class="reference internal" href="stdtypes.html#list.sort" title="list.sort"><code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code></a>. The
-<em>default</em> argument specifies an object to return if the provided iterable is
-empty. If the iterable is empty and <em>default</em> is not provided, a
-<a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised.</p>
-<p>If multiple items are minimal, the function returns the first one
-encountered.  This is consistent with other sort-stability preserving tools
-such as <code class="docutils literal notranslate"><span class="pre">sorted(iterable,</span> <span class="pre">key=keyfunc)[0]</span></code> and <code class="docutils literal notranslate"><span class="pre">heapq.nsmallest(1,</span>
-<span class="pre">iterable,</span> <span class="pre">key=keyfunc)</span></code>.</p>
+<dd><p>返回可迭代的元素中最小的，或者返回两个及以上参数中最小的元素。</p>
+<p>如果只提供了一个参数，它必须是 <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">可迭代的</span></a>，返回可迭代的元素中最小的；如果提供了两个及以上的参数，则返回最小的参数。</p>
+<p>有两个可选只能用关键字的参数。<em>key</em> 参数指定排序函数用的参数，如传给 <a class="reference internal" href="stdtypes.html#list.sort" title="list.sort"><code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code></a> 的。<em>default</em> 参数指定，当可迭代的元素为空时返回的值。如果可迭代的元素为空，并且没有给 <em>default</em>  参数，则会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>。</p>
+<p>如果有多个最小元素，则此函数将返回第一个找到的。这和其他稳定排序工具如 <code class="docutils literal notranslate"><span class="pre">sorted(iterable,</span> <span class="pre">key=keyfunc)[0]</span></code> 和 <code class="docutils literal notranslate"><span class="pre">heapq.nsmallest(1,</span> <span class="pre">iterable,</span> <span class="pre">key=keyfunc)</span></code> 保持一致。</p>
 <div class="versionadded">
-<p><span class="versionmodified">3.4 新版功能: </span>The <em>default</em> keyword-only argument.</p>
+<p><span class="versionmodified">3.4 新版功能: </span>只能使用关键字的 <em>default</em> 参数。</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="next">
 <code class="descname">next</code><span class="sig-paren">(</span><em>iterator</em><span class="optional">[</span>, <em>default</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#next" title="永久链接至目标">¶</a></dt>
-<dd><p>Retrieve the next item from the <em>iterator</em> by calling its
-<a class="reference internal" href="stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method.  If <em>default</em> is given, it is returned
-if the iterator is exhausted, otherwise <a class="reference internal" href="exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> is raised.</p>
+<dd><p>通过调用 <em>iterator</em> 的 <a class="reference internal" href="stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> 方法获取下一个元素。如果迭代器耗尽，则返回给定的 <em>default</em>，如果没有默认值则触发 <a class="reference internal" href="exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a>。</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="object">
 <em class="property">class </em><code class="descname">object</code><a class="headerlink" href="#object" title="永久链接至目标">¶</a></dt>
-<dd><p>Return a new featureless object.  <a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> is a base for all classes.
-It has the methods that are common to all instances of Python classes.  This
-function does not accept any arguments.</p>
+<dd><p>返回一个没有特征的新对象。<a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> 是所有类的基类。它具有所有 Python 类实例的通用方法。这个函数不接受任何参数。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last"><a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> does <em>not</em> have a <a class="reference internal" href="stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a>, so you can’t
-assign arbitrary attributes to an instance of the <a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> class.</p>
+<p class="last">由于 <a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> 没有 <a class="reference internal" href="stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a>，因此无法将任意属性赋给 <a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> 的实例。</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="oct">
 <code class="descname">oct</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#oct" title="永久链接至目标">¶</a></dt>
-<dd><p>Convert an integer number to an octal string prefixed with “0o”.  The result
-is a valid Python expression. If <em>x</em> is not a Python <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> object, it
-has to define an <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method that returns an integer. For
-example:</p>
+<dd><p>将一个整数转变为一个前缀为“0o”的八进制字符串。结果是一个合法的 Python 表达式。如果 <em>x</em> 不是 Python 的 <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> 对象，那它需要定义 <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a>  方法返回一个整数。一些例子：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">oct</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span class="go">&#39;0o10&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">oct</span><span class="p">(</span><span class="o">-</span><span class="mi">56</span><span class="p">)</span>
 <span class="go">&#39;-0o70&#39;</span>
 </pre></div>
 </div>
-<p>If you want to convert an integer number to octal string either with prefix
-“0o” or not, you can use either of the following ways.</p>
+<p>如果要将整数转换为八进制字符串，并可选择有无“0o”前缀，则可以使用如下方法：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;</span><span class="si">%#o</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%o</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">10</span>
 <span class="go">(&#39;0o12&#39;, &#39;12&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;#o&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
@@ -811,25 +783,25 @@ encoding. (For reading and writing raw bytes use binary mode and leave
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'r'</span></code></td>
-<td>open for reading (default)</td>
+<td>读取（默认）</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'w'</span></code></td>
-<td>open for writing, truncating the file first</td>
+<td>写入，并先截断文件</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'x'</span></code></td>
-<td>open for exclusive creation, failing if the file already exists</td>
+<td>排它性创建，如果文件已存在则失败</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'a'</span></code></td>
-<td>open for writing, appending to the end of the file if it exists</td>
+<td>写入，如果文件存在则在末尾追加</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'b'</span></code></td>
-<td>binary mode</td>
+<td>二进制模式</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'t'</span></code></td>
-<td>text mode (default)</td>
+<td>文本模式（默认）</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'+'</span></code></td>
-<td>open a disk file for updating (reading and writing)</td>
+<td>更新磁盘文件（读取并写入）</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'U'</span></code></td>
 <td><a class="reference internal" href="../glossary.html#term-universal-newlines"><span class="xref std std-term">universal newlines</span></a> mode (deprecated)</td>
@@ -1495,9 +1467,7 @@ the default value to 0).</p>
 <table class="docutils footnote" frame="void" id="id2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Note that the parser only accepts the Unix-style end of line convention.
-If you are reading the code from a file, make sure to use newline conversion
-mode to convert Windows or Mac-style newlines.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>解析器只接受 Unix 风格的行结束符。如果您从文件中读取代码，请确保用换行符转换模式转换Windows 或 Mac 风格的换行符。</td></tr>
 </tbody>
 </table>
 </div>
