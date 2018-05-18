@@ -986,9 +986,7 @@ wrap a file descriptor in a file object, use <a class="reference internal" href=
 <p><span class="versionmodified">3.3 新版功能: </span>The <em>dir_fd</em> argument.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.5 版更改: </span>If the system call is interrupted and the signal handler does not raise an
-exception, the function now retries the system call instead of raising an
-<a class="reference internal" href="exceptions.html#InterruptedError" title="InterruptedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InterruptedError</span></code></a> exception (see <span class="target" id="index-14"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0475"><strong>PEP 475</strong></a> for the rationale).</p>
+<p><span class="versionmodified">在 3.5 版更改: </span>如果系统调用被中断，但信号处理程序没有触发异常，此函数现在会重试系统调用，而不是触发 <a class="reference internal" href="exceptions.html#InterruptedError" title="InterruptedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InterruptedError</span></code></a> 异常（原因详见 <span class="target" id="index-40"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0475"><strong>PEP 475</strong></a>）。</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.6 版更改: </span>Accepts a <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like object</span></a>.</p>
@@ -1209,9 +1207,7 @@ descriptor as returned by <a class="reference internal" href="#os.open" title="o
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">read()</span></code> or <code class="xref py py-meth docutils literal notranslate"><span class="pre">readline()</span></code> methods.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.5 版更改: </span>If the system call is interrupted and the signal handler does not raise an
-exception, the function now retries the system call instead of raising an
-<a class="reference internal" href="exceptions.html#InterruptedError" title="InterruptedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InterruptedError</span></code></a> exception (see <span class="target" id="index-16"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0475"><strong>PEP 475</strong></a> for the rationale).</p>
+<p><span class="versionmodified">在 3.5 版更改: </span>如果系统调用被中断，但信号处理程序没有触发异常，此函数现在会重试系统调用，而不是触发 <a class="reference internal" href="exceptions.html#InterruptedError" title="InterruptedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InterruptedError</span></code></a> 异常（原因详见 <span class="target" id="index-41"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0475"><strong>PEP 475</strong></a>）。</p>
 </div>
 </dd></dl>
 
@@ -1328,9 +1324,7 @@ object” returned by the built-in function <a class="reference internal" href="
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code> method.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.5 版更改: </span>If the system call is interrupted and the signal handler does not raise an
-exception, the function now retries the system call instead of raising an
-<a class="reference internal" href="exceptions.html#InterruptedError" title="InterruptedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InterruptedError</span></code></a> exception (see <span class="target" id="index-17"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0475"><strong>PEP 475</strong></a> for the rationale).</p>
+<p><span class="versionmodified">在 3.5 版更改: </span>如果系统调用被中断，但信号处理程序没有触发异常，此函数现在会重试系统调用，而不是触发 <a class="reference internal" href="exceptions.html#InterruptedError" title="InterruptedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InterruptedError</span></code></a> 异常（原因详见 <span class="target" id="index-42"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0475"><strong>PEP 475</strong></a>）。</p>
 </div>
 </dd></dl>
 
@@ -3613,9 +3607,7 @@ value of integer <em>options</em> has no effect. <em>pid</em> can refer to any p
 id is known, not necessarily a child process. The <a class="reference internal" href="#os.spawnl" title="os.spawnl"><code class="xref py py-func docutils literal notranslate"><span class="pre">spawn*</span></code></a>
 functions called with <a class="reference internal" href="#os.P_NOWAIT" title="os.P_NOWAIT"><code class="xref py py-const docutils literal notranslate"><span class="pre">P_NOWAIT</span></code></a> return suitable process handles.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.5 版更改: </span>If the system call is interrupted and the signal handler does not raise an
-exception, the function now retries the system call instead of raising an
-<a class="reference internal" href="exceptions.html#InterruptedError" title="InterruptedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InterruptedError</span></code></a> exception (see <span class="target" id="index-33"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0475"><strong>PEP 475</strong></a> for the rationale).</p>
+<p><span class="versionmodified">在 3.5 版更改: </span>如果系统调用被中断，但信号处理程序没有触发异常，此函数现在会重试系统调用，而不是触发 <a class="reference internal" href="exceptions.html#InterruptedError" title="InterruptedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InterruptedError</span></code></a> 异常（原因详见 <span class="target" id="index-43"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0475"><strong>PEP 475</strong></a>）。</p>
 </div>
 </dd></dl>
 

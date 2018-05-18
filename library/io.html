@@ -667,7 +667,7 @@ file descriptor for the file object is then obtained by calling <em>opener</em> 
 (<em>name</em>, <em>flags</em>). <em>opener</em> must return an open file descriptor (passing
 <a class="reference internal" href="os.html#os.open" title="os.open"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.open</span></code></a> as <em>opener</em> results in functionality similar to passing
 <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p>
-<p>The newly created file is <a class="reference internal" href="os.html#fd-inheritance"><span class="std std-ref">non-inheritable</span></a>.</p>
+<p>新创建的文件是 <a class="reference internal" href="os.html#fd-inheritance"><span class="std std-ref">不可继承的</span></a>。</p>
 <p>See the <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> built-in function for examples on using the <em>opener</em>
 parameter.</p>
 <div class="versionchanged">
@@ -675,7 +675,7 @@ parameter.</p>
 The <code class="docutils literal notranslate"><span class="pre">'x'</span></code> mode was added.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.4 版更改: </span>The file is now non-inheritable.</p>
+<p><span class="versionmodified">在 3.4 版更改: </span>文件现在禁止继承。</p>
 </div>
 <p>In addition to the attributes and methods from <a class="reference internal" href="#io.IOBase" title="io.IOBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOBase</span></code></a> and
 <a class="reference internal" href="#io.RawIOBase" title="io.RawIOBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">RawIOBase</span></code></a>, <a class="reference internal" href="#io.FileIO" title="io.FileIO"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileIO</span></code></a> provides the following data

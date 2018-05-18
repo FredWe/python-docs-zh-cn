@@ -314,7 +314,7 @@
 <dd><p>将 <em>source</em> 编译成 code 或者 AST 对象。Code 对象可以被 <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> 或 <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> 执行。<em>source</em> 可以是常规的字符串、字节字符串，或者 AST 对象。参见 <a class="reference internal" href="ast.html#module-ast" title="ast: Abstract Syntax Tree classes and manipulation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ast</span></code></a> 模块的文档了解如何使用 AST 对象。</p>
 <p><em>filename</em> 参数需要是代码读取的文件名；如果代码不需要从文件中读取，可以传入一些可辨识的值（经常会使用 <code class="docutils literal notranslate"><span class="pre">'&lt;string&gt;'</span></code>）。</p>
 <p><em>mode</em> 参数指定了编译代码必须用的模式。如果 <em>source</em> 是语句序列，可以是 <code class="docutils literal notranslate"><span class="pre">'exec'</span></code>；如果是单一表达式，可以是 <code class="docutils literal notranslate"><span class="pre">'eval'</span></code>；如果是单个交互式语句，可以是 <code class="docutils literal notranslate"><span class="pre">'single'</span></code>。（在最后一种情况下，如果表达式执行结果不是 <code class="docutils literal notranslate"><span class="pre">None</span></code> 将会被打印出来。）</p>
-<p>可选参数 <em>flags</em> 和 <em>dont_inherit</em> 控制编译 <em>source</em> 时会用到的 future 语句（参见 <span class="target" id="index-16"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0236"><strong>PEP 236</strong></a>）。如果两者都没提供（或都为零），则使用调用 <a class="reference internal" href="#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> 的代码中有效 future 语句来编译。如果给了 <em>flags</em> 参数但 <em>dont_inherit</em> 没有（或者为零），则 <em>flags</em> 指定的 future 语句以及那些无论如何会用到的 future 语句会被使用。如果 <em>dont_inherit</em> 是非零整数，则使用 <em>flags</em> 参数指定的，代码中有效的 future 语句会被忽略。</p>
+<p>可选参数 <em>flags</em> 和 <em>dont_inherit</em> 控制编译 <em>source</em> 时会用到的 future 语句（参见 <span class="target" id="index-17"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0236"><strong>PEP 236</strong></a>）。如果两者都没提供（或都为零），则使用调用 <a class="reference internal" href="#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> 的代码中有效 future 语句来编译。如果给了 <em>flags</em> 参数但 <em>dont_inherit</em> 没有（或者为零），则 <em>flags</em> 指定的 future 语句以及那些无论如何会用到的 future 语句会被使用。如果 <em>dont_inherit</em> 是非零整数，则使用 <em>flags</em> 参数指定的，代码中有效的 future 语句会被忽略。</p>
 <p>Future 语句使用比特位来指定，多个语句可以通过按位或来指定。具体特性的比特位可以通过 <a class="reference internal" href="__future__.html#module-__future__" title="__future__: Future statement definitions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__future__</span></code></a>  模块中的 <code class="xref py py-class docutils literal notranslate"><span class="pre">_Feature</span></code> 类的实例的 <code class="xref py py-attr docutils literal notranslate"><span class="pre">compiler_flag</span></code> 属性来获得。</p>
 <p><em>optimize</em> 参数指定编译器的优化级别；默认值 <code class="docutils literal notranslate"><span class="pre">-1</span></code>  选择与解释器的 <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> 选项相同的优化级别。显式级别为 <code class="docutils literal notranslate"><span class="pre">0</span></code> （没有优化；<code class="docutils literal notranslate"><span class="pre">__debug__</span></code>  为真）、<code class="docutils literal notranslate"><span class="pre">1</span></code> （断言被删除， <code class="docutils literal notranslate"><span class="pre">__debug__</span></code> 为假）或 <code class="docutils literal notranslate"><span class="pre">2</span></code> （文档字符串也被删除）。</p>
 <p>如果编译的源码不合法，此函数会触发 <a class="reference internal" href="exceptions.html#SyntaxError" title="SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> 异常；如果源码包含 null 字节，则会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> 异常。</p>
@@ -754,8 +754,7 @@
 <dl class="function">
 <dt id="open">
 <code class="descname">open</code><span class="sig-paren">(</span><em>file</em>, <em>mode='r'</em>, <em>buffering=-1</em>, <em>encoding=None</em>, <em>errors=None</em>, <em>newline=None</em>, <em>closefd=True</em>, <em>opener=None</em><span class="sig-paren">)</span><a class="headerlink" href="#open" title="永久链接至目标">¶</a></dt>
-<dd><p>Open <em>file</em> and return a corresponding <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a>.  If the file
-cannot be opened, an <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> is raised.</p>
+<dd><p>打开 <em>file</em> 并返回对应的 <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">文件对象</span></a>。如果该文件不能打开，则触发 <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>。</p>
 <p><em>file</em> is a <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like object</span></a> giving the pathname (absolute or
 relative to the current working directory) of the file to be opened or an
 integer file descriptor of the file to be wrapped.  (If a file descriptor is
@@ -777,7 +776,7 @@ encoding. (For reading and writing raw bytes use binary mode and leave
 <col width="88%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Character</th>
+<tr class="row-odd"><th class="head">字符</th>
 <th class="head">意义</th>
 </tr>
 </thead>
@@ -804,13 +803,11 @@ encoding. (For reading and writing raw bytes use binary mode and leave
 <td>更新磁盘文件（读取并写入）</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'U'</span></code></td>
-<td><a class="reference internal" href="../glossary.html#term-universal-newlines"><span class="xref std std-term">universal newlines</span></a> mode (deprecated)</td>
+<td><a class="reference internal" href="../glossary.html#term-universal-newlines"><span class="xref std std-term">通用换行</span></a> 模式（已弃用）</td>
 </tr>
 </tbody>
 </table>
-<p>The default mode is <code class="docutils literal notranslate"><span class="pre">'r'</span></code> (open for reading text, synonym of <code class="docutils literal notranslate"><span class="pre">'rt'</span></code>).
-For binary read-write access, the mode <code class="docutils literal notranslate"><span class="pre">'w+b'</span></code> opens and truncates the file
-to 0 bytes.  <code class="docutils literal notranslate"><span class="pre">'r+b'</span></code> opens the file without truncation.</p>
+<p>默认的模式是 <code class="docutils literal notranslate"><span class="pre">'r'``（打开并读取文本，同</span> <span class="pre">``'rt'</span></code>）。对于以二进制写入， <code class="docutils literal notranslate"><span class="pre">'w+b'</span></code> 模式打开并把文件截断成 0 字节； <code class="docutils literal notranslate"><span class="pre">'r+b'</span></code>&nbsp;则不会截断。</p>
 <p>As mentioned in the <a class="reference internal" href="io.html#io-overview"><span class="std std-ref">Overview</span></a>, Python distinguishes between binary
 and text I/O.  Files opened in binary mode (including <code class="docutils literal notranslate"><span class="pre">'b'</span></code> in the <em>mode</em>
 argument) return contents as <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> objects without any decoding.  In
@@ -899,9 +896,8 @@ file descriptor for the file object is then obtained by calling <em>opener</em> 
 (<em>file</em>, <em>flags</em>). <em>opener</em> must return an open file descriptor (passing
 <a class="reference internal" href="os.html#os.open" title="os.open"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.open</span></code></a> as <em>opener</em> results in functionality similar to passing
 <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p>
-<p>The newly created file is <a class="reference internal" href="os.html#fd-inheritance"><span class="std std-ref">non-inheritable</span></a>.</p>
-<p>The following example uses the <a class="reference internal" href="os.html#dir-fd"><span class="std std-ref">dir_fd</span></a> parameter of the
-<a class="reference internal" href="os.html#os.open" title="os.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.open()</span></code></a> function to open a file relative to a given directory:</p>
+<p>新创建的文件是 <a class="reference internal" href="os.html#fd-inheritance"><span class="std std-ref">不可继承的</span></a>。</p>
+<p>下面的示例使用 <a class="reference internal" href="os.html#os.open" title="os.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.open()</span></code></a> 函数 <a class="reference internal" href="os.html#dir-fd"><span class="std std-ref">dir_fd</span></a> 的参数，从给定的目录中用相对路径打开文件:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dir_fd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;somedir&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">O_RDONLY</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">opener</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">flags</span><span class="p">):</span>
@@ -924,46 +920,40 @@ append binary modes, it returns an <a class="reference internal" href="io.html#i
 read/write mode, it returns an <a class="reference internal" href="io.html#io.BufferedRandom" title="io.BufferedRandom"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.BufferedRandom</span></code></a>.  When buffering is
 disabled, the raw stream, a subclass of <a class="reference internal" href="io.html#io.RawIOBase" title="io.RawIOBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.RawIOBase</span></code></a>,
 <a class="reference internal" href="io.html#io.FileIO" title="io.FileIO"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.FileIO</span></code></a>, is returned.</p>
-<p id="index-7">See also the file handling modules, such as, <a class="reference internal" href="fileinput.html#module-fileinput" title="fileinput: Loop over standard input or a list of files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">fileinput</span></code></a>, <a class="reference internal" href="io.html#module-io" title="io: Core tools for working with streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">io</span></code></a>
-(where <a class="reference internal" href="#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> is declared), <a class="reference internal" href="os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a>, <a class="reference internal" href="os.path.html#module-os.path" title="os.path: Operations on pathnames."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.path</span></code></a>, <a class="reference internal" href="tempfile.html#module-tempfile" title="tempfile: Generate temporary files and directories."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tempfile</span></code></a>,
-and <a class="reference internal" href="shutil.html#module-shutil" title="shutil: High-level file operations, including copying."><code class="xref py py-mod docutils literal notranslate"><span class="pre">shutil</span></code></a>.</p>
+<p id="index-7">另请参阅文件操作模块，例如 <a class="reference internal" href="fileinput.html#module-fileinput" title="fileinput: Loop over standard input or a list of files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">fileinput</span></code></a>、<code class="xref py py-mod docutils literal notranslate"><span class="pre">io`（声明了</span> <span class="pre">:func:`open</span></code>）、<a class="reference internal" href="os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a>、<a class="reference internal" href="os.path.html#module-os.path" title="os.path: Operations on pathnames."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.path</span></code></a>、<a class="reference internal" href="tempfile.html#module-tempfile" title="tempfile: Generate temporary files and directories."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tempfile</span></code></a> 和 <a class="reference internal" href="shutil.html#module-shutil" title="shutil: High-level file operations, including copying."><code class="xref py py-mod docutils literal notranslate"><span class="pre">shutil</span></code></a>。</p>
 <div class="versionchanged">
 <blockquote>
 <div><span class="versionmodified">在 3.3 版更改: </span><ul class="simple">
-<li>The <em>opener</em> parameter was added.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">'x'</span></code> mode was added.</li>
-<li><a class="reference internal" href="exceptions.html#IOError" title="IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a> used to be raised, it is now an alias of <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>.</li>
-<li><a class="reference internal" href="exceptions.html#FileExistsError" title="FileExistsError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileExistsError</span></code></a> is now raised if the file opened in exclusive
-creation mode (<code class="docutils literal notranslate"><span class="pre">'x'</span></code>) already exists.</li>
+<li>增加了 <em>opener</em> 参数。</li>
+<li>增加了 <code class="docutils literal notranslate"><span class="pre">'x'</span></code> 模式。</li>
+<li>过去触发的 <a class="reference internal" href="exceptions.html#IOError" title="IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a>，现在是 <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> 的别名。</li>
+<li>如果文件已存在但使用了排它性创建模式（ <code class="docutils literal notranslate"><span class="pre">'x'</span></code> ），现在会触发 <a class="reference internal" href="exceptions.html#FileExistsError" title="FileExistsError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileExistsError</span></code></a>。</li>
 </ul>
 </div></blockquote>
 </div>
 <div class="versionchanged">
 <blockquote>
 <div><span class="versionmodified">在 3.4 版更改: </span><ul class="simple">
-<li>The file is now non-inheritable.</li>
+<li>文件现在禁止继承。</li>
 </ul>
 </div></blockquote>
 </div>
 <div class="deprecated-removed">
-<p><span class="versionmodified">从版本 3.4 开始标记为过时，将在版本 4.0 中移除。: </span>The <code class="docutils literal notranslate"><span class="pre">'U'</span></code> mode.</p>
+<p><span class="versionmodified">从版本 3.4 开始标记为过时，将在版本 4.0 中移除。: </span><code class="docutils literal notranslate"><span class="pre">'U'</span></code> 模式。</p>
 </div>
 <div class="versionchanged">
 <blockquote>
 <div><span class="versionmodified">在 3.5 版更改: </span><ul class="simple">
-<li>If the system call is interrupted and the signal handler does not raise an
-exception, the function now retries the system call instead of raising an
-<a class="reference internal" href="exceptions.html#InterruptedError" title="InterruptedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InterruptedError</span></code></a> exception (see <span class="target" id="index-8"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0475"><strong>PEP 475</strong></a> for the rationale).</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">'namereplace'</span></code> error handler was added.</li>
+<li>如果系统调用被中断，但信号处理程序没有触发异常，此函数现在会重试系统调用，而不是触发 <a class="reference internal" href="exceptions.html#InterruptedError" title="InterruptedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InterruptedError</span></code></a> 异常（原因详见 <span class="target" id="index-18"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0475"><strong>PEP 475</strong></a>）。</li>
+<li>增加了 <code class="docutils literal notranslate"><span class="pre">'namereplace'</span></code> 错误处理接口。</li>
 </ul>
 </div></blockquote>
 </div>
 <div class="versionchanged">
 <blockquote>
 <div><span class="versionmodified">在 3.6 版更改: </span><ul class="simple">
-<li>Support added to accept objects implementing <a class="reference internal" href="os.html#os.PathLike" title="os.PathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a>.</li>
-<li>On Windows, opening a console buffer may return a subclass of
-<a class="reference internal" href="io.html#io.RawIOBase" title="io.RawIOBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.RawIOBase</span></code></a> other than <a class="reference internal" href="io.html#io.FileIO" title="io.FileIO"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.FileIO</span></code></a>.</li>
+<li>增加对实现了 <a class="reference internal" href="os.html#os.PathLike" title="os.PathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a> 对象的支持。</li>
+<li>在 Windows 上，打开一个控制台缓冲区将返回 <a class="reference internal" href="io.html#io.RawIOBase" title="io.RawIOBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.RawIOBase</span></code></a> 的子类，而不是 <a class="reference internal" href="io.html#io.FileIO" title="io.FileIO"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.FileIO</span></code></a>。</li>
 </ul>
 </div></blockquote>
 </div>
@@ -972,18 +962,13 @@ exception, the function now retries the system call instead of raising an
 <dl class="function">
 <dt id="ord">
 <code class="descname">ord</code><span class="sig-paren">(</span><em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#ord" title="永久链接至目标">¶</a></dt>
-<dd><p>Given a string representing one Unicode character, return an integer
-representing the Unicode code point of that character.  For example,
-<code class="docutils literal notranslate"><span class="pre">ord('a')</span></code> returns the integer <code class="docutils literal notranslate"><span class="pre">97</span></code> and <code class="docutils literal notranslate"><span class="pre">ord('€')</span></code> (Euro sign)
-returns <code class="docutils literal notranslate"><span class="pre">8364</span></code>.  This is the inverse of <a class="reference internal" href="#chr" title="chr"><code class="xref py py-func docutils literal notranslate"><span class="pre">chr()</span></code></a>.</p>
+<dd><p>对表示单个 Unicode 字符的字符串，返回代表它 Unicode 码点的整数。例如 <code class="docutils literal notranslate"><span class="pre">ord('a')</span></code> 返回整数 <code class="docutils literal notranslate"><span class="pre">97</span></code>， <code class="docutils literal notranslate"><span class="pre">ord('€')``（欧元符合）返回</span> <span class="pre">``8364</span></code>。这是 <a class="reference internal" href="#chr" title="chr"><code class="xref py py-func docutils literal notranslate"><span class="pre">chr()</span></code></a> 的逆函数。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="pow">
 <code class="descname">pow</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="optional">[</span>, <em>z</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#pow" title="永久链接至目标">¶</a></dt>
-<dd><p>Return <em>x</em> to the power <em>y</em>; if <em>z</em> is present, return <em>x</em> to the power <em>y</em>,
-modulo <em>z</em> (computed more efficiently than <code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">y)</span> <span class="pre">%</span> <span class="pre">z</span></code>). The two-argument
-form <code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">y)</span></code> is equivalent to using the power operator: <code class="docutils literal notranslate"><span class="pre">x**y</span></code>.</p>
+<dd><p>返回 <em>x</em> 的 <em>y</em> 次幂；如果 <em>z</em> 存在，则对 <em>z</em> 取余（比直接 <code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">y)</span> <span class="pre">%</span> <span class="pre">z</span></code> 计算更高效）。两个参数形式的 <code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">y)</span></code> 等价于幂运算符： <code class="docutils literal notranslate"><span class="pre">x**y</span></code>。</p>
 <p>The arguments must have numeric types.  With mixed operand types, the
 coercion rules for binary arithmetic operators apply.  For <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>
 operands, the result has the same type as the operands (after coercion)
@@ -1012,14 +997,14 @@ binary mode file objects.  For these, use <code class="docutils literal notransl
 <p>Whether output is buffered is usually determined by <em>file</em>, but if the
 <em>flush</em> keyword argument is true, the stream is forcibly flushed.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.3 版更改: </span>Added the <em>flush</em> keyword argument.</p>
+<p><span class="versionmodified">在 3.3 版更改: </span>增加了 <em>flush</em> 关键字参数。</p>
 </div>
 </dd></dl>
 
 <dl class="class">
 <dt id="property">
 <em class="property">class </em><code class="descname">property</code><span class="sig-paren">(</span><em>fget=None</em>, <em>fset=None</em>, <em>fdel=None</em>, <em>doc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#property" title="永久链接至目标">¶</a></dt>
-<dd><p>Return a property attribute.</p>
+<dd><p>返回 property 属性。</p>
 <p><em>fget</em> is a function for getting an attribute value.  <em>fset</em> is a function
 for setting an attribute value. <em>fdel</em> is a function for deleting an attribute
 value.  And <em>doc</em> creates a docstring for the attribute.</p>
