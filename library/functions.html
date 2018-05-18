@@ -545,23 +545,17 @@
 <div>返回该对象的哈希值（如果它有的话）。哈希值是整数。它们在字典查找元素时用来快速比较字典的键。相同大小的数字变量有相同的哈希值（即使它们类型不同，如 1 和 1.0）。</div></blockquote>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">对于对象实现了自己的 <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a>&nbsp;方法，请注意，<a class="reference internal" href="#hash" title="hash"><code class="xref py py-func docutils literal notranslate"><span class="pre">hash()</span></code></a> 根据机器的字长来截断返回值。另请参阅 <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a>。</p>
+<p class="last">如果对象实现了自己的 <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a> 方法，请注意，<a class="reference internal" href="#hash" title="hash"><code class="xref py py-func docutils literal notranslate"><span class="pre">hash()</span></code></a> 根据机器的字长来截断返回值。另请参阅 <a class="reference internal" href="../reference/datamodel.html#object.__hash__" title="object.__hash__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hash__()</span></code></a>。</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="help">
 <code class="descname">help</code><span class="sig-paren">(</span><span class="optional">[</span><em>object</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#help" title="永久链接至目标">¶</a></dt>
-<dd><p>Invoke the built-in help system.  (This function is intended for interactive
-use.)  If no argument is given, the interactive help system starts on the
-interpreter console.  If the argument is a string, then the string is looked up
-as the name of a module, function, class, method, keyword, or documentation
-topic, and a help page is printed on the console.  If the argument is any other
-kind of object, a help page on the object is generated.</p>
-<p>This function is added to the built-in namespace by the <a class="reference internal" href="site.html#module-site" title="site: Module responsible for site-specific configuration."><code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code></a> module.</p>
+<dd><p>启动内置的帮助系统（此函数主要在交互式中使用）。如果没有参数，解释器控制台里会启动交互式帮助系统。如果参数是一个字符串，则在模块、函数、类、方法、关键字或文档主题中搜索该字符串，并在控制台上打印帮助信息。如果参数是其他任意对象，则会生成该对象的帮助页。</p>
+<p>该函数通过 <a class="reference internal" href="site.html#module-site" title="site: Module responsible for site-specific configuration."><code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code></a> 模块加入到内置命名空间。</p>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.4 版更改: </span>Changes to <a class="reference internal" href="pydoc.html#module-pydoc" title="pydoc: Documentation generator and online help system."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydoc</span></code></a> and <a class="reference internal" href="inspect.html#module-inspect" title="inspect: Extract information and source code from live objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">inspect</span></code></a> mean that the reported
-signatures for callables are now more comprehensive and consistent.</p>
+<p><span class="versionmodified">在 3.4 版更改: </span><a class="reference internal" href="pydoc.html#module-pydoc" title="pydoc: Documentation generator and online help system."><code class="xref py py-mod docutils literal notranslate"><span class="pre">pydoc</span></code></a> 和 <a class="reference internal" href="inspect.html#module-inspect" title="inspect: Extract information and source code from live objects."><code class="xref py py-mod docutils literal notranslate"><span class="pre">inspect</span></code></a> 的变更使得可调用对象的签名信息更加全面和一致。</p>
 </div>
 </dd></dl>
 
@@ -1648,7 +1642,7 @@ mode to convert Windows or Mac-style newlines.</td></tr>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 5月 17, 2018。
+    上次更新于 5月 18, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.4 创建。
