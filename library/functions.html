@@ -562,17 +562,14 @@
 <dl class="function">
 <dt id="hex">
 <code class="descname">hex</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#hex" title="永久链接至目标">¶</a></dt>
-<dd><p>Convert an integer number to a lowercase hexadecimal string prefixed with
-“0x”. If <em>x</em> is not a Python <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> object, it has to define an
-<a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method that returns an integer. Some examples:</p>
+<dd><p>将整数转换为以“0x”为前缀的小写十六进制字符串。如果 <em>x</em> 不是 Python <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> 对象，则必须定义返回整数的 <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> 方法。一些例子：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">hex</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
 <span class="go">&#39;0xff&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">hex</span><span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">)</span>
 <span class="go">&#39;-0x2a&#39;</span>
 </pre></div>
 </div>
-<p>If you want to convert an integer number to an uppercase or lower hexadecimal
-string with prefix or not, you can use either of the following ways:</p>
+<p>如果要将整数转换为大写或小写的十六进制字符串，并可选择有无“0x”前缀，则可以使用如下方法：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;</span><span class="si">%#x</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%x</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%X</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">255</span>
 <span class="go">(&#39;0xff&#39;, &#39;ff&#39;, &#39;FF&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;#x&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>
@@ -582,22 +579,17 @@ string with prefix or not, you can use either of the following ways:</p>
 </pre></div>
 </div>
 <p>另见 <a class="reference internal" href="#format" title="format"><code class="xref py py-func docutils literal notranslate"><span class="pre">format()</span></code></a> 获取更多信息。</p>
-<p>See also <a class="reference internal" href="#int" title="int"><code class="xref py py-func docutils literal notranslate"><span class="pre">int()</span></code></a> for converting a hexadecimal string to an
-integer using a base of 16.</p>
+<p>另请参阅 <a class="reference internal" href="#int" title="int"><code class="xref py py-func docutils literal notranslate"><span class="pre">int()</span></code></a> 将十六进制字符串转换为以 16 为基数的整数。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">To obtain a hexadecimal string representation for a float, use the
-<a class="reference internal" href="stdtypes.html#float.hex" title="float.hex"><code class="xref py py-meth docutils literal notranslate"><span class="pre">float.hex()</span></code></a> method.</p>
+<p class="last">如果要获取浮点数的十六进制字符串形式，请使用 <a class="reference internal" href="stdtypes.html#float.hex" title="float.hex"><code class="xref py py-meth docutils literal notranslate"><span class="pre">float.hex()</span></code></a> 方法。</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="id">
 <code class="descname">id</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#id" title="永久链接至目标">¶</a></dt>
-<dd><p>Return the “identity” of an object.  This is an integer which
-is guaranteed to be unique and constant for this object during its lifetime.
-Two objects with non-overlapping lifetimes may have the same <a class="reference internal" href="#id" title="id"><code class="xref py py-func docutils literal notranslate"><span class="pre">id()</span></code></a>
-value.</p>
+<dd><p>返回对象的“标识值”。该值是一个整数，在此对象的生命周期中保证是唯一且恒定的。两个生命期不重叠的对象可能具有相同的 <a class="reference internal" href="#id" title="id"><code class="xref py py-func docutils literal notranslate"><span class="pre">id()</span></code></a> 值。</p>
 <div class="impl-detail compound">
 <p><strong>CPython实现细节：</strong> This is the address of the object in memory.</p>
 </div>
@@ -606,18 +598,14 @@ value.</p>
 <dl class="function">
 <dt id="input">
 <code class="descname">input</code><span class="sig-paren">(</span><span class="optional">[</span><em>prompt</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#input" title="永久链接至目标">¶</a></dt>
-<dd><p>If the <em>prompt</em> argument is present, it is written to standard output without
-a trailing newline.  The function then reads a line from input, converts it
-to a string (stripping a trailing newline), and returns that.  When EOF is
-read, <a class="reference internal" href="exceptions.html#EOFError" title="EOFError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EOFError</span></code></a> is raised.  Example:</p>
+<dd><p>如果存在 <em>prompt</em> 参数，则将其写入标准输出，末尾不带换行符。接下来，该函数从输入中读取一行，将其转换为字符串（除了末尾的换行符）并返回。当读取到 EOF 时，则触发 <a class="reference internal" href="exceptions.html#EOFError" title="EOFError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EOFError</span></code></a>。例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;--&gt; &#39;</span><span class="p">)</span>  
 <span class="go">--&gt; Monty Python&#39;s Flying Circus</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>  
 <span class="go">&quot;Monty Python&#39;s Flying Circus&quot;</span>
 </pre></div>
 </div>
-<p>If the <a class="reference internal" href="readline.html#module-readline" title="readline: GNU readline support for Python. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readline</span></code></a> module was loaded, then <a class="reference internal" href="#input" title="input"><code class="xref py py-func docutils literal notranslate"><span class="pre">input()</span></code></a> will use it
-to provide elaborate line editing and history features.</p>
+<p>如果加载了 <a class="reference internal" href="readline.html#module-readline" title="readline: GNU readline support for Python. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readline</span></code></a> 模块，<a class="reference internal" href="#input" title="input"><code class="xref py py-func docutils literal notranslate"><span class="pre">input()</span></code></a> 将使用它来提供复杂的行编辑和历史记录功能。</p>
 </dd></dl>
 
 <dl class="class">
@@ -625,11 +613,7 @@ to provide elaborate line editing and history features.</p>
 <em class="property">class </em><code class="descname">int</code><span class="sig-paren">(</span><em>x=0</em><span class="sig-paren">)</span><a class="headerlink" href="#int" title="永久链接至目标">¶</a></dt>
 <dt>
 <em class="property">class </em><code class="descname">int</code><span class="sig-paren">(</span><em>x</em>, <em>base=10</em><span class="sig-paren">)</span></dt>
-<dd><p>Return an integer object constructed from a number or string <em>x</em>, or return
-<code class="docutils literal notranslate"><span class="pre">0</span></code> if no arguments are given.  If <em>x</em> defines <a class="reference internal" href="../reference/datamodel.html#object.__int__" title="object.__int__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__int__()</span></code></a>,
-<code class="docutils literal notranslate"><span class="pre">int(x)</span></code> returns <code class="docutils literal notranslate"><span class="pre">x.__int__()</span></code>.  If <em>x</em> defines <a class="reference internal" href="../reference/datamodel.html#object.__trunc__" title="object.__trunc__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__trunc__()</span></code></a>,
-it returns <code class="docutils literal notranslate"><span class="pre">x.__trunc__()</span></code>.
-For floating point numbers, this truncates towards zero.</p>
+<dd><p>返回一个使用数字或字符串 <em>x</em> 生成的整数对象，或者没有参数的时候返回 <code class="docutils literal notranslate"><span class="pre">0</span></code> 。如果 <em>x</em>&nbsp;定义了 <a class="reference internal" href="../reference/datamodel.html#object.__int__" title="object.__int__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__int__()</span></code></a>，<code class="docutils literal notranslate"><span class="pre">int(x)</span></code> 返回 <code class="docutils literal notranslate"><span class="pre">x.__int__()</span></code> 。如果 <em>x</em> 定义了 <a class="reference internal" href="../reference/datamodel.html#object.__trunc__" title="object.__trunc__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__trunc__()</span></code></a>，它返回 <code class="docutils literal notranslate"><span class="pre">x.__trunc__()</span></code> 。对于浮点数，它向零截断。</p>
 <p>If <em>x</em> is not a number or if <em>base</em> is given, then <em>x</em> must be a string,
 <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>, or <a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> instance representing an <a class="reference internal" href="../reference/lexical_analysis.html#integers"><span class="std std-ref">integer
 literal</span></a> in radix <em>base</em>.  Optionally, the literal can be
