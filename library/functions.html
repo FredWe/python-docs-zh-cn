@@ -256,7 +256,7 @@
 <dt>
 <em class="property">class </em><code class="descname">bytearray</code><span class="sig-paren">(</span><span class="optional">[</span><em>source</em><span class="optional">[</span>, <em>encoding</em><span class="optional">[</span>, <em>errors</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span></dt>
 <dd><p>返回一个新的 bytes 数组。 <a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> 类是一个可变序列，包含范围为 0 &lt;= x &lt; 256 的整数。它有可变序列大部分常见的方法，见 <a class="reference internal" href="stdtypes.html#typesseq-mutable"><span class="std std-ref">Mutable Sequence Types</span></a> 的描述；同时有 <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> 类型的大部分方法，参见 <a class="reference internal" href="stdtypes.html#bytes-methods"><span class="std std-ref">Bytes and Bytearray Operations</span></a>。</p>
-<p>可选参数 <em>source</em> 可以用不同的方式来初始化数组：</p>
+<p>可选形参 <em>source</em> 可以用不同的方式来初始化数组：</p>
 <ul class="simple">
 <li>如果是一个 <em>string</em>，您必须提供 <em>encoding</em> 参数（<em>errors</em> 参数仍是可选的）；<a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-func docutils literal notranslate"><span class="pre">bytearray()</span></code></a> 会使用 <a class="reference internal" href="stdtypes.html#str.encode" title="str.encode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.encode()</span></code></a> 方法来将 string 转变成 bytes。</li>
 <li>如果是一个 <em>integer</em>，会初始化大小为该数字的数组，并使用 null 字节填充。</li>
@@ -328,7 +328,7 @@
 <p class="last">如果编译足够大或者足够复杂的字符串成 AST 对象时，Python 解释器会因为 Python AST 编译器的栈深度限制而奔溃。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.2 版更改: </span>允许使用 Windows 和 Mac 的换行符。在 <code class="docutils literal notranslate"><span class="pre">'exec'</span></code> 模式不再需要以换行符结尾。增加了  <em>optimize</em> 参数。</p>
+<p><span class="versionmodified">在 3.2 版更改: </span>允许使用 Windows 和 Mac 的换行符。在 <code class="docutils literal notranslate"><span class="pre">'exec'</span></code> 模式不再需要以换行符结尾。增加了  <em>optimize</em> 形参。</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.5 版更改: </span>之前 <em>source</em> 中包含 null 字节的话会触发 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> 异常。</p>
@@ -674,7 +674,7 @@
 <dl class="function">
 <dt id="map">
 <code class="descname">map</code><span class="sig-paren">(</span><em>function</em>, <em>iterable</em>, <em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#map" title="永久链接至目标">¶</a></dt>
-<dd><p>产生一个将 <em>function</em> 应用于迭代器中所有元素并返回结果的迭代器。如果传递了额外的 <em>iterable</em> 参数，<em>function</em> 必须按照原样接受多个参数，并使用所有迭代器中并行获取的元素。当有多个迭代器时，最短的迭代器耗尽则整个迭代结束。如果函数的输入已经是元组参数，请参阅 <a class="reference internal" href="itertools.html#itertools.starmap" title="itertools.starmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">itertools.starmap()</span></code></a>。</p>
+<dd><p>产生一个将 <em>function</em> 应用于迭代器中所有元素并返回结果的迭代器。如果传递了额外的 <em>iterable</em> 实参，<em>function</em> 必须接受相同个数的实参，并使用所有迭代器中并行获取的元素。当有多个迭代器时，最短的迭代器耗尽则整个迭代结束。如果函数的输入已经是元组实参，请参阅 <a class="reference internal" href="itertools.html#itertools.starmap" title="itertools.starmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">itertools.starmap()</span></code></a>。</p>
 </dd></dl>
 
 <dl class="function">
@@ -682,19 +682,19 @@
 <code class="descname">max</code><span class="sig-paren">(</span><em>iterable</em>, <em>*</em><span class="optional">[</span>, <em>key</em>, <em>default</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#max" title="永久链接至目标">¶</a></dt>
 <dt>
 <code class="descname">max</code><span class="sig-paren">(</span><em>arg1</em>, <em>arg2</em>, <em>*args</em><span class="optional">[</span>, <em>key</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
-<dd><p>返回可迭代的元素中最大的，或者返回两个及以上参数中最大的元素。</p>
-<p>如果只提供了一个参数，它必须是非空 <span class="xref std std-term">可迭代的</span>，返回可迭代的元素中最大的；如果提供了两个及以上的参数，则返回最大的参数。</p>
-<p>有两个可选只能用关键字的参数。<em>key</em> 参数指定排序函数用的参数，如传给 <a class="reference internal" href="stdtypes.html#list.sort" title="list.sort"><code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code></a> 的。<em>default</em> 参数指定，当可迭代的元素为空时返回的值。如果可迭代的元素为空，并且没有给 <em>default</em>  参数，则会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>。</p>
+<dd><p>返回可迭代对象中最大的元素，或者返回两个及以上实参中最大的。</p>
+<p>如果只提供了一个 positional 实参，它必须是非空 <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">可迭代对象</span></a>，返回可迭代对象中最大的元素；如果提供了两个及以上的 positional 实参，则返回最大的 positional 实参。</p>
+<p>有两个可选只能用关键字的实参。<em>key</em> 实参指定排序函数用的参数，如传给 <a class="reference internal" href="stdtypes.html#list.sort" title="list.sort"><code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code></a> 的。<em>default</em> 实参是当可迭代对象为空时返回的值。如果可迭代对象为空，并且没有给 <em>default</em> ，则会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>。</p>
 <p>如果有多个最大元素，则此函数将返回第一个找到的。这和其他稳定排序工具如 <code class="docutils literal notranslate"><span class="pre">sorted(iterable,</span> <span class="pre">key=keyfunc,</span> <span class="pre">reverse=True)[0]</span></code> 和 <code class="docutils literal notranslate"><span class="pre">heapq.nlargest(1,</span> <span class="pre">iterable,</span> <span class="pre">key=keyfunc)</span></code> 保持一致。</p>
 <div class="versionadded">
-<p><span class="versionmodified">3.4 新版功能: </span>只能使用关键字的 <em>default</em> 参数。</p>
+<p><span class="versionmodified">3.4 新版功能: </span>keyword-only 实参 <em>default</em> 。</p>
 </div>
 </dd></dl>
 
 <span class="target" id="func-memoryview"></span><dl class="function">
 <dt>
 <code class="descname">memoryview</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span></dt>
-<dd><p>返回由给定参数创建的“内存视图”对象。有关详细信息，请参阅 <a class="reference internal" href="stdtypes.html#typememoryview"><span class="std std-ref">Memory Views</span></a>。</p>
+<dd><p>返回由给定实参创建的“内存视图”对象。有关详细信息，请参阅 <a class="reference internal" href="stdtypes.html#typememoryview"><span class="std std-ref">Memory Views</span></a>。</p>
 </dd></dl>
 
 <dl class="function">
@@ -702,12 +702,12 @@
 <code class="descname">min</code><span class="sig-paren">(</span><em>iterable</em>, <em>*</em><span class="optional">[</span>, <em>key</em>, <em>default</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#min" title="永久链接至目标">¶</a></dt>
 <dt>
 <code class="descname">min</code><span class="sig-paren">(</span><em>arg1</em>, <em>arg2</em>, <em>*args</em><span class="optional">[</span>, <em>key</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
-<dd><p>返回可迭代的元素中最小的，或者返回两个及以上参数中最小的元素。</p>
-<p>如果只提供了一个参数，它必须是 <span class="xref std std-term">可迭代的</span>，返回可迭代的元素中最小的；如果提供了两个及以上的参数，则返回最小的参数。</p>
-<p>有两个可选只能用关键字的参数。<em>key</em> 参数指定排序函数用的参数，如传给 <a class="reference internal" href="stdtypes.html#list.sort" title="list.sort"><code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code></a> 的。<em>default</em> 参数指定，当可迭代的元素为空时返回的值。如果可迭代的元素为空，并且没有给 <em>default</em>  参数，则会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>。</p>
+<dd><p>返回可迭代对象中最小的元素，或者返回两个及以上实参中最小的。</p>
+<p>如果只提供了一个 positional 实参，它必须是 <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">可迭代对象</span></a>，返回可迭代对象中最小的元素；如果提供了两个及以上的 positional 实参，则返回最小的 positional 实参。</p>
+<p>有两个可选只能用关键字的实参。<em>key</em> 实参指定排序函数用的参数，如传给 <a class="reference internal" href="stdtypes.html#list.sort" title="list.sort"><code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code></a> 的。<em>default</em> 实参是当可迭代对象为空时返回的值。如果可迭代对象为空，并且没有给 <em>default</em> ，则会触发 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>。</p>
 <p>如果有多个最小元素，则此函数将返回第一个找到的。这和其他稳定排序工具如 <code class="docutils literal notranslate"><span class="pre">sorted(iterable,</span> <span class="pre">key=keyfunc)[0]</span></code> 和 <code class="docutils literal notranslate"><span class="pre">heapq.nsmallest(1,</span> <span class="pre">iterable,</span> <span class="pre">key=keyfunc)</span></code> 保持一致。</p>
 <div class="versionadded">
-<p><span class="versionmodified">3.4 新版功能: </span>只能使用关键字的 <em>default</em> 参数。</p>
+<p><span class="versionmodified">3.4 新版功能: </span>keyword-only 实参 <em>default</em> 。</p>
 </div>
 </dd></dl>
 
@@ -720,7 +720,7 @@
 <dl class="class">
 <dt id="object">
 <em class="property">class </em><code class="descname">object</code><a class="headerlink" href="#object" title="永久链接至目标">¶</a></dt>
-<dd><p>返回一个没有特征的新对象。<a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> 是所有类的基类。它具有所有 Python 类实例的通用方法。这个函数不接受任何参数。</p>
+<dd><p>返回一个没有特征的新对象。<a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> 是所有类的基类。它具有所有 Python 类实例的通用方法。这个函数不接受任何实参。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last">由于 <a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> 没有 <a class="reference internal" href="stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a>，因此无法将任意属性赋给 <a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> 的实例。</p>
@@ -756,16 +756,7 @@
 <code class="descname">open</code><span class="sig-paren">(</span><em>file</em>, <em>mode='r'</em>, <em>buffering=-1</em>, <em>encoding=None</em>, <em>errors=None</em>, <em>newline=None</em>, <em>closefd=True</em>, <em>opener=None</em><span class="sig-paren">)</span><a class="headerlink" href="#open" title="永久链接至目标">¶</a></dt>
 <dd><p>打开 <em>file</em> 并返回对应的 <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">文件对象</span></a>。如果该文件不能打开，则触发 <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>。</p>
 <p><em>file</em> 是将要打开的文件的路径（绝对路径或者当前工作目录的相当路径），是一个 <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like 对象</span></a>；也可能是要被封装的文件描述符的数字。（如果是文件描述符，它会随着返回的 I/O 对象关闭而关闭，除非 <em>closefd</em> 是 <code class="docutils literal notranslate"><span class="pre">False</span></code> 。）</p>
-<p><em>mode</em> is an optional string that specifies the mode in which the file is
-opened.  It defaults to <code class="docutils literal notranslate"><span class="pre">'r'</span></code> which means open for reading in text mode.
-Other common values are <code class="docutils literal notranslate"><span class="pre">'w'</span></code> for writing (truncating the file if it
-already exists), <code class="docutils literal notranslate"><span class="pre">'x'</span></code> for exclusive creation and <code class="docutils literal notranslate"><span class="pre">'a'</span></code> for appending
-(which on <em>some</em> Unix systems, means that <em>all</em> writes append to the end of
-the file regardless of the current seek position).  In text mode, if
-<em>encoding</em> is not specified the encoding used is platform dependent:
-<code class="docutils literal notranslate"><span class="pre">locale.getpreferredencoding(False)</span></code> is called to get the current locale
-encoding. (For reading and writing raw bytes use binary mode and leave
-<em>encoding</em> unspecified.)  The available modes are:</p>
+<p><em>mode</em> 是一个可选字符串，用于指定打开文件的模式。默认值是 <code class="docutils literal notranslate"><span class="pre">'r'</span></code>  ，这意味着它以文本模式打开并读取。其他常见模式有：写入 <code class="docutils literal notranslate"><span class="pre">'w'</span></code> （截断已经存在的文件）；排它性创建 <code class="docutils literal notranslate"><span class="pre">'x'</span></code> ；追加写 <code class="docutils literal notranslate"><span class="pre">'a'</span></code> （在 <em>一些</em>  Unix 系统上，无论当前的文件指针在什么位置，<em>所有</em> 写入都会追加到文件末尾）。在文本模式，如果 <em>encoding</em> 没有指定，则根据平台来决定使用的编码：使用 <code class="docutils literal notranslate"><span class="pre">locale.getpreferredencoding(False)</span></code> 来获取本地编码。（要读取和写入原始字节，请使用二进制模式并不要指定 <em>encoding</em>。）可用的模式有：</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -893,7 +884,7 @@ file descriptor for the file object is then obtained by calling <em>opener</em> 
 <a class="reference internal" href="os.html#os.open" title="os.open"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.open</span></code></a> as <em>opener</em> results in functionality similar to passing
 <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p>
 <p>新创建的文件是 <a class="reference internal" href="os.html#fd-inheritance"><span class="std std-ref">不可继承的</span></a>。</p>
-<p>下面的示例使用 <a class="reference internal" href="os.html#os.open" title="os.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.open()</span></code></a> 函数作为 <a class="reference internal" href="os.html#dir-fd"><span class="std std-ref">dir_fd</span></a> 的参数，从给定的目录中用相对路径打开文件:</p>
+<p>下面的示例使用 <a class="reference internal" href="os.html#os.open" title="os.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.open()</span></code></a> 函数返回值传给 <a class="reference internal" href="os.html#dir-fd"><span class="std std-ref">dir_fd</span></a> 的形参，从给定的目录中用相对路径打开文件:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dir_fd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;somedir&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">O_RDONLY</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">opener</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">flags</span><span class="p">):</span>
@@ -920,7 +911,7 @@ disabled, the raw stream, a subclass of <a class="reference internal" href="io.h
 <div class="versionchanged">
 <blockquote>
 <div><span class="versionmodified">在 3.3 版更改: </span><ul class="simple">
-<li>增加了 <em>opener</em> 参数。</li>
+<li>增加了 <em>opener</em> 形参。</li>
 <li>增加了 <code class="docutils literal notranslate"><span class="pre">'x'</span></code> 模式。</li>
 <li>过去触发的 <a class="reference internal" href="exceptions.html#IOError" title="IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a>，现在是 <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> 的别名。</li>
 <li>如果文件已存在但使用了排它性创建模式（ <code class="docutils literal notranslate"><span class="pre">'x'</span></code> ），现在会触发 <a class="reference internal" href="exceptions.html#FileExistsError" title="FileExistsError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FileExistsError</span></code></a>。</li>
@@ -993,7 +984,7 @@ binary mode file objects.  For these, use <code class="docutils literal notransl
 <p>Whether output is buffered is usually determined by <em>file</em>, but if the
 <em>flush</em> keyword argument is true, the stream is forcibly flushed.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">在 3.3 版更改: </span>增加了 <em>flush</em> 关键字参数。</p>
+<p><span class="versionmodified">在 3.3 版更改: </span>增加了 <em>flush</em> keyword 实参。</p>
 </div>
 </dd></dl>
 
