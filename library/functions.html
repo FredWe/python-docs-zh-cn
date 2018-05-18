@@ -195,7 +195,7 @@
 <dl class="function">
 <dt id="all">
 <code class="descname">all</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#all" title="永久链接至目标">¶</a></dt>
-<dd><p>返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> ，如果 <em>iterable</em> 的所有元素为True (或 iterable 为空)。等价于:</p>
+<dd><p>如果 <em>iterable</em> 的所有元素为 True（或 iterable 为空），返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> 。等价于:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">element</span><span class="p">:</span>
@@ -208,7 +208,7 @@
 <dl class="function">
 <dt id="any">
 <code class="descname">any</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#any" title="永久链接至目标">¶</a></dt>
-<dd><p>返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> ，如果 <em>iterable</em> 的任一元素为 True。如果 iterable 为空，返回 <code class="docutils literal notranslate"><span class="pre">False</span></code>。等价于:</p>
+<dd><p>如果 <em>iterable</em> 的任一元素为 True，返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> 。如果 iterable 为空，返回 <code class="docutils literal notranslate"><span class="pre">False</span></code>。等价于:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">any</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">element</span><span class="p">:</span>
@@ -221,7 +221,7 @@
 <dl class="function">
 <dt id="ascii">
 <code class="descname">ascii</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#ascii" title="永久链接至目标">¶</a></dt>
-<dd><p>就像函数 <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>，返回一个对象可打印的字符串，但是 <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> 返回的字符串中非 ASCII 编码的字符，会使用&nbsp;<code class="docutils literal notranslate"><span class="pre">\x</span></code>、<code class="docutils literal notranslate"><span class="pre">\u</span></code> 和 <code class="docutils literal notranslate"><span class="pre">\U</span></code> 来转义。生成的字符串和 Python 2 的 <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> 返回的结果相似。</p>
+<dd><p>就像函数 <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>，返回一个对象可打印的字符串，但是 <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> 返回的字符串中非 ASCII 编码的字符，会使用 <code class="docutils literal notranslate"><span class="pre">\x</span></code>、<code class="docutils literal notranslate"><span class="pre">\u</span></code> 和 <code class="docutils literal notranslate"><span class="pre">\U</span></code> 来转义。生成的字符串和 Python 2 的 <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> 返回的结果相似。</p>
 </dd></dl>
 
 <dl class="function">
@@ -304,14 +304,14 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code> 形式是一个函数 <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">装饰器</span></a> - 参见 <a class="reference internal" href="../reference/compound_stmts.html#function"><span class="std std-ref">Function definitions</span></a> 中关于函数定义的详细介绍。</p>
 <p>它可以同时在类（如 <code class="docutils literal notranslate"><span class="pre">C.f()</span></code>）和实例（如 <code class="docutils literal notranslate"><span class="pre">C().f()</span></code>）上调用。实例除了它的类信息，其他都会被忽略。如果一个类方法在子类上调用，子类会作为第一个参数传入。</p>
-<p>类方法同 C++ 和 Java 的静态方法是区别的。如果你想要静态方法，请看本节的 <a class="reference internal" href="#staticmethod" title="staticmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">staticmethod()</span></code></a>。</p>
+<p>类方法和 C++ 和 Java 的静态方法是有区别的。如果你想要静态方法，请看本节的 <a class="reference internal" href="#staticmethod" title="staticmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">staticmethod()</span></code></a>。</p>
 <p>关于类方法的更多信息，请参考文档 <a class="reference internal" href="../reference/datamodel.html#types"><span class="std std-ref">The standard type hierarchy</span></a> 中的标准类型的层次。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="compile">
 <code class="descname">compile</code><span class="sig-paren">(</span><em>source</em>, <em>filename</em>, <em>mode</em>, <em>flags=0</em>, <em>dont_inherit=False</em>, <em>optimize=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#compile" title="永久链接至目标">¶</a></dt>
-<dd><p>将 <em>source</em> 编译成 code 或者 AST 对象。Code 对象可以被 <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> 或 <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> 执行。<em>source</em> 可以是常规的字符串、字节字符串，或者 AST 对象。参见 <a class="reference internal" href="ast.html#module-ast" title="ast: Abstract Syntax Tree classes and manipulation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ast</span></code></a> 模块的文档了解如何使用 AST 对象。</p>
+<dd><p>将 <em>source</em> 编译成代码或 AST 对象。代码对象可以被 <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> 或 <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> 执行。<em>source</em> 可以是常规的字符串、字节字符串，或者 AST 对象。参见 <a class="reference internal" href="ast.html#module-ast" title="ast: Abstract Syntax Tree classes and manipulation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ast</span></code></a> 模块的文档了解如何使用 AST 对象。</p>
 <p><em>filename</em> 参数需要是代码读取的文件名；如果代码不需要从文件中读取，可以传入一些可辨识的值（经常会使用 <code class="docutils literal notranslate"><span class="pre">'&lt;string&gt;'</span></code>）。</p>
 <p><em>mode</em> 参数指定了编译代码必须用的模式。如果 <em>source</em> 是语句序列，可以是 <code class="docutils literal notranslate"><span class="pre">'exec'</span></code>；如果是单一表达式，可以是 <code class="docutils literal notranslate"><span class="pre">'eval'</span></code>；如果是单个交互式语句，可以是 <code class="docutils literal notranslate"><span class="pre">'single'</span></code>。（在最后一种情况下，如果表达式执行结果不是 <code class="docutils literal notranslate"><span class="pre">None</span></code> 将会被打印出来。）</p>
 <p>可选参数 <em>flags</em> 和 <em>dont_inherit</em> 控制编译 <em>source</em> 时会用到的 future 语句（参见 <span class="target" id="index-17"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0236"><strong>PEP 236</strong></a>）。如果两者都没提供（或都为零），则使用调用 <a class="reference internal" href="#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> 的代码中有效 future 语句来编译。如果给了 <em>flags</em> 参数但 <em>dont_inherit</em> 没有（或者为零），则 <em>flags</em> 指定的 future 语句以及那些无论如何会用到的 future 语句会被使用。如果 <em>dont_inherit</em> 是非零整数，则使用 <em>flags</em> 参数指定的，代码中有效的 future 语句会被忽略。</p>
