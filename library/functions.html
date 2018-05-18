@@ -633,31 +633,15 @@
 <dl class="function">
 <dt id="issubclass">
 <code class="descname">issubclass</code><span class="sig-paren">(</span><em>class</em>, <em>classinfo</em><span class="sig-paren">)</span><a class="headerlink" href="#issubclass" title="永久链接至目标">¶</a></dt>
-<dd><p>Return true if <em>class</em> is a subclass (direct, indirect or <a class="reference internal" href="../glossary.html#term-abstract-base-class"><span class="xref std std-term">virtual</span></a>) of <em>classinfo</em>.  A
-class is considered a subclass of itself. <em>classinfo</em> may be a tuple of class
-objects, in which case every entry in <em>classinfo</em> will be checked. In any other
-case, a <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> exception is raised.</p>
+<dd><p>如果 <em>class</em> 是 <em>classinfo</em> 的子类（直接、间接或 <span class="xref std std-term">虚拟1</span> 的），则返回 true。<em>classinfo</em> 可以是类对象的元组，此时 <em>classinfo</em> 中的每个元素都会被检查。其他情况，会触发 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> 异常。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="iter">
 <code class="descname">iter</code><span class="sig-paren">(</span><em>object</em><span class="optional">[</span>, <em>sentinel</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#iter" title="永久链接至目标">¶</a></dt>
-<dd><p>Return an <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> object.  The first argument is interpreted very
-differently depending on the presence of the second argument. Without a
-second argument, <em>object</em> must be a collection object which supports the
-iteration protocol (the <a class="reference internal" href="../reference/datamodel.html#object.__iter__" title="object.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method), or it must support the
-sequence protocol (the <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> method with integer arguments
-starting at <code class="docutils literal notranslate"><span class="pre">0</span></code>).  If it does not support either of those protocols,
-<a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> is raised. If the second argument, <em>sentinel</em>, is given,
-then <em>object</em> must be a callable object.  The iterator created in this case
-will call <em>object</em> with no arguments for each call to its
-<a class="reference internal" href="stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> method; if the value returned is equal to
-<em>sentinel</em>, <a class="reference internal" href="exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> will be raised, otherwise the value will
-be returned.</p>
-<p>See also <a class="reference internal" href="stdtypes.html#typeiter"><span class="std std-ref">Iterator Types</span></a>.</p>
-<p>One useful application of the second form of <a class="reference internal" href="#iter" title="iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">iter()</span></code></a> is to read lines of
-a file until a certain line is reached.  The following example reads a file
-until the <a class="reference internal" href="io.html#io.TextIOBase.readline" title="io.TextIOBase.readline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readline()</span></code></a> method returns an empty string:</p>
+<dd><p>返回一个 <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">迭代器</span></a> 对象。根据是否存在第二个参数，第一个参数的解释是非常不同的。如果没有第二个对象，<em>object</em> 必须是支持迭代协议（有 <a class="reference internal" href="../reference/datamodel.html#object.__iter__" title="object.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> 方法）的集合对象，或必须支持序列协议（有 <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> 方法，且数字参数从 <code class="docutils literal notranslate"><span class="pre">0</span></code> 开始）。如果它不支持这些协议，会触发 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>。如果有第二个参数 <em>sentinel</em>，那么 <em>object</em> 必须是可调用的对象。这种情况下生成的迭代器，每次迭代调用它的 <a class="reference internal" href="stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> 方法时都会不带参数的调用 <em>object</em>；如果返回的结果是 <em>sentinel</em> 则触发 <a class="reference internal" href="exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a>，否则返回调用结果。</p>
+<p>另请参阅 <a class="reference internal" href="stdtypes.html#typeiter"><span class="std std-ref">Iterator Types</span></a>。</p>
+<p><a class="reference internal" href="#iter" title="iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">iter()</span></code></a> 的第二种形式的一个有用的用法是将文件读到特定行。在下面的例子中，我们将读取文件，直到 <a class="reference internal" href="io.html#io.TextIOBase.readline" title="io.TextIOBase.readline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">readline()</span></code></a> 方法返回一个空字符串</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;mydata.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="n">process_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
@@ -668,40 +652,29 @@ until the <a class="reference internal" href="io.html#io.TextIOBase.readline" ti
 <dl class="function">
 <dt id="len">
 <code class="descname">len</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#len" title="永久链接至目标">¶</a></dt>
-<dd><p>Return the length (the number of items) of an object.  The argument may be a
-sequence (such as a string, bytes, tuple, list, or range) or a collection
-(such as a dictionary, set, or frozen set).</p>
+<dd><p>返回对象的长度（元素个数）。参数可以是序列（如字符串、字节序列、元组、列表、范围等）或收藏集（如字典、集合、冻结集合等）。</p>
 </dd></dl>
 
 <span class="target" id="func-list"></span><dl class="class">
 <dt>
 <em class="property">class </em><code class="descname">list</code><span class="sig-paren">(</span><span class="optional">[</span><em>iterable</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
-<dd><p>Rather than being a function, <a class="reference internal" href="stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> is actually a mutable
-sequence type, as documented in <a class="reference internal" href="stdtypes.html#typesseq-list"><span class="std std-ref">列表</span></a> and <a class="reference internal" href="stdtypes.html#typesseq"><span class="std std-ref">Sequence Types — list, tuple, range</span></a>.</p>
+<dd><p>除了是函数，<a class="reference internal" href="stdtypes.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> 也是可变序列类型，详情请参阅 <a class="reference internal" href="stdtypes.html#typesseq-list"><span class="std std-ref">列表</span></a> 和 <a class="reference internal" href="stdtypes.html#typesseq"><span class="std std-ref">Sequence Types — list, tuple, range</span></a>。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="locals">
 <code class="descname">locals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locals" title="永久链接至目标">¶</a></dt>
-<dd><p>Update and return a dictionary representing the current local symbol table.
-Free variables are returned by <a class="reference internal" href="#locals" title="locals"><code class="xref py py-func docutils literal notranslate"><span class="pre">locals()</span></code></a> when it is called in function
-blocks, but not in class blocks.</p>
+<dd><p>更新并返回表示当前本地符号表的字典。在函数块而不是类块中调用 <a class="reference internal" href="#locals" title="locals"><code class="xref py py-func docutils literal notranslate"><span class="pre">locals()</span></code></a> 时会返回自由变量。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">The contents of this dictionary should not be modified; changes may not
-affect the values of local and free variables used by the interpreter.</p>
+<p class="last">不要更改此字典的内容；更改不会影响解释器使用的局部变量或自由变量的值。</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="map">
 <code class="descname">map</code><span class="sig-paren">(</span><em>function</em>, <em>iterable</em>, <em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#map" title="永久链接至目标">¶</a></dt>
-<dd><p>Return an iterator that applies <em>function</em> to every item of <em>iterable</em>,
-yielding the results.  If additional <em>iterable</em> arguments are passed,
-<em>function</em> must take that many arguments and is applied to the items from all
-iterables in parallel.  With multiple iterables, the iterator stops when the
-shortest iterable is exhausted.  For cases where the function inputs are
-already arranged into argument tuples, see <a class="reference internal" href="itertools.html#itertools.starmap" title="itertools.starmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">itertools.starmap()</span></code></a>.</p>
+<dd><p>产生一个将 <em>function</em> 应用于迭代器中所有元素并返回结果的迭代器。如果传递了额外的 <em>iterable</em> 参数，<em>function</em> 必须按照原样接受多个参数，并使用所有迭代器中并行获取的元素。当有多个迭代器时，最短的迭代器耗尽则整个迭代结束。如果函数的输入已经是元组参数，请参阅 <a class="reference internal" href="itertools.html#itertools.starmap" title="itertools.starmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">itertools.starmap()</span></code></a>。</p>
 </dd></dl>
 
 <dl class="function">
@@ -709,12 +682,8 @@ already arranged into argument tuples, see <a class="reference internal" href="i
 <code class="descname">max</code><span class="sig-paren">(</span><em>iterable</em>, <em>*</em><span class="optional">[</span>, <em>key</em>, <em>default</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#max" title="永久链接至目标">¶</a></dt>
 <dt>
 <code class="descname">max</code><span class="sig-paren">(</span><em>arg1</em>, <em>arg2</em>, <em>*args</em><span class="optional">[</span>, <em>key</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
-<dd><p>Return the largest item in an iterable or the largest of two or more
-arguments.</p>
-<p>If one positional argument is provided, it should be an <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">iterable</span></a>.
-The largest item in the iterable is returned.  If two or more positional
-arguments are provided, the largest of the positional arguments is
-returned.</p>
+<dd><p>返回可迭代的元素中最大的，或者返回两个及以上参数中最大的元素。</p>
+<p>如果只提供了一个参数，它必须是非空的 <span class="xref std std-term">可迭代的</span>。返回可迭代的元素中最大的。如果提供了两个及以上的参数，则返回最大的参数。</p>
 <p>There are two optional keyword-only arguments. The <em>key</em> argument specifies
 a one-argument ordering function like that used for <a class="reference internal" href="stdtypes.html#list.sort" title="list.sort"><code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code></a>. The
 <em>default</em> argument specifies an object to return if the provided iterable is
