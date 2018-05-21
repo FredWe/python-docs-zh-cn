@@ -163,6 +163,8 @@ ctypes structured data type. Patch by Eryk Sun and Oren Milman.</li>
 <ul class="simple">
 <li><a class="reference external" href="https://bugs.python.org/issue33548">bpo-33548</a>: tempfile._candidate_tempdir_list should consider common TEMP
 locations</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33542">bpo-33542</a>: Prevent <code class="docutils literal notranslate"><span class="pre">uuid.get_node</span></code> from using a DUID instead of a MAC on
+Windows. Patch by Zvi Effron</li>
 <li><a class="reference external" href="https://bugs.python.org/issue28556">bpo-28556</a>: Minor fixes in typing module: add annotations to
 <code class="docutils literal notranslate"><span class="pre">NamedTuple.__new__</span></code>, pass <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwds</span></code> in
 <code class="docutils literal notranslate"><span class="pre">Generic.__new__</span></code>.  Original PRs by Paulius Šarka and Chad Dombrova.</li>
@@ -178,6 +180,8 @@ object when it is called with a single argument.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33308">bpo-33308</a>: Fixed a crash in the <a class="reference internal" href="../library/parser.html#module-parser" title="parser: Access parse trees for Python source code."><code class="xref py py-mod docutils literal notranslate"><span class="pre">parser</span></code></a> module when converting an ST
 object to a tree of tuples or lists with <code class="docutils literal notranslate"><span class="pre">line_info=False</span></code> and
 <code class="docutils literal notranslate"><span class="pre">col_info=True</span></code>.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33263">bpo-33263</a>: Fix FD leak in <code class="xref py py-obj docutils literal notranslate"><span class="pre">_SelectorSocketTransport</span></code>  Patch by Vlad
+Starostin.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33256">bpo-33256</a>: Fix display of <code class="docutils literal notranslate"><span class="pre">&lt;module&gt;</span></code> call in the html produced by
 <code class="docutils literal notranslate"><span class="pre">cgitb.html()</span></code>. Patch by Stéphane Blondon.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33203">bpo-33203</a>: <code class="docutils literal notranslate"><span class="pre">random.Random.choice()</span></code> now raises <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> for empty
