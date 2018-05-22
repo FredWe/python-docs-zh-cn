@@ -126,7 +126,7 @@ TYPE* <code class="descname">PyObject_GC_NewVar</code><span class="sig-paren">(<
 <dt id="c.PyObject_GC_Resize">
 TYPE* <code class="descname">PyObject_GC_Resize</code><span class="sig-paren">(</span>TYPE, <a class="reference internal" href="structures.html#c.PyVarObject" title="PyVarObject">PyVarObject</a><em>&nbsp;*op</em>, Py_ssize_t<em>&nbsp;newsize</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyObject_GC_Resize" title="永久链接至目标">¶</a></dt>
 <dd><p>Resize an object allocated by <a class="reference internal" href="allocation.html#c.PyObject_NewVar" title="PyObject_NewVar"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_NewVar()</span></code></a>.  Returns the
-resized object or <em>NULL</em> on failure.</p>
+resized object or <em>NULL</em> on failure.  <em>op</em> must not be tracked by the collector yet.</p>
 </dd></dl>
 
 <dl class="function">
@@ -311,7 +311,7 @@ in a reference cycle.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 5月 21, 2018。
+    上次更新于 5月 22, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.4 创建。
