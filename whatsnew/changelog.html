@@ -161,6 +161,9 @@ ctypes structured data type. Patch by Eryk Sun and Oren Milman.</li>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue30877">bpo-30877</a>: Fixed a bug in the Python implementation of the JSON decoder
+that prevented the cache of parsed strings from clearing after finishing
+the decoding. Based on patch by c-fos.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33548">bpo-33548</a>: tempfile._candidate_tempdir_list should consider common TEMP
 locations</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33542">bpo-33542</a>: Prevent <code class="docutils literal notranslate"><span class="pre">uuid.get_node</span></code> from using a DUID instead of a MAC on
@@ -2903,8 +2906,8 @@ threads”, since the dangling threads are weak references.</li>
 non-OSX UNIX platforms.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue27983">bpo-27983</a>: Cause lack of llvm-profdata tool when using clang as required
 for PGO linking to be a configure time error rather than make time when
-–with- optimizations is enabled.  Also improve our ability to find the
-llvm- profdata tool on MacOS and some Linuxes.</li>
+<code class="docutils literal notranslate"><span class="pre">--with-</span> <span class="pre">optimizations</span></code> is enabled.  Also improve our ability to find
+the llvm- profdata tool on MacOS and some Linuxes.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue21590">bpo-21590</a>: Support for DTrace and SystemTap probes.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue26307">bpo-26307</a>: The profile-opt build now applies PGO to the built-in modules.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue26359">bpo-26359</a>: Add the –with-optimizations flag to turn on LTO and PGO build
@@ -4372,12 +4375,12 @@ Mac Aqua. Patch by Mark Roseman.</li>
 Mark Roseman.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue25173">bpo-25173</a>: Associate tkinter messageboxes with a specific widget. For Mac
 OSX, make them a ‘sheet’.  Patch by Mark Roseman.</li>
-<li><a class="reference external" href="https://bugs.python.org/issue25198">bpo-25198</a>: Enhance the initial html viewer now used for Idle Help. *
-Properly indent fixed-pitch text (patch by Mark Roseman). * Give code
-snippet a very Sphinx- like light blueish-gray background. * Re-use
-initial width and height set by users for shell and editor. * When the
-Table of Contents (TOC) menu is used, put the section header at the top of
-the screen.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue25198">bpo-25198</a>: Enhance the initial html viewer now used for Idle Help.
+Properly indent fixed-pitch text (patch by Mark Roseman). Give code
+snippet a very Sphinx- like light blueish-gray background. Re-use initial
+width and height set by users for shell and editor. When the Table of
+Contents (TOC) menu is used, put the section header at the top of the
+screen.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue25225">bpo-25225</a>: Condense and rewrite Idle doc section on text colors.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue21995">bpo-21995</a>: Explain some differences between IDLE and console Python.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue22820">bpo-22820</a>: Explain need for <em>print</em> when running file from Idle editor.</li>
@@ -5108,8 +5111,8 @@ outside the source tree.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue27705">bpo-27705</a>: Update message in validate_ucrtbase.py</li>
 <li><a class="reference external" href="https://bugs.python.org/issue27983">bpo-27983</a>: Cause lack of llvm-profdata tool when using clang as required
 for PGO linking to be a configure time error rather than make time when
-–with- optimizations is enabled.  Also improve our ability to find the
-llvm- profdata tool on MacOS and some Linuxes.</li>
+<code class="docutils literal notranslate"><span class="pre">--with-</span> <span class="pre">optimizations</span></code> is enabled.  Also improve our ability to find
+the llvm- profdata tool on MacOS and some Linuxes.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue26307">bpo-26307</a>: The profile-opt build now applies PGO to the built-in modules.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue26359">bpo-26359</a>: Add the –with-optimizations configure flag.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue27713">bpo-27713</a>: Suppress spurious build warnings when updating importlib’s
@@ -6036,12 +6039,12 @@ Mac Aqua. Patch by Mark Roseman.</li>
 Mark Roseman.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue25173">bpo-25173</a>: Associate tkinter messageboxes with a specific widget. For Mac
 OSX, make them a ‘sheet’.  Patch by Mark Roseman.</li>
-<li><a class="reference external" href="https://bugs.python.org/issue25198">bpo-25198</a>: Enhance the initial html viewer now used for Idle Help. *
-Properly indent fixed-pitch text (patch by Mark Roseman). * Give code
-snippet a very Sphinx- like light blueish-gray background. * Re-use
-initial width and height set by users for shell and editor. * When the
-Table of Contents (TOC) menu is used, put the section header at the top of
-the screen.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue25198">bpo-25198</a>: Enhance the initial html viewer now used for Idle Help.
+Properly indent fixed-pitch text (patch by Mark Roseman). Give code
+snippet a very Sphinx- like light blueish-gray background. Re-use initial
+width and height set by users for shell and editor. When the Table of
+Contents (TOC) menu is used, put the section header at the top of the
+screen.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue25225">bpo-25225</a>: Condense and rewrite Idle doc section on text colors.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue21995">bpo-21995</a>: Explain some differences between IDLE and console Python.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue22820">bpo-22820</a>: Explain need for <em>print</em> when running file from Idle editor.</li>
@@ -7695,7 +7698,7 @@ support for the Linux AArch64 and POWERPC ELF ABIv2 little endian
 architectures.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue5411">bpo-5411</a>: Added support for the “xztar” format in the shutil module.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue21121">bpo-21121</a>: Don’t force 3rd party C extensions to be built with
--Werror=declaration- after-statement.</li>
+<code class="docutils literal notranslate"><span class="pre">-Werror=declaration-</span> <span class="pre">after-statement</span></code>.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue21975">bpo-21975</a>: Fixed crash when using uninitialized sqlite3.Row (in particular
 when unpickling pickled sqlite3.Row).  sqlite3.Row is now initialized in
 the __new__() method.</li>
@@ -8194,7 +8197,7 @@ solution.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue17095">bpo-17095</a>: Fix Modules/Setup <em>shared</em> support.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue21811">bpo-21811</a>: Anticipated fixes to support OS X versions &gt; 10.9.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue21166">bpo-21166</a>: Prevent possible segfaults and other random failures of python
-–generate- posix-vars in pybuilddir.txt build target.</li>
+<code class="docutils literal notranslate"><span class="pre">--generate-</span> <span class="pre">posix-vars</span></code> in pybuilddir.txt build target.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue18096">bpo-18096</a>: Fix library order returned by python-config.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue17219">bpo-17219</a>: Add library build dir for Python extension cross-builds.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue22919">bpo-22919</a>: Windows build updated to support VC 14.0 (Visual Studio 2015),
