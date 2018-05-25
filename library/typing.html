@@ -1046,6 +1046,22 @@ function in <a class="reference internal" href="#typing.no_type_check" title="ty
 </dd></dl>
 
 <dl class="data">
+<dt id="typing.NoReturn">
+<code class="descclassname">typing.</code><code class="descname">NoReturn</code><a class="headerlink" href="#typing.NoReturn" title="永久链接至目标">¶</a></dt>
+<dd><p>Special type indicating that a function never returns.
+For example:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">NoReturn</span>
+
+<span class="k">def</span> <span class="nf">stop</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;no way&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">3.6.5 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="data">
 <dt id="typing.Union">
 <code class="descclassname">typing.</code><code class="descname">Union</code><a class="headerlink" href="#typing.Union" title="永久链接至目标">¶</a></dt>
 <dd><p>Union type; <code class="docutils literal notranslate"><span class="pre">Union[X,</span> <span class="pre">Y]</span></code> means either X or Y.</p>
@@ -1287,7 +1303,7 @@ evaluated, so the second annotation does not need to be enclosed in quotes.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 5月 24, 2018。
+    上次更新于 5月 25, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.4 创建。

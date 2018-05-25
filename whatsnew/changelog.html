@@ -144,6 +144,10 @@
 <div class="section" id="core-and-builtins">
 <h3>Core and Builtins<a class="headerlink" href="#core-and-builtins" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue33622">bpo-33622</a>: Fixed a leak when the garbage collector fails to add an object
+with the <code class="docutils literal notranslate"><span class="pre">__del__</span></code> method or referenced by it into the
+<a class="reference internal" href="../library/gc.html#gc.garbage" title="gc.garbage"><code class="xref py py-data docutils literal notranslate"><span class="pre">gc.garbage</span></code></a> list. <code class="xref c c-func docutils literal notranslate"><span class="pre">PyGC_Collect()</span></code> can now be called when an
+exception is set and preserves it.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33391">bpo-33391</a>: Fix a leak in set_symmetric_difference().</li>
 <li><a class="reference external" href="https://bugs.python.org/issue28055">bpo-28055</a>: Fix unaligned accesses in siphash24(). Patch by Rolf Eike Beer.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33231">bpo-33231</a>: Fix potential memory leak in <code class="docutils literal notranslate"><span class="pre">normalizestring()</span></code>.</li>
@@ -8827,7 +8831,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 5月 24, 2018。
+    上次更新于 5月 25, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.4 创建。
