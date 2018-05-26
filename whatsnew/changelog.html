@@ -172,6 +172,8 @@ the decoding. Based on patch by c-fos.</li>
 locations</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33542">bpo-33542</a>: Prevent <code class="docutils literal notranslate"><span class="pre">uuid.get_node</span></code> from using a DUID instead of a MAC on
 Windows. Patch by Zvi Effron</li>
+<li><a class="reference external" href="https://bugs.python.org/issue26819">bpo-26819</a>: Fix race condition with <code class="xref py py-obj docutils literal notranslate"><span class="pre">ReadTransport.resume_reading</span></code> in
+Windows proactor event loop.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue28556">bpo-28556</a>: Minor fixes in typing module: add annotations to
 <code class="docutils literal notranslate"><span class="pre">NamedTuple.__new__</span></code>, pass <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwds</span></code> in
 <code class="docutils literal notranslate"><span class="pre">Generic.__new__</span></code>.  Original PRs by Paulius Šarka and Chad Dombrova.</li>
@@ -257,6 +259,9 @@ behavior when writing outside a window, or pad.</li>
 <ul class="simple">
 <li><a class="reference external" href="https://bugs.python.org/issue33522">bpo-33522</a>: Enable CI builds on Visual Studio Team Services at
 <a class="reference external" href="https://python.visualstudio.com/cpython">https://python.visualstudio.com/cpython</a></li>
+<li><a class="reference external" href="https://bugs.python.org/issue33012">bpo-33012</a>: Add <code class="docutils literal notranslate"><span class="pre">-Wno-cast-function-type</span></code> for gcc 8 for silencing
+warnings about function casts like casting to PyCFunction in method
+definition lists.</li>
 </ul>
 </div>
 <div class="section" id="windows">
@@ -8831,7 +8836,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 5月 25, 2018。
+    上次更新于 5月 26, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.4 创建。
