@@ -9,7 +9,7 @@
     <title>Changelog &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -165,6 +165,14 @@ ctypes structured data type. Patch by Eryk Sun and Oren Milman.</li>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue33674">bpo-33674</a>: Fix a race condition in SSLProtocol.connection_made() of
+asyncio.sslproto: start immediately the handshake instead of using
+call_soon(). Previously, data_received() could be called before the
+handshake started, causing the handshake to hang or fail.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue31467">bpo-31467</a>: Fixed bug where calling write_eof() on a
+_SelectorSocketTransport after it’s already closed raises AttributeError.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33672">bpo-33672</a>: Fix Task.__repr__ crash with Cython’s bogus coroutines</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33469">bpo-33469</a>: Fix RuntimeError after closing loop that used run_in_executor</li>
 <li><a class="reference external" href="https://bugs.python.org/issue30877">bpo-30877</a>: Fixed a bug in the Python implementation of the JSON decoder
 that prevented the cache of parsed strings from clearing after finishing
 the decoding. Based on patch by c-fos.</li>
@@ -259,6 +267,8 @@ might be due to running on ZFS.</li>
 <div class="section" id="build">
 <h3>Build<a class="headerlink" href="#build" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue33614">bpo-33614</a>: Ensures module definition files for the stable ABI on Windows
+are correctly regenerated.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33522">bpo-33522</a>: Enable CI builds on Visual Studio Team Services at
 <a class="reference external" href="https://python.visualstudio.com/cpython">https://python.visualstudio.com/cpython</a></li>
 <li><a class="reference external" href="https://bugs.python.org/issue33012">bpo-33012</a>: Add <code class="docutils literal notranslate"><span class="pre">-Wno-cast-function-type</span></code> for gcc 8 for silencing
@@ -8838,10 +8848,10 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 5月 27, 2018。
+    上次更新于 5月 29, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.4 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
     </div>
 
   </body>
