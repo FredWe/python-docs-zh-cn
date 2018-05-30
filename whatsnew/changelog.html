@@ -165,6 +165,8 @@ ctypes structured data type. Patch by Eryk Sun and Oren Milman.</li>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue32684">bpo-32684</a>: Fix gather to propagate cancellation of itself even with
+return_exceptions.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33674">bpo-33674</a>: Fix a race condition in SSLProtocol.connection_made() of
 asyncio.sslproto: start immediately the handshake instead of using
 call_soon(). Previously, data_received() could be called before the
@@ -188,6 +190,8 @@ Windows proactor event loop.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue20087">bpo-20087</a>: Updated alias mapping with glibc 2.27 supported locales.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33422">bpo-33422</a>: Fix trailing quotation marks getting deleted when looking up
 byte/string literals on pydoc. Patch by Andrés Delfino.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33197">bpo-33197</a>: Update error message when constructing invalid
+inspect.Parameters Patch by Dong-hee Na.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33383">bpo-33383</a>: Fixed crash in the get() method of the <a class="reference internal" href="../library/dbm.html#module-dbm.ndbm" title="dbm.ndbm: The standard &quot;database&quot; interface, based on ndbm. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbm.ndbm</span></code></a> database
 object when it is called with a single argument.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33329">bpo-33329</a>: Fix multiprocessing regression on newer glibcs</li>
@@ -8848,7 +8852,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 5月 29, 2018。
+    上次更新于 5月 30, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
