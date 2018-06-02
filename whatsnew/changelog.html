@@ -236,6 +236,9 @@ used. Patch by Michael Selik.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue31457">bpo-31457</a>: If nested log adapters are used, the inner <code class="docutils literal notranslate"><span class="pre">process()</span></code>
 methods are no longer omitted.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue16865">bpo-16865</a>: Support arrays &gt;=2GiB in <a class="reference internal" href="../library/ctypes.html#module-ctypes" title="ctypes: A foreign function library for Python."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ctypes</span></code></a>.  Patch by Segev Finer.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue31238">bpo-31238</a>: pydoc: the stop() method of the private ServerThread class now
+waits until DocServer.serve_until_quit() completes and then explicitly
+sets its docserver attribute to None to break a reference cycle.</li>
 </ul>
 </div>
 <div class="section" id="documentation">
@@ -297,20 +300,47 @@ definition lists.</li>
 </div>
 <div class="section" id="idle">
 <h3>IDLE<a class="headerlink" href="#idle" title="永久链接至标题">¶</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="https://bugs.python.org/issue33628">bpo-33628</a>: IDLE: Cleanup codecontext.py and its test.</li>
-<li><a class="reference external" href="https://bugs.python.org/issue33564">bpo-33564</a>: IDLE’s code context now recognizes async as a block opener.</li>
-<li><a class="reference external" href="https://bugs.python.org/issue29706">bpo-29706</a>: IDLE now colors async and await as keywords in 3.6. They become
-full keywords in 3.7.</li>
-<li><a class="reference external" href="https://bugs.python.org/issue21474">bpo-21474</a>: Update word/identifier definition from ascii to unicode. In
+<ul>
+<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33679">bpo-33679</a>: IDLE: Re-enable color configuration for Code Context. The
+difference from before is that the settings are now on the Highlights tab
+instead of the Extensions tab and only change one theme at a time instead
+of all themes. The default for light themes is black on light gray, as
+before.  The default for the IDLE Dark theme is white on dark gray, which
+better fits the dark theme.</p>
+<p>When one starts IDLE from a console and loads a custom theme without
+definitions for ‘context’, one will see a warning message on the console.
+To stop the warning, go to Options =&gt; Configure IDLE =&gt; Highlights, select
+the custom theme if not selected already, select ‘Code Context’, and
+select foreground and background colors.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33642">bpo-33642</a>: IDLE: Only display actual code context lines. Instead of
+displaying a fixed number of lines, some blank, Code Context now displays
+the variable number of actual context lines.  When there are no context
+lines, it shows a single blank line to indicate that the feature is turned
+on.</p>
+<p>The Code Context configuration option is changed from ‘numlines’ (default
+3) to ‘maxlines’ (default 15) to avoid possible interference between user
+settings for the old and new versions of Code Context.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33628">bpo-33628</a>: IDLE: Cleanup codecontext.py and its test.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33564">bpo-33564</a>: IDLE’s code context now recognizes async as a block opener.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue29706">bpo-29706</a>: IDLE now colors async and await as keywords in 3.6. They become
+full keywords in 3.7.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue21474">bpo-21474</a>: Update word/identifier definition from ascii to unicode. In
 text and entry boxes, this affects selection by double-click, movement
 left/right by control-left/right, and deletion left/right by control-
-BACKSPACE/DEL.</li>
-<li><a class="reference external" href="https://bugs.python.org/issue33204">bpo-33204</a>: IDLE: consistently color invalid string prefixes. A ‘u’ string
+BACKSPACE/DEL.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33204">bpo-33204</a>: IDLE: consistently color invalid string prefixes. A ‘u’ string
 prefix cannot be paired with either ‘r’ or ‘f’. Consistently color as much
 of the prefix, starting at the right, as is valid. Revise and extend
-colorizer test.</li>
-<li><a class="reference external" href="https://bugs.python.org/issue32831">bpo-32831</a>: Add docstrings and tests for codecontext.</li>
+colorizer test.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue32831">bpo-32831</a>: Add docstrings and tests for codecontext.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="tools-demos">
@@ -8855,7 +8885,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 01, 2018。
+    上次更新于 6月 02, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
