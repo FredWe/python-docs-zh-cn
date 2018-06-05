@@ -151,6 +151,7 @@ Philipp Kerling.</li>
 with the <code class="docutils literal notranslate"><span class="pre">__del__</span></code> method or referenced by it into the
 <a class="reference internal" href="../library/gc.html#gc.garbage" title="gc.garbage"><code class="xref py py-data docutils literal notranslate"><span class="pre">gc.garbage</span></code></a> list. <code class="xref c c-func docutils literal notranslate"><span class="pre">PyGC_Collect()</span></code> can now be called when an
 exception is set and preserves it.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue31849">bpo-31849</a>: Fix signed/unsigned comparison warning in pyhash.c.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33391">bpo-33391</a>: Fix a leak in set_symmetric_difference().</li>
 <li><a class="reference external" href="https://bugs.python.org/issue28055">bpo-28055</a>: Fix unaligned accesses in siphash24(). Patch by Rolf Eike Beer.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33231">bpo-33231</a>: Fix potential memory leak in <code class="docutils literal notranslate"><span class="pre">normalizestring()</span></code>.</li>
@@ -284,6 +285,8 @@ are correctly regenerated.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33012">bpo-33012</a>: Add <code class="docutils literal notranslate"><span class="pre">-Wno-cast-function-type</span></code> for gcc 8 for silencing
 warnings about function casts like casting to PyCFunction in method
 definition lists.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33394">bpo-33394</a>: Enable the verbose build for extension modules, when GNU make
+is passed macros on the command line.</li>
 </ul>
 </div>
 <div class="section" id="windows">
@@ -301,6 +304,14 @@ definition lists.</li>
 <div class="section" id="idle">
 <h3>IDLE<a class="headerlink" href="#idle" title="永久链接至标题">¶</a></h3>
 <ul>
+<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33763">bpo-33763</a>: IDLE: Use read-only text widget for code context instead of
+label widget.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33664">bpo-33664</a>: Scroll IDLE editor text by lines. Previously, the mouse wheel
+and scrollbar slider moved text by a fixed number of pixels, resulting in
+partial lines at the top of the editor box.  The change also applies to
+the shell and grep output windows, but not to read-only text views.</p>
+</li>
 <li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33679">bpo-33679</a>: IDLE: Re-enable color configuration for Code Context. The
 difference from before is that the settings are now on the Highlights tab
 instead of the Extensions tab and only change one theme at a time instead
@@ -8885,7 +8896,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 03, 2018。
+    上次更新于 6月 05, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
