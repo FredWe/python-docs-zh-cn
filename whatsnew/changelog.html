@@ -169,6 +169,9 @@ ctypes structured data type. Patch by Eryk Sun and Oren Milman.</li>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue33767">bpo-33767</a>: The concatenation (<code class="docutils literal notranslate"><span class="pre">+</span></code>) and repetition (<code class="docutils literal notranslate"><span class="pre">*</span></code>) sequence
+operations now raise <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> instead of <a class="reference internal" href="../library/exceptions.html#SystemError" title="SystemError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemError</span></code></a> when
+performed on <a class="reference internal" href="../library/mmap.html#mmap.mmap" title="mmap.mmap"><code class="xref py py-class docutils literal notranslate"><span class="pre">mmap.mmap</span></code></a> objects.  Patch by Zackery Spytz.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue32684">bpo-32684</a>: Fix gather to propagate cancellation of itself even with
 return_exceptions.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33674">bpo-33674</a>: Fix a race condition in SSLProtocol.connection_made() of
@@ -278,6 +281,9 @@ might be due to running on ZFS.</li>
 <div class="section" id="build">
 <h3>Build<a class="headerlink" href="#build" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue5755">bpo-5755</a>: Move <code class="docutils literal notranslate"><span class="pre">-Wstrict-prototypes</span></code> option to <code class="docutils literal notranslate"><span class="pre">CFLAGS_NODIST</span></code> from
+<code class="docutils literal notranslate"><span class="pre">OPT</span></code>. This option emitted annoying warnings when building extension
+modules written in C++.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33614">bpo-33614</a>: Ensures module definition files for the stable ABI on Windows
 are correctly regenerated.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33522">bpo-33522</a>: Enable CI builds on Visual Studio Team Services at
@@ -8896,7 +8902,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 05, 2018。
+    上次更新于 6月 06, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
