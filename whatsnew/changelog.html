@@ -144,6 +144,8 @@
 <div class="section" id="core-and-builtins">
 <h3>Core and Builtins<a class="headerlink" href="#core-and-builtins" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue33786">bpo-33786</a>: Fix asynchronous generators to handle GeneratorExit in athrow()
+correctly</li>
 <li><a class="reference external" href="https://bugs.python.org/issue30654">bpo-30654</a>: Fixed reset of the SIGINT handler to SIG_DFL on interpreter
 shutdown even when there was a custom handler set previously. Patch by
 Philipp Kerling.</li>
@@ -309,55 +311,31 @@ is passed macros on the command line.</li>
 </div>
 <div class="section" id="idle">
 <h3>IDLE<a class="headerlink" href="#idle" title="永久链接至标题">¶</a></h3>
-<ul>
-<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33763">bpo-33763</a>: IDLE: Use read-only text widget for code context instead of
-label widget.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33664">bpo-33664</a>: Scroll IDLE editor text by lines. Previously, the mouse wheel
+<ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue33763">bpo-33763</a>: IDLE: Use read-only text widget for code context instead of
+label widget.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33664">bpo-33664</a>: Scroll IDLE editor text by lines. Previously, the mouse wheel
 and scrollbar slider moved text by a fixed number of pixels, resulting in
 partial lines at the top of the editor box.  The change also applies to
-the shell and grep output windows, but not to read-only text views.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33679">bpo-33679</a>: IDLE: Re-enable color configuration for Code Context. The
-difference from before is that the settings are now on the Highlights tab
-instead of the Extensions tab and only change one theme at a time instead
-of all themes. The default for light themes is black on light gray, as
-before.  The default for the IDLE Dark theme is white on dark gray, which
-better fits the dark theme.</p>
-<p>When one starts IDLE from a console and loads a custom theme without
-definitions for ‘context’, one will see a warning message on the console.
-To stop the warning, go to Options =&gt; Configure IDLE =&gt; Highlights, select
-the custom theme if not selected already, select ‘Code Context’, and
-select foreground and background colors.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33642">bpo-33642</a>: IDLE: Only display actual code context lines. Instead of
-displaying a fixed number of lines, some blank, Code Context now displays
-the variable number of actual context lines.  When there are no context
-lines, it shows a single blank line to indicate that the feature is turned
-on.</p>
-<p>The Code Context configuration option is changed from ‘numlines’ (default
-3) to ‘maxlines’ (default 15) to avoid possible interference between user
-settings for the old and new versions of Code Context.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33628">bpo-33628</a>: IDLE: Cleanup codecontext.py and its test.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33564">bpo-33564</a>: IDLE’s code context now recognizes async as a block opener.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue29706">bpo-29706</a>: IDLE now colors async and await as keywords in 3.6. They become
-full keywords in 3.7.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue21474">bpo-21474</a>: Update word/identifier definition from ascii to unicode. In
+the shell and grep output windows, but not to read-only text views.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33679">bpo-33679</a>: Enable theme-specific color configuration for Code Context. Use
+the Highlights tab to see the setting for built-in themes or add settings
+to custom themes.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33642">bpo-33642</a>: Display up to maxlines non-blank lines for Code Context. If
+there is no current context, show a single blank line.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33628">bpo-33628</a>: IDLE: Cleanup codecontext.py and its test.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33564">bpo-33564</a>: IDLE’s code context now recognizes async as a block opener.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue29706">bpo-29706</a>: IDLE now colors async and await as keywords in 3.6. They become
+full keywords in 3.7.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue21474">bpo-21474</a>: Update word/identifier definition from ascii to unicode. In
 text and entry boxes, this affects selection by double-click, movement
 left/right by control-left/right, and deletion left/right by control-
-BACKSPACE/DEL.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue33204">bpo-33204</a>: IDLE: consistently color invalid string prefixes. A ‘u’ string
+BACKSPACE/DEL.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33204">bpo-33204</a>: IDLE: consistently color invalid string prefixes. A ‘u’ string
 prefix cannot be paired with either ‘r’ or ‘f’. Consistently color as much
 of the prefix, starting at the right, as is valid. Revise and extend
-colorizer test.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://bugs.python.org/issue32831">bpo-32831</a>: Add docstrings and tests for codecontext.</p>
-</li>
+colorizer test.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue32831">bpo-32831</a>: Add docstrings and tests for codecontext.</li>
 </ul>
 </div>
 <div class="section" id="tools-demos">
@@ -8902,7 +8880,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 07, 2018。
+    上次更新于 6月 08, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。

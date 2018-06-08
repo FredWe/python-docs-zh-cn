@@ -107,7 +107,7 @@ underlying <a class="reference internal" href="#subprocess.Popen" title="subproc
 compatibility with older versions, see the <a class="reference internal" href="#call-function-trio"><span class="std std-ref">Older high-level API</span></a> section.</p>
 <dl class="function">
 <dt id="subprocess.run">
-<code class="descclassname">subprocess.</code><code class="descname">run</code><span class="sig-paren">(</span><em>args</em>, <em>*</em>, <em>stdin=None</em>, <em>input=None</em>, <em>stdout=None</em>, <em>stderr=None</em>, <em>shell=False</em>, <em>cwd=None</em>, <em>timeout=None</em>, <em>check=False</em>, <em>encoding=None</em>, <em>errors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.run" title="永久链接至目标">¶</a></dt>
+<code class="descclassname">subprocess.</code><code class="descname">run</code><span class="sig-paren">(</span><em>args</em>, <em>*</em>, <em>stdin=None</em>, <em>input=None</em>, <em>stdout=None</em>, <em>stderr=None</em>, <em>shell=False</em>, <em>cwd=None</em>, <em>timeout=None</em>, <em>check=False</em>, <em>encoding=None</em>, <em>errors=None</em>, <em>env=None</em><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.run" title="永久链接至目标">¶</a></dt>
 <dd><p>Run the command described by <em>args</em>.  Wait for command to complete, then
 return a <a class="reference internal" href="#subprocess.CompletedProcess" title="subprocess.CompletedProcess"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompletedProcess</span></code></a> instance.</p>
 <p>The arguments shown above are merely the most common ones, described below
@@ -135,6 +135,10 @@ were captured.</p>
 file objects for stdin, stdout and stderr are opened in text mode using the
 specified <em>encoding</em> and <em>errors</em> or the <a class="reference internal" href="io.html#io.TextIOWrapper" title="io.TextIOWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.TextIOWrapper</span></code></a> default.
 Otherwise, file objects are opened in binary mode.</p>
+<p>If <em>env</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it must be a mapping that defines the environment
+variables for the new process; these are used instead of the default
+behavior of inheriting the current process’ environment. It is passed directly
+to <a class="reference internal" href="#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code></a>.</p>
 <p>例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span>  <span class="c1"># doesn&#39;t capture output</span>
 <span class="go">CompletedProcess(args=[&#39;ls&#39;, &#39;-l&#39;], returncode=0)</span>
@@ -1408,7 +1412,7 @@ described in rule 3.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 07, 2018。
+    上次更新于 6月 08, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
