@@ -171,6 +171,7 @@ ctypes structured data type. Patch by Eryk Sun and Oren Milman.</li>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue30805">bpo-30805</a>: Avoid race condition with debug logging</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33767">bpo-33767</a>: The concatenation (<code class="docutils literal notranslate"><span class="pre">+</span></code>) and repetition (<code class="docutils literal notranslate"><span class="pre">*</span></code>) sequence
 operations now raise <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> instead of <a class="reference internal" href="../library/exceptions.html#SystemError" title="SystemError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemError</span></code></a> when
 performed on <a class="reference internal" href="../library/mmap.html#mmap.mmap" title="mmap.mmap"><code class="xref py py-class docutils literal notranslate"><span class="pre">mmap.mmap</span></code></a> objects.  Patch by Zackery Spytz.</li>
@@ -184,6 +185,8 @@ handshake started, causing the handshake to hang or fail.</li>
 _SelectorSocketTransport after it’s already closed raises AttributeError.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33672">bpo-33672</a>: Fix Task.__repr__ crash with Cython’s bogus coroutines</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33469">bpo-33469</a>: Fix RuntimeError after closing loop that used run_in_executor</li>
+<li><a class="reference external" href="https://bugs.python.org/issue11874">bpo-11874</a>: Use a better regex when breaking usage into wrappable parts.
+Avoids bogus assertion errors from custom metavar strings.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue30877">bpo-30877</a>: Fixed a bug in the Python implementation of the JSON decoder
 that prevented the cache of parsed strings from clearing after finishing
 the decoding. Based on patch by c-fos.</li>
@@ -312,6 +315,8 @@ is passed macros on the command line.</li>
 <div class="section" id="idle">
 <h3>IDLE<a class="headerlink" href="#idle" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue33768">bpo-33768</a>: Clicking on a context line moves that line to the top of the
+editor window.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33763">bpo-33763</a>: IDLE: Use read-only text widget for code context instead of
 label widget.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33664">bpo-33664</a>: Scroll IDLE editor text by lines. Previously, the mouse wheel
@@ -8880,7 +8885,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 08, 2018。
+    上次更新于 6月 09, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。

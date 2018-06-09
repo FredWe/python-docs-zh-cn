@@ -116,6 +116,9 @@ retrieves the cipher being used for the secure connection.</p>
 helps manage settings and certificates, which can then be inherited
 by SSL sockets created through the <a class="reference internal" href="#ssl.SSLContext.wrap_socket" title="ssl.SSLContext.wrap_socket"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SSLContext.wrap_socket()</span></code></a> method.</p>
 <div class="versionchanged">
+<p><span class="versionmodified">在 3.5.3 版更改: </span>Updated to support linking with OpenSSL 1.1.0</p>
+</div>
+<div class="versionchanged">
 <p><span class="versionmodified">在 3.6 版更改: </span>OpenSSL 0.9.8, 1.0.0 and 1.0.1 are deprecated and no longer supported.
 In the future the ssl module will require at least OpenSSL 1.0.2 or
 1.1.0.</p>
@@ -2819,7 +2822,7 @@ with LibreSSL.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 08, 2018。
+    上次更新于 6月 09, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
