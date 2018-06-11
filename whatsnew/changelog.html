@@ -171,6 +171,11 @@ ctypes structured data type. Patch by Eryk Sun and Oren Milman.</li>
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue30167">bpo-30167</a>: Prevent site.main() exception if PYTHONSTARTUP is set. Patch by
+Steve Weber.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33812">bpo-33812</a>: Datetime instance d with non-None tzinfo, but with
+d.tzinfo.utcoffset(d) returning None is now treated as naive by the
+astimezone() method.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue30805">bpo-30805</a>: Avoid race condition with debug logging</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33767">bpo-33767</a>: The concatenation (<code class="docutils literal notranslate"><span class="pre">+</span></code>) and repetition (<code class="docutils literal notranslate"><span class="pre">*</span></code>) sequence
 operations now raise <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> instead of <a class="reference internal" href="../library/exceptions.html#SystemError" title="SystemError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemError</span></code></a> when
@@ -1417,9 +1422,9 @@ good for maintenance.  Hence the conversion.</p>
 <p>The main difference for users is that user configurable key bindings for
 builtin features are now handled uniformly.  Now, editing a binding in a
 keyset only affects its value in the keyset.  All bindings are defined
-together in the system-specific default keysets in config- extensions.def.
-All custom keysets are saved as a whole in config- extension.cfg.  All
-take effect as soon as one clicks Apply or Ok.</p>
+together in the system-specific default keysets in config-extensions.def.
+All custom keysets are saved as a whole in config-extension.cfg.  All take
+effect as soon as one clicks Apply or Ok.</p>
 <p>The affected events are ‘&lt;&lt;force-open-completions&gt;&gt;’, ‘&lt;&lt;expand-word&gt;&gt;’,
 ‘&lt;&lt;force-open-calltip&gt;&gt;’, ‘&lt;&lt;flash-paren&gt;&gt;’, ‘&lt;&lt;format-paragraph&gt;&gt;’,
 ‘&lt;&lt;run- module&gt;&gt;’, ‘&lt;&lt;check-module&gt;&gt;’, and ‘&lt;&lt;zoom-height&gt;&gt;’.  Any
@@ -8885,7 +8890,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 10, 2018。
+    上次更新于 6月 11, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
