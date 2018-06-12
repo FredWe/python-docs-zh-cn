@@ -278,6 +278,8 @@ Berker Peksag.</li>
 implements <code class="docutils literal notranslate"><span class="pre">MetaPathFinder</span></code>. (Patch by Himanshu Lakhara)</li>
 <li><a class="reference external" href="https://bugs.python.org/issue8243">bpo-8243</a>: Add a note about curses.addch and curses.addstr exception
 behavior when writing outside a window, or pad.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue31432">bpo-31432</a>: Clarify meaning of CERT_NONE, CERT_OPTIONAL, and CERT_REQUIRED
+flags for ssl.SSLContext.verify_mode.</li>
 </ul>
 </div>
 <div class="section" id="tests">
@@ -320,6 +322,10 @@ is passed macros on the command line.</li>
 <div class="section" id="idle">
 <h3>IDLE<a class="headerlink" href="#idle" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue33656">bpo-33656</a>: On Windows, add API call saying that tk scales for DPI. On
+Windows 8.1+ or 10, with DPI compatibility properties of the Python binary
+unchanged, and a monitor resolution greater than 96 DPI, this should make
+text and lines sharper.  It should otherwise have no effect.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33768">bpo-33768</a>: Clicking on a context line moves that line to the top of the
 editor window.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue33763">bpo-33763</a>: IDLE: Use read-only text widget for code context instead of
@@ -8890,7 +8896,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 11, 2018。
+    上次更新于 6月 12, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。

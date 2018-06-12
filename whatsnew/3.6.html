@@ -242,8 +242,8 @@ and the <code class="docutils literal notranslate"><span class="pre">__annotatio
 and Guido van Rossum. Implemented by Ivan Levkivskyi.</dd>
 </dl>
 <p class="last">Tools that use or will use the new syntax:
-<a class="reference external" href="http://github.com/python/mypy">mypy</a>,
-<a class="reference external" href="http://github.com/google/pytype">pytype</a>, PyCharm, etc.</p>
+<a class="reference external" href="http://www.mypy-lang.org/">mypy</a>,
+<a class="reference external" href="https://github.com/google/pytype">pytype</a>, PyCharm, etc.</p>
 </div>
 </div>
 <div class="section" id="pep-515-underscores-in-numeric-literals">
@@ -814,7 +814,7 @@ return value.
 </div>
 <div class="section" id="cmath">
 <h3>cmath<a class="headerlink" href="#cmath" title="永久链接至标题">¶</a></h3>
-<p>The new <a class="reference internal" href="../library/cmath.html#cmath.tau" title="cmath.tau"><code class="xref py py-const docutils literal notranslate"><span class="pre">cmath.tau</span></code></a> (τ) constant has been added.
+<p>The new <a class="reference internal" href="../library/cmath.html#cmath.tau" title="cmath.tau"><code class="xref py py-const docutils literal notranslate"><span class="pre">cmath.tau</span></code></a> (<em>τ</em>) constant has been added.
 (Contributed by Lisa Roach in <a class="reference external" href="https://bugs.python.org/issue12345">bpo-12345</a>, see <span class="target" id="index-29"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0628"><strong>PEP 628</strong></a> for details.)</p>
 <p>New constants: <a class="reference internal" href="../library/cmath.html#cmath.inf" title="cmath.inf"><code class="xref py py-const docutils literal notranslate"><span class="pre">cmath.inf</span></code></a> and <a class="reference internal" href="../library/cmath.html#cmath.nan" title="cmath.nan"><code class="xref py py-const docutils literal notranslate"><span class="pre">cmath.nan</span></code></a> to
 match <a class="reference internal" href="../library/math.html#math.inf" title="math.inf"><code class="xref py py-const docutils literal notranslate"><span class="pre">math.inf</span></code></a> and <a class="reference internal" href="../library/math.html#math.nan" title="math.nan"><code class="xref py py-const docutils literal notranslate"><span class="pre">math.nan</span></code></a>, and also <a class="reference internal" href="../library/cmath.html#cmath.infj" title="cmath.infj"><code class="xref py py-const docutils literal notranslate"><span class="pre">cmath.infj</span></code></a>
@@ -900,10 +900,6 @@ with a positive denominator:</p>
 attribute defaults to <code class="docutils literal notranslate"><span class="pre">['gztar']</span></code>. Although not anticipated,
 any code relying on the presence of <code class="docutils literal notranslate"><span class="pre">default_format</span></code> may
 need to be adapted. See <a class="reference external" href="https://bugs.python.org/issue27819">bpo-27819</a> for more details.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">upload</span></code> command now longer tries to change CR end-of-line characters
-to CRLF.  This fixes a corruption issue with sdists that ended with a byte
-equivalent to CR.
-(Contributed by Bo Bayles in <a class="reference external" href="https://bugs.python.org/issue32304">bpo-32304</a>.)</p>
 </div>
 <div class="section" id="email">
 <h3>email<a class="headerlink" href="#email" title="永久链接至标题">¶</a></h3>
@@ -1032,6 +1028,11 @@ maxlines.  Clicking on a context line jumps the editor to that line.  Context
 colors for custom themes is added to Highlights tab of Settings dialog.
 (Contributed by Cheryl Sabella and Terry Jan Reedy in <a class="reference external" href="https://bugs.python.org/issue33642">bpo-33642</a>,
 <a class="reference external" href="https://bugs.python.org/issue33768">bpo-33768</a>, and <a class="reference external" href="https://bugs.python.org/issue33679">bpo-33679</a>)</p>
+<p>On Windows, a new API call tells Windows that tk scales for DPI. On Windows
+8.1+ or 10, with DPI compatibility properties of the Python binary
+unchanged, and a monitor resolution greater than 96 DPI, this should
+make text and lines sharper.  It should otherwise have no effect.
+(Contributed by Terry Jan Reedy in <a class="reference external" href="https://bugs.python.org/issue33656">bpo-33656</a>).</p>
 </div>
 <div class="section" id="importlib">
 <h3>importlib<a class="headerlink" href="#importlib" title="永久链接至标题">¶</a></h3>
@@ -1077,7 +1078,7 @@ be reopened.
 </div>
 <div class="section" id="math">
 <h3>math<a class="headerlink" href="#math" title="永久链接至标题">¶</a></h3>
-<p>The tau (τ) constant has been added to the <a class="reference internal" href="../library/math.html#module-math" title="math: Mathematical functions (sin() etc.)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">math</span></code></a> and <a class="reference internal" href="../library/cmath.html#module-cmath" title="cmath: Mathematical functions for complex numbers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">cmath</span></code></a>
+<p>The tau (<em>τ</em>) constant has been added to the <a class="reference internal" href="../library/math.html#module-math" title="math: Mathematical functions (sin() etc.)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">math</span></code></a> and <a class="reference internal" href="../library/cmath.html#module-cmath" title="cmath: Mathematical functions for complex numbers."><code class="xref py py-mod docutils literal notranslate"><span class="pre">cmath</span></code></a>
 modules.
 (Contributed by Lisa Roach in <a class="reference external" href="https://bugs.python.org/issue12345">bpo-12345</a>, see <span class="target" id="index-30"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0628"><strong>PEP 628</strong></a> for details.)</p>
 </div>
@@ -1356,7 +1357,7 @@ representing <a class="reference internal" href="../library/collections.abc.html
 mark class variables.  As introduced in <span class="target" id="index-33"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0526"><strong>PEP 526</strong></a>, a variable annotation
 wrapped in ClassVar indicates that a given attribute is intended to be used as
 a class variable and should not be set on instances of that class.
-(Contributed by Ivan Levkivskyi in <a class="reference external" href="https://github.com/python/typing/issues/280">Github #280</a>.)</p>
+(Contributed by Ivan Levkivskyi in <a class="reference external" href="https://github.com/python/typing/pull/280">Github #280</a>.)</p>
 <p>A new <a class="reference internal" href="../library/typing.html#typing.TYPE_CHECKING" title="typing.TYPE_CHECKING"><code class="xref py py-const docutils literal notranslate"><span class="pre">TYPE_CHECKING</span></code></a> constant that is assumed to be
 <code class="docutils literal notranslate"><span class="pre">True</span></code> by the static type chekers, but is <code class="docutils literal notranslate"><span class="pre">False</span></code> at runtime.
 (Contributed by Guido van Rossum in <a class="reference external" href="https://github.com/python/typing/issues/230">Github #230</a>.)</p>
@@ -1577,10 +1578,6 @@ representation of a <a class="reference internal" href="../glossary.html#term-pa
 (Contributed by Brett Cannon in <a class="reference external" href="https://bugs.python.org/issue27186">bpo-27186</a>.)</li>
 <li>The <a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_FSConverter" title="PyUnicode_FSConverter"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_FSConverter()</span></code></a> and <a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_FSDecoder" title="PyUnicode_FSDecoder"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnicode_FSDecoder()</span></code></a>
 functions will now accept <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like objects</span></a>.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">PyExc_RecursionErrorInst</span></code> singleton that was part of the public API
-has been removed as its members being never cleared may cause a segfault
-during finalization of the interpreter. Contributed by Xavier de Gaye in
-<a class="reference external" href="https://bugs.python.org/issue22898">bpo-22898</a> and <a class="reference external" href="https://bugs.python.org/issue30697">bpo-30697</a>.</li>
 </ul>
 </div>
 <div class="section" id="other-improvements">
@@ -2023,6 +2020,13 @@ of generated files by updating their modification times has been removed.</p>
 </div>
 </div>
 </div>
+<div class="section" id="notable-changes-in-python-3-6-4">
+<h2>Notable changes in Python 3.6.4<a class="headerlink" href="#notable-changes-in-python-3-6-4" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">PyExc_RecursionErrorInst</span></code> singleton that was part of the public API
+has been removed as its members being never cleared may cause a segfault
+during finalization of the interpreter.
+(Contributed by Xavier de Gaye in <a class="reference external" href="https://bugs.python.org/issue22898">bpo-22898</a> and <a class="reference external" href="https://bugs.python.org/issue30697">bpo-30697</a>.)</p>
+</div>
 <div class="section" id="notable-changes-in-python-3-6-5">
 <h2>Notable changes in Python 3.6.5<a class="headerlink" href="#notable-changes-in-python-3-6-5" title="永久链接至标题">¶</a></h2>
 <p>The <a class="reference internal" href="../library/locale.html#locale.localeconv" title="locale.localeconv"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale.localeconv()</span></code></a> function now sets temporarily the <code class="docutils literal notranslate"><span class="pre">LC_CTYPE</span></code>
@@ -2172,6 +2176,7 @@ locale to the <code class="docutils literal notranslate"><span class="pre">LC_NU
 <li><a class="reference internal" href="#removal-of-make-touch-build-target">Removal of <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">touch</span></code> build target</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#notable-changes-in-python-3-6-4">Notable changes in Python 3.6.4</a></li>
 <li><a class="reference internal" href="#notable-changes-in-python-3-6-5">Notable changes in Python 3.6.5</a></li>
 </ul>
 </li>
@@ -2244,7 +2249,7 @@ locale to the <code class="docutils literal notranslate"><span class="pre">LC_NU
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 11, 2018。
+    上次更新于 6月 12, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。

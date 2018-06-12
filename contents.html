@@ -213,6 +213,7 @@
 <li class="toctree-l4"><a class="reference internal" href="whatsnew/3.6.html#removal-of-make-touch-build-target">Removal of <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">touch</span></code> build target</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="whatsnew/3.6.html#notable-changes-in-python-3-6-4">Notable changes in Python 3.6.4</a></li>
 <li class="toctree-l3"><a class="reference internal" href="whatsnew/3.6.html#notable-changes-in-python-3-6-5">Notable changes in Python 3.6.5</a></li>
 </ul>
 </li>
@@ -340,6 +341,11 @@
 <li class="toctree-l4"><a class="reference internal" href="whatsnew/3.5.html#changes-in-python-behavior">Changes in Python behavior</a></li>
 <li class="toctree-l4"><a class="reference internal" href="whatsnew/3.5.html#changes-in-the-python-api">Changes in the Python API</a></li>
 <li class="toctree-l4"><a class="reference internal" href="whatsnew/3.5.html#changes-in-the-c-api">Changes in the C API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="whatsnew/3.5.html#notable-changes-in-python-3-5-4">Notable changes in Python 3.5.4</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="whatsnew/3.5.html#new-make-regen-all-build-target">New <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">regen-all</span></code> build target</a></li>
+<li class="toctree-l4"><a class="reference internal" href="whatsnew/3.5.html#removal-of-make-touch-build-target">Removal of <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">touch</span></code> build target</a></li>
 </ul>
 </li>
 </ul>
@@ -742,8 +748,18 @@
 <li class="toctree-l3"><a class="reference internal" href="whatsnew/2.7.html#other-changes-and-fixes">Other Changes and Fixes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="whatsnew/2.7.html#porting-to-python-2-7">Porting to Python 2.7</a></li>
 <li class="toctree-l3"><a class="reference internal" href="whatsnew/2.7.html#new-features-added-to-python-2-7-maintenance-releases">New Features Added to Python 2.7 Maintenance Releases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="whatsnew/2.7.html#two-new-environment-variables-for-debug-mode">Two new environment variables for debug mode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="whatsnew/2.7.html#pep-434-idle-enhancement-exception-for-all-branches">PEP 434: IDLE Enhancement Exception for All Branches</a></li>
 <li class="toctree-l4"><a class="reference internal" href="whatsnew/2.7.html#pep-466-network-security-enhancements-for-python-2-7">PEP 466: Network Security Enhancements for Python 2.7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="whatsnew/2.7.html#pep-477-backport-ensurepip-pep-453-to-python-2-7">PEP 477: Backport ensurepip (PEP 453) to Python 2.7</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="whatsnew/2.7.html#bootstrapping-pip-by-default">Bootstrapping pip By Default</a></li>
+<li class="toctree-l5"><a class="reference internal" href="whatsnew/2.7.html#documentation-changes">Documentation Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="whatsnew/2.7.html#pep-476-enabling-certificate-verification-by-default-for-stdlib-http-clients">PEP 476: Enabling certificate verification by default for stdlib http clients</a></li>
+<li class="toctree-l4"><a class="reference internal" href="whatsnew/2.7.html#pep-493-https-verification-migration-tools-for-python-2-7">PEP 493: HTTPS verification migration tools for Python 2.7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="whatsnew/2.7.html#new-make-regen-all-build-target">New <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">regen-all</span></code> build target</a></li>
+<li class="toctree-l4"><a class="reference internal" href="whatsnew/2.7.html#removal-of-make-touch-build-target">Removal of <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">touch</span></code> build target</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="whatsnew/2.7.html#acknowledgements">Acknowledgements</a></li>
@@ -5262,7 +5278,7 @@
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 11, 2018。
+    上次更新于 6月 12, 2018。
     <a href="bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
