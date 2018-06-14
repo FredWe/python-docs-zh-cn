@@ -311,11 +311,7 @@ generator object, which is an asynchronous iterator
 </div>
 <p>下面是生成器函数的解释. 异步生成器函数会在 <a class="reference internal" href="#asynchronous-generator-functions"><span class="std std-ref">Asynchronous generator functions</span></a> 另开一节单独解释.</p>
 <p>当一个生成器函数被调用的时候，它返回一个迭代器，称为生成器。然后这个生成器来控制生成器函数的执行。当这个生成器的某一个方法被调用的时候，生成器函数开始执行。这时会一直执行到第一个 yield 表达式，在此执行再次被挂起，给生成器的调用者返回  <a class="reference internal" href="#grammar-token-expression_list"><code class="xref std std-token docutils literal notranslate"><span class="pre">expression_list</span></code></a> 的值。挂起后，我们说所有局部状态都被保留下来，包括局部变量的当前绑定，指令指针，内部求值栈和任何异常处理的状态。通过调用生成器的某一个方法，生成器函数继续执行。此时函数的运行就和 yield 表达式只是一个外部函数调用的情况完全一致。恢复后 yield 表达式的值取决于调用的哪个方法来恢复执行。 如果用的是 <a class="reference internal" href="#generator.__next__" title="generator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> (通常通过语言内置的 <a class="reference internal" href="compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> 或是 <a class="reference internal" href="../library/functions.html#next" title="next"><code class="xref py py-func docutils literal notranslate"><span class="pre">next()</span></code></a> 来调用) 那么结果就是 <a class="reference internal" href="../library/constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>.  否则，如果用 <a class="reference internal" href="#generator.send" title="generator.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code></a>, 那么结果就是传递给send方法的值。</p>
-<p id="index-20">All of this makes generator functions quite similar to coroutines; they yield
-multiple times, they have more than one entry point and their execution can be
-suspended.  The only difference is that a generator function cannot control
-where the execution should continue after it yields; the control is always
-transferred to the generator’s caller.</p>
+<p id="index-20">所有这些使生成器函数与协程非常相似；它们 yield 多次，它们具有多个入口点，并且它们的执行可以被挂起。唯一的区别是生成器函数不能控制在它在 yield 后交给哪里继续执行；控制权总是转移到生成器的调用者。</p>
 <p>Yield expressions are allowed anywhere in a <a class="reference internal" href="compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> construct.  If the
 generator is not resumed before it is
 finalized (by reaching a zero reference count or by being garbage collected),
