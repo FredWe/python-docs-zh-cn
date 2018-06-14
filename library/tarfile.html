@@ -198,7 +198,7 @@ be done on the file. If given, <em>fileobj</em> may be any object that has a
 specifies the blocksize and defaults to <code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">*</span> <span class="pre">512</span></code> bytes. Use this variant
 in combination with e.g. <code class="docutils literal notranslate"><span class="pre">sys.stdin</span></code>, a socket <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a> or a tape
 device. However, such a <a class="reference internal" href="#tarfile.TarFile" title="tarfile.TarFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">TarFile</span></code></a> object is limited in that it does
-not allow random access, see <a class="reference internal" href="#tar-examples"><span class="std std-ref">Examples</span></a>.  The currently
+not allow random access, see <a class="reference internal" href="#tar-examples"><span class="std std-ref">示例</span></a>.  The currently
 possible modes:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -369,7 +369,7 @@ object, see <a class="reference internal" href="#tarinfo-objects"><span class="s
 statement. It will automatically be closed when the block is completed. Please
 note that in the event of an exception an archive opened for writing will not
 be finalized; only the internally used file object will be closed. See the
-<a class="reference internal" href="#tar-examples"><span class="std std-ref">Examples</span></a> section for a use case.</p>
+<a class="reference internal" href="#tar-examples"><span class="std std-ref">示例</span></a> section for a use case.</p>
 <div class="versionadded">
 <p><span class="versionmodified">3.2 新版功能: </span>Added support for the context management protocol.</p>
 </div>
@@ -564,7 +564,7 @@ respective file is either excluded (<a class="reference internal" href="constant
 should be a function that takes a <a class="reference internal" href="#tarfile.TarInfo" title="tarfile.TarInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">TarInfo</span></code></a> object argument and
 returns the changed <a class="reference internal" href="#tarfile.TarInfo" title="tarfile.TarInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">TarInfo</span></code></a> object. If it instead returns
 <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a> the <a class="reference internal" href="#tarfile.TarInfo" title="tarfile.TarInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">TarInfo</span></code></a> object will be excluded from the
-archive. See <a class="reference internal" href="#tar-examples"><span class="std std-ref">Examples</span></a> for an example.</p>
+archive. See <a class="reference internal" href="#tar-examples"><span class="std std-ref">示例</span></a> for an example.</p>
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.2 版更改: </span>Added the <em>filter</em> parameter.</p>
 </div>
@@ -859,7 +859,7 @@ directory’s name:</p>
 </div>
 </div>
 <div class="section" id="examples">
-<span id="tar-examples"></span><h2>13.6.4. Examples<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h2>
+<span id="tar-examples"></span><h2>13.6.4. 示例<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h2>
 <p>How to extract an entire tar archive to the current working directory:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tarfile</span>
 <span class="n">tar</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;sample.tar.gz&quot;</span><span class="p">)</span>
@@ -1006,7 +1006,7 @@ surrogate characters are stored.</p>
 <li><a class="reference internal" href="#command-line-options">13.6.3.1. Command-line options</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#examples">13.6.4. Examples</a></li>
+<li><a class="reference internal" href="#examples">13.6.4. 示例</a></li>
 <li><a class="reference internal" href="#supported-tar-formats">13.6.5. Supported tar formats</a></li>
 <li><a class="reference internal" href="#unicode-issues">13.6.6. Unicode issues</a></li>
 </ul>
@@ -1081,7 +1081,7 @@ surrogate characters are stored.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 13, 2018。
+    上次更新于 6月 14, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。

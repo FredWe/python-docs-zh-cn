@@ -110,7 +110,7 @@ immediately after the file is created.  Other platforms do not support
 this; your code should not rely on a temporary file created using this
 function having or not having a visible name in the file system.</p>
 <p>The resulting object can be used as a context manager (see
-<a class="reference internal" href="#tempfile-examples"><span class="std std-ref">Examples</span></a>).  On completion of the context or
+<a class="reference internal" href="#tempfile-examples"><span class="std std-ref">示例</span></a>).  On completion of the context or
 destruction of the file object the temporary file will be removed
 from the filesystem.</p>
 <p>The <em>mode</em> parameter defaults to <code class="docutils literal notranslate"><span class="pre">'w+b'</span></code> so that the file created can
@@ -173,7 +173,7 @@ a normal file.</p>
 <code class="descclassname">tempfile.</code><code class="descname">TemporaryDirectory</code><span class="sig-paren">(</span><em>suffix=None</em>, <em>prefix=None</em>, <em>dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tempfile.TemporaryDirectory" title="永久链接至目标">¶</a></dt>
 <dd><p>This function securely creates a temporary directory using the same rules as <a class="reference internal" href="#tempfile.mkdtemp" title="tempfile.mkdtemp"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkdtemp()</span></code></a>.
 The resulting object can be used as a context manager (see
-<a class="reference internal" href="#tempfile-examples"><span class="std std-ref">Examples</span></a>).  On completion of the context or destruction
+<a class="reference internal" href="#tempfile-examples"><span class="std std-ref">示例</span></a>).  On completion of the context or destruction
 of the temporary directory object the newly created temporary directory
 and all its contents are removed from the filesystem.</p>
 <p>The directory name can be retrieved from the <code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code> attribute of the
@@ -318,7 +318,7 @@ algorithm described in <a class="reference internal" href="#tempfile.gettempdir"
 </dd></dl>
 
 <div class="section" id="examples">
-<span id="tempfile-examples"></span><h2>11.6.1. Examples<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h2>
+<span id="tempfile-examples"></span><h2>11.6.1. 示例<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h2>
 <p>Here are some examples of typical usage of the <a class="reference internal" href="#module-tempfile" title="tempfile: Generate temporary files and directories."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tempfile</span></code></a> module:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">tempfile</span>
 
@@ -402,7 +402,7 @@ be replaced easily with <a class="reference internal" href="#tempfile.NamedTempo
   <h3><a href="../contents.html">內容目录</a></h3>
   <ul>
 <li><a class="reference internal" href="#">11.6. <code class="docutils literal notranslate"><span class="pre">tempfile</span></code> — Generate temporary files and directories</a><ul>
-<li><a class="reference internal" href="#examples">11.6.1. Examples</a></li>
+<li><a class="reference internal" href="#examples">11.6.1. 示例</a></li>
 <li><a class="reference internal" href="#deprecated-functions-and-variables">11.6.2. Deprecated functions and variables</a></li>
 </ul>
 </li>
@@ -476,7 +476,7 @@ be replaced easily with <a class="reference internal" href="#tempfile.NamedTempo
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 13, 2018。
+    上次更新于 6月 14, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。

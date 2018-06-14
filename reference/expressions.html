@@ -310,22 +310,7 @@ generator object, which is an asynchronous iterator
 </pre></div>
 </div>
 <p>下面是生成器函数的解释. 异步生成器函数会在 <a class="reference internal" href="#asynchronous-generator-functions"><span class="std std-ref">Asynchronous generator functions</span></a> 另开一节单独解释.</p>
-<p>When a generator function is called, it returns an iterator known as a
-generator.  That generator then controls the execution of the generator function.
-The execution starts when one of the generator’s methods is called.  At that
-time, the execution proceeds to the first yield expression, where it is
-suspended again, returning the value of <a class="reference internal" href="#grammar-token-expression_list"><code class="xref std std-token docutils literal notranslate"><span class="pre">expression_list</span></code></a> to the generator’s
-caller.  By suspended, we mean that all local state is retained, including the
-current bindings of local variables, the instruction pointer, the internal
-evaluation stack, and the state of any exception handling.  When the execution
-is resumed by calling one of the
-generator’s methods, the function can proceed exactly as if the yield expression
-were just another external call.  The value of the yield expression after
-resuming depends on the method which resumed the execution.  If
-<a class="reference internal" href="#generator.__next__" title="generator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> is used (typically via either a <a class="reference internal" href="compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> or
-the <a class="reference internal" href="../library/functions.html#next" title="next"><code class="xref py py-func docutils literal notranslate"><span class="pre">next()</span></code></a> builtin) then the result is <a class="reference internal" href="../library/constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>.  Otherwise, if
-<a class="reference internal" href="#generator.send" title="generator.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code></a> is used, then the result will be the value passed in to
-that method.</p>
+<p>当一个生成器函数被调用的时候，它返回一个迭代器，称为生成器。然后这个生成器来控制生成器函数的执行。当这个生成器的某一个方法被调用的时候，生成器函数开始执行。这时会一直执行到第一个 yield 表达式，在此执行再次被挂起，给生成器的调用者返回  <a class="reference internal" href="#grammar-token-expression_list"><code class="xref std std-token docutils literal notranslate"><span class="pre">expression_list</span></code></a> 的值。挂起后，我们说所有局部状态都被保留下来，包括局部变量的当前绑定，指令指针，内部求值栈和任何异常处理的状态。通过调用生成器的某一个方法，生成器函数继续执行。此时函数的运行就和 yield 表达式只是一个外部函数调用的情况完全一致。恢复后 yield 表达式的值取决于调用的哪个方法来恢复执行。 如果用的是 <a class="reference internal" href="#generator.__next__" title="generator.__next__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code></a> (通常通过语言内置的 <a class="reference internal" href="compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> 或是 <a class="reference internal" href="../library/functions.html#next" title="next"><code class="xref py py-func docutils literal notranslate"><span class="pre">next()</span></code></a> 来调用) 那么结果就是 <a class="reference internal" href="../library/constants.html#None" title="None"><code class="xref py py-const docutils literal notranslate"><span class="pre">None</span></code></a>.  否则，如果用 <a class="reference internal" href="#generator.send" title="generator.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code></a>, 那么结果就是传递给send方法的值。</p>
 <p id="index-20">All of this makes generator functions quite similar to coroutines; they yield
 multiple times, they have more than one entry point and their execution can be
 suspended.  The only difference is that a generator function cannot control
@@ -426,7 +411,7 @@ has already exited due to an exception or normal exit.</p>
 
 </div>
 <div class="section" id="examples">
-<span id="index-27"></span><h4>6.2.9.2. Examples<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h4>
+<span id="index-27"></span><h4>6.2.9.2. 示例<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h4>
 <p>Here is a simple example that demonstrates the behavior of generators and
 generator functions:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -454,8 +439,7 @@ generator functions:</p>
 <span class="go">Don&#39;t forget to clean up when &#39;close()&#39; is called.</span>
 </pre></div>
 </div>
-<p>For examples using <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code>, see <a class="reference internal" href="../whatsnew/3.3.html#pep-380"><span class="std std-ref">PEP 380: Syntax for Delegating to a Subgenerator</span></a> in “What’s New in
-Python.”</p>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> 的例子, 参见 “What’s New in Python” 中的 <a class="reference internal" href="../whatsnew/3.3.html#pep-380"><span class="std std-ref">PEP 380: Syntax for Delegating to a Subgenerator</span></a>。</p>
 </div>
 <div class="section" id="asynchronous-generator-functions">
 <span id="id3"></span><h4>6.2.9.3. Asynchronous generator functions<a class="headerlink" href="#asynchronous-generator-functions" title="永久链接至标题">¶</a></h4>
@@ -1410,7 +1394,7 @@ bitwise unary operator on its right, that is, <code class="docutils literal notr
 <li><a class="reference internal" href="#generator-expressions">6.2.8. Generator expressions</a></li>
 <li><a class="reference internal" href="#yield-expressions">6.2.9. Yield 表达式</a><ul>
 <li><a class="reference internal" href="#generator-iterator-methods">6.2.9.1. Generator-iterator methods</a></li>
-<li><a class="reference internal" href="#examples">6.2.9.2. Examples</a></li>
+<li><a class="reference internal" href="#examples">6.2.9.2. 示例</a></li>
 <li><a class="reference internal" href="#asynchronous-generator-functions">6.2.9.3. Asynchronous generator functions</a></li>
 <li><a class="reference internal" href="#asynchronous-generator-iterator-methods">6.2.9.4. Asynchronous generator-iterator methods</a></li>
 </ul>
@@ -1513,7 +1497,7 @@ bitwise unary operator on its right, that is, <code class="docutils literal notr
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 13, 2018。
+    上次更新于 6月 14, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
