@@ -2127,7 +2127,7 @@ returns, the iterator raises <a class="reference internal" href="../library/exce
 coroutine raises an exception, it is propagated by the iterator.  Coroutines
 should not directly raise unhandled <a class="reference internal" href="../library/exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> exceptions.</p>
 <p>Coroutines also have the methods listed below, which are analogous to
-those of generators (see <a class="reference internal" href="expressions.html#generator-methods"><span class="std std-ref">Generator-iterator methods</span></a>).  However, unlike
+those of generators (see <a class="reference internal" href="expressions.html#generator-methods"><span class="std std-ref">生成器-迭代器的方法</span></a>).  However, unlike
 generators, coroutines do not directly support iteration.</p>
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.5.2 版更改: </span>It is a <a class="reference internal" href="../library/exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> to await on a coroutine more than once.</p>
