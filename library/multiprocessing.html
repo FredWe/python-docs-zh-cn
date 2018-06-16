@@ -203,7 +203,7 @@ start a <em>semaphore tracker</em> process which tracks the unlinked named
 semaphores created by processes of the program.  When all processes
 have exited the semaphore tracker unlinks any remaining semaphores.
 Usually there should be none, but if a process was killed by a signal
-there may some “leaked” semaphores.  (Unlinking the named semaphores
+there may be some “leaked” semaphores.  (Unlinking the named semaphores
 is a serious matter since the system allows only a limited number, and
 they will not be automatically unlinked until the next reboot.)</p>
 <p>To select a start method you use the <a class="reference internal" href="#multiprocessing.set_start_method" title="multiprocessing.set_start_method"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_start_method()</span></code></a> in
@@ -245,7 +245,7 @@ program.</p>
 </div>
 <p>Note that objects related to one context may not be compatible with
 processes for a different context.  In particular, locks created using
-the <em>fork</em> context cannot be passed to a processes started using the
+the <em>fork</em> context cannot be passed to processes started using the
 <em>spawn</em> or <em>forkserver</em> start methods.</p>
 <p>A library which wants to use a particular start method should probably
 use <a class="reference internal" href="#multiprocessing.get_context" title="multiprocessing.get_context"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_context()</span></code></a> to avoid interfering with the choice of the
@@ -3340,7 +3340,7 @@ processes and collect the results:</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 14, 2018。
+    上次更新于 6月 16, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
