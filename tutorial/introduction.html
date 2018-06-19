@@ -84,7 +84,7 @@
 <span id="tut-informal"></span><h1>3. Python 的非正式介绍<a class="headerlink" href="#an-informal-introduction-to-python" title="永久链接至标题">¶</a></h1>
 <p>在下面的例子中，通过提示符的出现与否来区分输入和输出(<a class="reference internal" href="../glossary.html#term"><span class="xref std std-term">&gt;&gt;&gt;</span></a> and <a class="reference internal" href="../glossary.html#term-1"><span class="xref std std-term">…</span></a>)：如果你想复现这些例子，当提示符出现后，你必须在提示符后键入例子中的每一个词；不以提示符开头的那些行是解释器的输出。注意例子中某行中出现第二个提示符意味着你必须键入一个空白行；这是用来结束多行命令的。</p>
 <p>这个手册中的许多例子都包含注释，甚至交互性命令中也有。Python中的注释以井号，<code class="docutils literal notranslate"><span class="pre">#</span></code>，开头，并且一直延伸到该文本行结束为止。注释可以出现在一行的开头或者是空白和代码的后边，但是不能出现在字符串中间。字符串中的井号就是井号。因为注释是用来阐明代码的，不会被Python解释，所以在键入这些例子时，注释是可以被忽略的。</p>
-<p>Some examples:</p>
+<p>几个例子:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is the first comment</span>
 <span class="n">spam</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># and this is the second comment</span>
           <span class="c1"># ... and now a third!</span>
@@ -183,12 +183,12 @@ to escape quotes:</p>
 <span class="go">&quot;doesn&#39;t&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;doesn&#39;t&quot;</span>  <span class="c1"># ...or use double quotes instead</span>
 <span class="go">&quot;doesn&#39;t&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&quot;Yes,&quot; he said.&#39;</span>
-<span class="go">&#39;&quot;Yes,&quot; he said.&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">Yes,</span><span class="se">\&quot;</span><span class="s2"> he said.&quot;</span>
-<span class="go">&#39;&quot;Yes,&quot; he said.&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&quot;Isn</span><span class="se">\&#39;</span><span class="s1">t,&quot; she said.&#39;</span>
-<span class="go">&#39;&quot;Isn\&#39;t,&quot; she said.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&quot;Yes,&quot; they said.&#39;</span>
+<span class="go">&#39;&quot;Yes,&quot; they said.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">Yes,</span><span class="se">\&quot;</span><span class="s2"> they said.&quot;</span>
+<span class="go">&#39;&quot;Yes,&quot; they said.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&quot;Isn</span><span class="se">\&#39;</span><span class="s1">t,&quot; they said.&#39;</span>
+<span class="go">&#39;&quot;Isn\&#39;t,&quot; they said.&#39;</span>
 </pre></div>
 </div>
 <p>In the interactive interpreter, the output string is enclosed in quotes and
@@ -199,10 +199,10 @@ the string contains a single quote and no double quotes, otherwise it is
 enclosed in single quotes.  The <a class="reference internal" href="../library/functions.html#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> function produces a more
 readable output, by omitting the enclosing quotes and by printing escaped
 and special characters:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&quot;Isn</span><span class="se">\&#39;</span><span class="s1">t,&quot; she said.&#39;</span>
-<span class="go">&#39;&quot;Isn\&#39;t,&quot; she said.&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&quot;Isn</span><span class="se">\&#39;</span><span class="s1">t,&quot; she said.&#39;</span><span class="p">)</span>
-<span class="go">&quot;Isn&#39;t,&quot; she said.</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&quot;Isn</span><span class="se">\&#39;</span><span class="s1">t,&quot; they said.&#39;</span>
+<span class="go">&#39;&quot;Isn\&#39;t,&quot; they said.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&quot;Isn</span><span class="se">\&#39;</span><span class="s1">t,&quot; they said.&#39;</span><span class="p">)</span>
+<span class="go">&quot;Isn&#39;t,&quot; they said.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;First line.</span><span class="se">\n</span><span class="s1">Second line.&#39;</span>  <span class="c1"># \n means newline</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>  <span class="c1"># without print(), \n is included in the output</span>
 <span class="go">&#39;First line.\nSecond line.&#39;</span>
@@ -407,19 +407,17 @@ indexed and sliced:</p>
 <span class="go">[9, 16, 25]</span>
 </pre></div>
 </div>
-<p>All slice operations return a new list containing the requested elements.  This
-means that the following slice returns a new (shallow) copy of the list:</p>
+<p>所有的切片操作都返回一个新列表，这个新列表包含所需要的元素。就是说，如下的切片会返回列表的一个新的(浅)拷贝:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares</span><span class="p">[:]</span>
 <span class="go">[1, 4, 9, 16, 25]</span>
 </pre></div>
 </div>
-<p>Lists also support operations like concatenation:</p>
+<p>列表同样支持拼接操作:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares</span> <span class="o">+</span> <span class="p">[</span><span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
 <span class="go">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
 </pre></div>
 </div>
-<p>Unlike strings, which are <a class="reference internal" href="../glossary.html#term-immutable"><span class="xref std std-term">immutable</span></a>, lists are a <a class="reference internal" href="../glossary.html#term-mutable"><span class="xref std std-term">mutable</span></a>
-type, i.e. it is possible to change their content:</p>
+<p>与 <a class="reference internal" href="../glossary.html#term-immutable"><span class="xref std std-term">immutable</span></a> 的字符串不同, 列表是一个 <a class="reference internal" href="../glossary.html#term-mutable"><span class="xref std std-term">mutable</span></a> 类型，就是说，它自己的内容可以改变:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">125</span><span class="p">]</span>  <span class="c1"># something&#39;s wrong here</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="o">**</span> <span class="mi">3</span>  <span class="c1"># the cube of 4 is 64, not 65!</span>
 <span class="go">64</span>
@@ -428,16 +426,14 @@ type, i.e. it is possible to change their content:</p>
 <span class="go">[1, 8, 27, 64, 125]</span>
 </pre></div>
 </div>
-<p>You can also add new items at the end of the list, by using
-the <code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code> <em>method</em> (we will see more about methods later):</p>
+<p>你也可以在列表结尾，通过 <code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code> <a href="#id1"><span class="problematic" id="id2">*</span></a>方法*添加新元素 (我们会在后面解释更多关于方法的内容):</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">216</span><span class="p">)</span>  <span class="c1"># add the cube of 6</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># and the cube of 7</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span>
 <span class="go">[1, 8, 27, 64, 125, 216, 343]</span>
 </pre></div>
 </div>
-<p>Assignment to slices is also possible, and this can even change the size of the
-list or clear it entirely:</p>
+<p>给切片赋值也是可以的，这样甚至可以改变列表大小，或者把列表整个清空:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span>
 <span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;]</span>
@@ -455,14 +451,13 @@ list or clear it entirely:</p>
 <span class="go">[]</span>
 </pre></div>
 </div>
-<p>The built-in function <a class="reference internal" href="../library/functions.html#len" title="len"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> also applies to lists:</p>
+<p>内置函数 <a class="reference internal" href="../library/functions.html#len" title="len"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> 也可以作用到列表上:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span>
 <span class="go">4</span>
 </pre></div>
 </div>
-<p>It is possible to nest lists (create lists containing other lists), for
-example:</p>
+<p>也可以嵌套列表 (创建包含其他列表的列表), 比如说:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span>
@@ -477,10 +472,8 @@ example:</p>
 </div>
 </div>
 <div class="section" id="first-steps-towards-programming">
-<span id="tut-firststeps"></span><h2>3.2. First Steps Towards Programming<a class="headerlink" href="#first-steps-towards-programming" title="永久链接至标题">¶</a></h2>
-<p>Of course, we can use Python for more complicated tasks than adding two and two
-together.  For instance, we can write an initial sub-sequence of the <em>Fibonacci</em>
-series as follows:</p>
+<span id="tut-firststeps"></span><h2>3.2. 走向编程的第一步<a class="headerlink" href="#first-steps-towards-programming" title="永久链接至标题">¶</a></h2>
+<p>当然，我们能用 Python 做一些比二加二更复杂的任务。举个例子，我们能以如下方式写出 <em>斐波那契</em> 数列的头几项:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Fibonacci series:</span>
 <span class="gp">... </span><span class="c1"># the sum of two elements defines the next</span>
 <span class="gp">... </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
@@ -496,13 +489,9 @@ series as follows:</p>
 <span class="go">8</span>
 </pre></div>
 </div>
-<p>This example introduces several new features.</p>
+<p>这个例子引入了几个新的特点。</p>
 <ul>
-<li><p class="first">The first line contains a <em>multiple assignment</em>: the variables <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>
-simultaneously get the new values 0 and 1.  On the last line this is used again,
-demonstrating that the expressions on the right-hand side are all evaluated
-first before any of the assignments take place.  The right-hand side expressions
-are evaluated  from the left to the right.</p>
+<li><p class="first">第一行含有一个 <em>多重赋值</em>: 变量 <code class="docutils literal notranslate"><span class="pre">a</span></code> 和 <code class="docutils literal notranslate"><span class="pre">b</span></code> 同时得到了新值 0 和 1.  最后一行又用了一次多重赋值, 这体现出了右手边的表达式，在任何赋值发生之前就被求值了。右手边的表达式是从左到右被求值的。</p>
 </li>
 <li><p class="first">The <a class="reference internal" href="../reference/compound_stmts.html#while"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">while</span></code></a> loop executes as long as the condition (here: <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">10</span></code>)
 remains true.  In Python, like in C, any non-zero integer value is true; zero is
@@ -533,8 +522,7 @@ this:</p>
 <span class="go">The value of i is 65536</span>
 </pre></div>
 </div>
-<p>The keyword argument <em>end</em> can be used to avoid the newline after the output,
-or end the output with a different string:</p>
+<p>关键字参数 <em>end</em> 可以用来取消输出后面的换行, 或是用另外一个字符串来结尾:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
@@ -549,18 +537,13 @@ or end the output with a different string:</p>
 <table class="docutils footnote" frame="void" id="id3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Since <code class="docutils literal notranslate"><span class="pre">**</span></code> has higher precedence than <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">-3**2</span></code> will be
-interpreted as <code class="docutils literal notranslate"><span class="pre">-(3**2)</span></code> and thus result in <code class="docutils literal notranslate"><span class="pre">-9</span></code>.  To avoid this
-and get <code class="docutils literal notranslate"><span class="pre">9</span></code>, you can use <code class="docutils literal notranslate"><span class="pre">(-3)**2</span></code>.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>因为 <code class="docutils literal notranslate"><span class="pre">**</span></code> 比 <code class="docutils literal notranslate"><span class="pre">-</span></code> 有更高的优先级, 所以 <code class="docutils literal notranslate"><span class="pre">-3**2</span></code> 会被解释成 <code class="docutils literal notranslate"><span class="pre">-(3**2)</span></code> ，因此结果是 <code class="docutils literal notranslate"><span class="pre">-9</span></code>.  为了避免这个并且得到结果 <code class="docutils literal notranslate"><span class="pre">9</span></code>, 你可以用这个式子 <code class="docutils literal notranslate"><span class="pre">(-3)**2</span></code>.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id4" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Unlike other languages, special characters such as <code class="docutils literal notranslate"><span class="pre">\n</span></code> have the
-same meaning with both single (<code class="docutils literal notranslate"><span class="pre">'...'</span></code>) and double (<code class="docutils literal notranslate"><span class="pre">&quot;...&quot;</span></code>) quotes.
-The only difference between the two is that within single quotes you don’t
-need to escape <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> (but you have to escape <code class="docutils literal notranslate"><span class="pre">\'</span></code>) and vice versa.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>和其他语言不一样的是, 特殊字符比如说 <code class="docutils literal notranslate"><span class="pre">\n</span></code> 在单引号 (<code class="docutils literal notranslate"><span class="pre">'...'</span></code>) 和双引号 (<code class="docutils literal notranslate"><span class="pre">&quot;...&quot;</span></code>) 里有一样的意义. 这两种引号唯一的区别是，你不需要在单引号里转义双引号 <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> (但是你必须把单引号转义成 <code class="docutils literal notranslate"><span class="pre">\'</span></code>) ， 反之亦然.</td></tr>
 </tbody>
 </table>
 </div>
@@ -581,7 +564,7 @@ need to escape <code class="docutils literal notranslate"><span class="pre">&quo
 <li><a class="reference internal" href="#lists">3.1.3. 列表</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#first-steps-towards-programming">3.2. First Steps Towards Programming</a></li>
+<li><a class="reference internal" href="#first-steps-towards-programming">3.2. 走向编程的第一步</a></li>
 </ul>
 </li>
 </ul>
@@ -653,7 +636,7 @@ need to escape <code class="docutils literal notranslate"><span class="pre">&quo
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 17, 2018。
+    上次更新于 6月 19, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。

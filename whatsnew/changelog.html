@@ -144,8 +144,12 @@
 <div class="section" id="library">
 <h3>Library<a class="headerlink" href="#library" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
+<li><a class="reference external" href="https://bugs.python.org/issue33663">bpo-33663</a>: Convert content length to string before putting to header.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue27397">bpo-27397</a>: Make email module properly handle invalid-length base64
 strings.</li>
+<li><a class="reference external" href="https://bugs.python.org/issue33365">bpo-33365</a>: Print the header values besides the header keys instead just
+the header keys if <em>debuglevel</em> is set to &gt;0 in <a class="reference internal" href="../library/http.client.html#module-http.client" title="http.client: HTTP and HTTPS protocol client (requires sockets)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">http.client</span></code></a>. Patch
+by Marco Strigl.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue32356">bpo-32356</a>: asyncio.transport.resume_reading() and pause_reading() are now
 idempotent.</li>
 <li><a class="reference external" href="https://bugs.python.org/issue29456">bpo-29456</a>: Fix bugs in hangul normalization: u1176, u11a7 and u11c3</li>
@@ -8940,7 +8944,7 @@ Kilburn.</li>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 17, 2018。
+    上次更新于 6月 19, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
