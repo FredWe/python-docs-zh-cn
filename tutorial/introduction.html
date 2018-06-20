@@ -96,11 +96,7 @@
 <p>让我们尝试一些简单的 Python 命令。启动解释器，等待界面中的提示符，<code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> （这应该花不了多少时间）。</p>
 <div class="section" id="numbers">
 <span id="tut-numbers"></span><h3>3.1.1. 数字<a class="headerlink" href="#numbers" title="永久链接至标题">¶</a></h3>
-<p>The interpreter acts as a simple calculator: you can type an expression at it
-and it will write the value.  Expression syntax is straightforward: the
-operators <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> work just like in most other languages
-(for example, Pascal or C); parentheses (<code class="docutils literal notranslate"><span class="pre">()</span></code>) can be used for grouping.
-For example:</p>
+<p>解释器就像一个简单的计算器一样：你可以在里面输入一个表达式然后它会写出答案。表达式的语法很直接：运算符``+``、<code class="docutils literal notranslate"><span class="pre">-</span></code>、<code class="docutils literal notranslate"><span class="pre">*</span></code>、<code class="docutils literal notranslate"><span class="pre">/``的用法和其他大部分语言一样（比如，Pascal</span> <span class="pre">或者</span> <span class="pre">C</span> <span class="pre">语言）；括号（``()</span></code>）用来分组。比如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
 <span class="go">4</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">50</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="mi">6</span>
@@ -112,9 +108,7 @@ For example:</p>
 </pre></div>
 </div>
 <p>整数（比如``2``、<code class="docutils literal notranslate"><span class="pre">4</span></code>、<code class="docutils literal notranslate"><span class="pre">20</span></code>）有 <a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> 类型，有小数部分的（比如``5.0``、<code class="docutils literal notranslate"><span class="pre">1.6</span></code>）有 <a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> 类型。在这个手册的后半部分我们会看到更多的数值类型。</p>
-<p>Division (<code class="docutils literal notranslate"><span class="pre">/</span></code>) always returns a float.  To do <a class="reference internal" href="../glossary.html#term-floor-division"><span class="xref std std-term">floor division</span></a> and
-get an integer result (discarding any fractional result) you can use the <code class="docutils literal notranslate"><span class="pre">//</span></code>
-operator; to calculate the remainder you can use <code class="docutils literal notranslate"><span class="pre">%</span></code>:</p>
+<p>除法运算（<code class="docutils literal notranslate"><span class="pre">/</span></code>）永远返回浮点数类型。如果要做 <a class="reference internal" href="../glossary.html#term-floor-division"><span class="xref std std-term">floor division</span></a> 得到一个整数结果（忽略小数部分）你可以使用 <code class="docutils literal notranslate"><span class="pre">//</span></code> 运算符；如果要计算余数，可以使用 <code class="docutils literal notranslate"><span class="pre">%</span></code></p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">17</span> <span class="o">/</span> <span class="mi">3</span>  <span class="c1"># classic division returns a float</span>
 <span class="go">5.666666666666667</span>
 <span class="go">&gt;&gt;&gt;</span>
@@ -126,38 +120,33 @@ operator; to calculate the remainder you can use <code class="docutils literal n
 <span class="go">17</span>
 </pre></div>
 </div>
-<p>With Python, it is possible to use the <code class="docutils literal notranslate"><span class="pre">**</span></code> operator to calculate powers <a class="footnote-reference" href="#id3" id="id1">[1]</a>:</p>
+<p>在Python中，可以使用 <code class="docutils literal notranslate"><span class="pre">**</span></code> 运算符来计算乘方 <a class="footnote-reference" href="#id3" id="id1">[1]</a></p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">**</span> <span class="mi">2</span>  <span class="c1"># 5 squared</span>
 <span class="go">25</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">**</span> <span class="mi">7</span>  <span class="c1"># 2 to the power of 7</span>
 <span class="go">128</span>
 </pre></div>
 </div>
-<p>The equal sign (<code class="docutils literal notranslate"><span class="pre">=</span></code>) is used to assign a value to a variable. Afterwards, no
-result is displayed before the next interactive prompt:</p>
+<p>等号（<code class="docutils literal notranslate"><span class="pre">=</span></code>）用于给一个变量赋值。然后在喜爱个交互命令之前不会有结果显示出来:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">width</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">height</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span>
 <span class="go">900</span>
 </pre></div>
 </div>
-<p>If a variable is not “defined” (assigned a value), trying to use it will
-give you an error:</p>
+<p>如果一个变量未定义(未赋值)，试图使用它时会向你提示错误:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span>  <span class="c1"># try to access an undefined variable</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">NameError</span>: <span class="n">name &#39;n&#39; is not defined</span>
 </pre></div>
 </div>
-<p>There is full support for floating point; operators with mixed type operands
-convert the integer operand to floating point:</p>
+<p>Python中提供浮点数的完整支持；包含多种混合类型运算数的运算会把整数转换为浮点数:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="o">*</span> <span class="mf">3.75</span> <span class="o">-</span> <span class="mi">1</span>
 <span class="go">14.0</span>
 </pre></div>
 </div>
-<p>In interactive mode, the last printed expression is assigned to the variable
-<code class="docutils literal notranslate"><span class="pre">_</span></code>.  This means that when you are using Python as a desk calculator, it is
-somewhat easier to continue calculations, for example:</p>
+<p>在交互模式下，最后打印出来的表达式被赋值给变量``_``。这意味着当你把Python用作桌面计算器时，继续计算会相对简单，比如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tax</span> <span class="o">=</span> <span class="mf">12.5</span> <span class="o">/</span> <span class="mi">100</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">price</span> <span class="o">=</span> <span class="mf">100.50</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">price</span> <span class="o">*</span> <span class="n">tax</span>
@@ -173,10 +162,7 @@ somewhat easier to continue calculations, for example:</p>
 </div>
 <div class="section" id="strings">
 <span id="tut-strings"></span><h3>3.1.2. 字符串<a class="headerlink" href="#strings" title="永久链接至标题">¶</a></h3>
-<p>Besides numbers, Python can also manipulate strings, which can be expressed
-in several ways.  They can be enclosed in single quotes (<code class="docutils literal notranslate"><span class="pre">'...'</span></code>) or
-double quotes (<code class="docutils literal notranslate"><span class="pre">&quot;...&quot;</span></code>) with the same result <a class="footnote-reference" href="#id4" id="id2">[2]</a>.  <code class="docutils literal notranslate"><span class="pre">\</span></code> can be used
-to escape quotes:</p>
+<p>除了数字，Python 也可以操作字符串。字符串有多种形式，可以使用单引号（<code class="docutils literal notranslate"><span class="pre">'……'</span></code>），双引号（<code class="docutils literal notranslate"><span class="pre">&quot;……&quot;</span></code>）都可以获得同样的结果 <a class="footnote-reference" href="#id4" id="id2">[2]</a>。反斜杠 <code class="docutils literal notranslate"><span class="pre">\</span></code> 可以用来转义:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;spam eggs&#39;</span>  <span class="c1"># single quotes</span>
 <span class="go">&#39;spam eggs&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;doesn</span><span class="se">\&#39;</span><span class="s1">t&#39;</span>  <span class="c1"># use \&#39; to escape the single quote...</span>
@@ -191,14 +177,7 @@ to escape quotes:</p>
 <span class="go">&#39;&quot;Isn\&#39;t,&quot; they said.&#39;</span>
 </pre></div>
 </div>
-<p>In the interactive interpreter, the output string is enclosed in quotes and
-special characters are escaped with backslashes.  While this might sometimes
-look different from the input (the enclosing quotes could change), the two
-strings are equivalent.  The string is enclosed in double quotes if
-the string contains a single quote and no double quotes, otherwise it is
-enclosed in single quotes.  The <a class="reference internal" href="../library/functions.html#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> function produces a more
-readable output, by omitting the enclosing quotes and by printing escaped
-and special characters:</p>
+<p>在交互式解释器中，输出字符串是在引号中的，特殊字符是前置了反斜杠的。虽然看起来有可能不一样（单双引号可能不一样），两种字符串其实是一样的。如果字符串中有单引号而没有双引号，字符串就显示在双引号中，否则就显示在单引号中。函数 <a class="reference internal" href="../library/functions.html#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> 会产生更方便阅读的输出，就是不使用引号，也不转义特殊字符:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&quot;Isn</span><span class="se">\&#39;</span><span class="s1">t,&quot; they said.&#39;</span>
 <span class="go">&#39;&quot;Isn\&#39;t,&quot; they said.&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&quot;Isn</span><span class="se">\&#39;</span><span class="s1">t,&quot; they said.&#39;</span><span class="p">)</span>
@@ -211,9 +190,7 @@ and special characters:</p>
 <span class="go">Second line.</span>
 </pre></div>
 </div>
-<p>If you don’t want characters prefaced by <code class="docutils literal notranslate"><span class="pre">\</span></code> to be interpreted as
-special characters, you can use <em>raw strings</em> by adding an <code class="docutils literal notranslate"><span class="pre">r</span></code> before
-the first quote:</p>
+<p>如果你不希望前置了 <code class="docutils literal notranslate"><span class="pre">\</span></code> 的字符转义成特殊字符，可以使用 <em>原始字符串</em> 方式，在引号前添加 <code class="docutils literal notranslate"><span class="pre">r</span></code> 即可:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;C:\some</span><span class="se">\n</span><span class="s1">ame&#39;</span><span class="p">)</span>  <span class="c1"># here \n means newline!</span>
 <span class="go">C:\some</span>
 <span class="go">ame</span>
@@ -221,10 +198,7 @@ the first quote:</p>
 <span class="go">C:\some\name</span>
 </pre></div>
 </div>
-<p>String literals can span multiple lines.  One way is using triple-quotes:
-<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;...&quot;&quot;&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">'''...'''</span></code>.  End of lines are automatically
-included in the string, but it’s possible to prevent this by adding a <code class="docutils literal notranslate"><span class="pre">\</span></code> at
-the end of the line.  The following example:</p>
+<p>字符串字面值可以跨行连续输入。一种方式是用三重引号：<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;...&quot;&quot;&quot;</span></code> 或 <code class="docutils literal notranslate"><span class="pre">'''...'''</span></code>。字符串中的回车换行会自动包含到字符串中，如果不想包含，在行尾添加一个 <code class="docutils literal notranslate"><span class="pre">\</span></code> 即可。如下例:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
 <span class="s2">Usage: thingy [OPTIONS]</span>
 <span class="s2">     -h                        Display this usage message</span>
@@ -397,8 +371,7 @@ items of different types, but usually the items all have the same type.</p>
 <span class="go">[1, 4, 9, 16, 25]</span>
 </pre></div>
 </div>
-<p>Like strings (and all other built-in <a class="reference internal" href="../glossary.html#term-sequence"><span class="xref std std-term">sequence</span></a> type), lists can be
-indexed and sliced:</p>
+<p>和字符串及各种内建的 <a class="reference internal" href="../glossary.html#term-sequence"><span class="xref std std-term">sequence</span></a> 类型一样，列表也支持索引和切片:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># indexing returns the item</span>
 <span class="go">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">squares</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -636,7 +609,7 @@ this:</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 6月 19, 2018。
+    上次更新于 6月 20, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.7.5 创建。
