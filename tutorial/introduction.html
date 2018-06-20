@@ -84,7 +84,7 @@
 <span id="tut-informal"></span><h1>3. Python 的非正式介绍<a class="headerlink" href="#an-informal-introduction-to-python" title="永久链接至标题">¶</a></h1>
 <p>在下面的例子中，通过提示符的出现与否来区分输入和输出(<a class="reference internal" href="../glossary.html#term"><span class="xref std std-term">&gt;&gt;&gt;</span></a> and <a class="reference internal" href="../glossary.html#term-1"><span class="xref std std-term">…</span></a>)：如果你想复现这些例子，当提示符出现后，你必须在提示符后键入例子中的每一个词；不以提示符开头的那些行是解释器的输出。注意例子中某行中出现第二个提示符意味着你必须键入一个空白行；这是用来结束多行命令的。</p>
 <p>这个手册中的许多例子都包含注释，甚至交互性命令中也有。Python中的注释以井号，<code class="docutils literal notranslate"><span class="pre">#</span></code>，开头，并且一直延伸到该文本行结束为止。注释可以出现在一行的开头或者是空白和代码的后边，但是不能出现在字符串中间。字符串中的井号就是井号。因为注释是用来阐明代码的，不会被Python解释，所以在键入这些例子时，注释是可以被忽略的。</p>
-<p>几个例子:</p>
+<p>几个例子：:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is the first comment</span>
 <span class="n">spam</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># and this is the second comment</span>
           <span class="c1"># ... and now a third!</span>
@@ -206,33 +206,31 @@
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>produces the following output (note that the initial newline is not included):</p>
+<p>将产生如下输出（注意最开始的换行没有包括进来）:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Usage: thingy [OPTIONS]
      -h                        Display this usage message
      -H hostname               Hostname to connect to
 </pre></div>
 </div>
-<p>Strings can be concatenated (glued together) with the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator, and
-repeated with <code class="docutils literal notranslate"><span class="pre">*</span></code>:</p>
+<p>字符串可以用 <code class="docutils literal notranslate"><span class="pre">+</span></code> 进行连接（粘到一起），也可以用 <code class="docutils literal notranslate"><span class="pre">*</span></code> 进行重复:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 3 times &#39;un&#39;, followed by &#39;ium&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="s1">&#39;un&#39;</span> <span class="o">+</span> <span class="s1">&#39;ium&#39;</span>
 <span class="go">&#39;unununium&#39;</span>
 </pre></div>
 </div>
-<p>Two or more <em>string literals</em> (i.e. the ones enclosed between quotes) next
-to each other are automatically concatenated.</p>
+<p>相邻的两个或多个 <em>字符串字面值</em> （引号引起来的字符）将会自动连接到一起.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Py&#39;</span> <span class="s1">&#39;thon&#39;</span>
 <span class="go">&#39;Python&#39;</span>
 </pre></div>
 </div>
-<p>This feature is particularly useful when you want to break long strings:</p>
+<p>把很长的字符串拆开分别输入的时候尤其有用:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Put several strings within parentheses &#39;</span>
 <span class="gp">... </span>        <span class="s1">&#39;to have them joined together.&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">text</span>
 <span class="go">&#39;Put several strings within parentheses to have them joined together.&#39;</span>
 </pre></div>
 </div>
-<p>This only works with two literals though, not with variables or expressions:</p>
+<p>只能对两个字面值这样操作，变量或表达式不行:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;Py&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prefix</span> <span class="s1">&#39;thon&#39;</span>  <span class="c1"># can&#39;t concatenate a variable and a string literal</span>
 <span class="go">  ...</span>
@@ -242,14 +240,12 @@ to each other are automatically concatenated.</p>
 <span class="go">SyntaxError: invalid syntax</span>
 </pre></div>
 </div>
-<p>If you want to concatenate variables or a variable and a literal, use <code class="docutils literal notranslate"><span class="pre">+</span></code>:</p>
+<p>如果你想连接变量，或者连接变量和字面值，可以用 <code class="docutils literal notranslate"><span class="pre">+</span></code> 号:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;thon&#39;</span>
 <span class="go">&#39;Python&#39;</span>
 </pre></div>
 </div>
-<p>Strings can be <em>indexed</em> (subscripted), with the first character having index 0.
-There is no separate character type; a character is simply a string of size
-one:</p>
+<p>字符串是可以被 <em>索引</em> （脚标访问）的，第一个字符索引是 0。单个字符并没有特殊的类型，只是一个长度为一的字符串:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># character in position 0</span>
 <span class="go">&#39;P&#39;</span>
@@ -257,7 +253,7 @@ one:</p>
 <span class="go">&#39;n&#39;</span>
 </pre></div>
 </div>
-<p>Indices may also be negative numbers, to start counting from the right:</p>
+<p>索引也可以用负数，这种会从右边开始数:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># last character</span>
 <span class="go">&#39;n&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># second-last character</span>
@@ -267,24 +263,21 @@ one:</p>
 </pre></div>
 </div>
 <p>注意 -0 和 0 是一样的，所以负数索引从 -1 开始。</p>
-<p>In addition to indexing, <em>slicing</em> is also supported.  While indexing is used
-to obtain individual characters, <em>slicing</em> allows you to obtain substring:</p>
+<p>除了索引，字符串还支持 <em>切片</em>。索引可以得到单个字符，而 <em>切片</em> 可以获取子字符串:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># characters from position 0 (included) to 2 (excluded)</span>
 <span class="go">&#39;Py&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># characters from position 2 (included) to 5 (excluded)</span>
 <span class="go">&#39;tho&#39;</span>
 </pre></div>
 </div>
-<p>Note how the start is always included, and the end always excluded.  This
-makes sure that <code class="docutils literal notranslate"><span class="pre">s[:i]</span> <span class="pre">+</span> <span class="pre">s[i:]</span></code> is always equal to <code class="docutils literal notranslate"><span class="pre">s</span></code>:</p>
+<p>注意切片的开始总是被包括在结果中，而结束不被包括。这使得 <code class="docutils literal notranslate"><span class="pre">s[:i]</span> <span class="pre">+</span> <span class="pre">s[i:]</span></code> 总是等于 <code class="docutils literal notranslate"><span class="pre">s</span></code></p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">word</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
 <span class="go">&#39;Python&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">word</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
 <span class="go">&#39;Python&#39;</span>
 </pre></div>
 </div>
-<p>Slice indices have useful defaults; an omitted first index defaults to zero, an
-omitted second index defaults to the size of the string being sliced.</p>
+<p>切片的索引有默认值；省略开始索引时默认为0，省略结束索引时默认为到字符串的结束:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>   <span class="c1"># character from the beginning to position 2 (excluded)</span>
 <span class="go">&#39;Py&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>   <span class="c1"># characters from position 4 (included) to the end</span>
@@ -293,10 +286,7 @@ omitted second index defaults to the size of the string being sliced.</p>
 <span class="go">&#39;on&#39;</span>
 </pre></div>
 </div>
-<p>One way to remember how slices work is to think of the indices as pointing
-<em>between</em> characters, with the left edge of the first character numbered 0.
-Then the right edge of the last character of a string of <em>n</em> characters has
-index <em>n</em>, for example:</p>
+<p>您也可以这么理解切片：将索引视作指向字符 <em>之间</em> ，第一个字符的左侧标为0，最后一个字符的右侧标为 <em>n</em> ，其中 <em>n</em> 是字符串长度。例如:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span> <span class="o">+---+---+---+---+---+---+</span>
  <span class="o">|</span> <span class="n">P</span> <span class="o">|</span> <span class="n">y</span> <span class="o">|</span> <span class="n">t</span> <span class="o">|</span> <span class="n">h</span> <span class="o">|</span> <span class="n">o</span> <span class="o">|</span> <span class="n">n</span> <span class="o">|</span>
  <span class="o">+---+---+---+---+---+---+</span>
@@ -306,23 +296,21 @@ index <em>n</em>, for example:</p>
 </div>
 <p>第一行数标注了字符串非负的索引的位置，第二行标注了对应的负的索引。那么从 <em>i</em> 到 <em>j</em> 的切片就包括了标有 <em>i</em> 和 <em>j</em> 的位置之间的所有字符。</p>
 <p>对于使用非负索引的切片，如果索引不越界，那么得到的切片长度就是起止索引之差。例如， <code class="docutils literal notranslate"><span class="pre">word[1:3]</span></code> 的长度为2.</p>
-<p>Attempting to use an index that is too large will result in an error:</p>
+<p>使用过大的索引会产生一个错误:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="mi">42</span><span class="p">]</span>  <span class="c1"># the word only has 6 characters</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">IndexError</span>: <span class="n">string index out of range</span>
 </pre></div>
 </div>
-<p>However, out of range slice indexes are handled gracefully when used for
-slicing:</p>
+<p>但是，切片中的越界索引会被自动处理:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">42</span><span class="p">]</span>
 <span class="go">&#39;on&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="mi">42</span><span class="p">:]</span>
 <span class="go">&#39;&#39;</span>
 </pre></div>
 </div>
-<p>Python strings cannot be changed — they are <a class="reference internal" href="../glossary.html#term-immutable"><span class="xref std std-term">immutable</span></a>.
-Therefore, assigning to an indexed position in the string results in an error:</p>
+<p>Python 中的字符串不能被修改，它们是  <a class="reference internal" href="../glossary.html#term-immutable"><span class="xref std std-term">immutable</span></a> 的。因此，向字符串的某个索引位置赋值会产生一个错误:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;J&#39;</span>
 <span class="go">  ...</span>
 <span class="go">TypeError: &#39;str&#39; object does not support item assignment</span>
@@ -331,14 +319,14 @@ Therefore, assigning to an indexed position in the string results in an error:</
 <span class="go">TypeError: &#39;str&#39; object does not support item assignment</span>
 </pre></div>
 </div>
-<p>If you need a different string, you should create a new one:</p>
+<p>如果需要一个不同的字符串，应当新建一个:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;J&#39;</span> <span class="o">+</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 <span class="go">&#39;Jython&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;py&#39;</span>
 <span class="go">&#39;Pypy&#39;</span>
 </pre></div>
 </div>
-<p>The built-in function <a class="reference internal" href="../library/functions.html#len" title="len"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> returns the length of a string:</p>
+<p>内建函数 <a class="reference internal" href="../library/functions.html#len" title="len"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> 返回一个字符串的长度:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;supercalifragilisticexpialidocious&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="go">34</span>
@@ -362,10 +350,7 @@ Therefore, assigning to an indexed position in the string results in an error:</
 </div>
 <div class="section" id="lists">
 <span id="tut-lists"></span><h3>3.1.3. 列表<a class="headerlink" href="#lists" title="永久链接至标题">¶</a></h3>
-<p>Python knows a number of <em>compound</em> data types, used to group together other
-values.  The most versatile is the <em>list</em>, which can be written as a list of
-comma-separated values (items) between square brackets.  Lists might contain
-items of different types, but usually the items all have the same type.</p>
+<p>Python 中可以通过组合一些值得到多种 <em>复合</em> 数据类型。其中最常用的 <em>列表</em> ，可以通过方括号括起、逗号分隔的一组值得到。一个 <em>列表</em> 可以包含不同类型的元素，但通常使用时各个元素类型相同:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">squares</span>
 <span class="go">[1, 4, 9, 16, 25]</span>
@@ -399,7 +384,7 @@ items of different types, but usually the items all have the same type.</p>
 <span class="go">[1, 8, 27, 64, 125]</span>
 </pre></div>
 </div>
-<p>你也可以在列表结尾，通过 <code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code> <a href="#id1"><span class="problematic" id="id2">*</span></a>方法*添加新元素 (我们会在后面解释更多关于方法的内容):</p>
+<p>你也可以在列表结尾，通过 <code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code> <em>方法</em> 添加新元素 (我们会在后面解释更多关于方法的内容):</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">216</span><span class="p">)</span>  <span class="c1"># add the cube of 6</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># and the cube of 7</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span>
